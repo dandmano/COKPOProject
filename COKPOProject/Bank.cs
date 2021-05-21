@@ -9,18 +9,17 @@ namespace COKPOProject
     class Bank
     {
         public int IdBanku;
-        private List<Klient> Klienci;
+        private List<Klient> Klienci = new List<Klient>();
         private string NazwaBanku;
 
         public Bank(string nazwa)
         {
             this.NazwaBanku = nazwa;
-            this.Klienci = new List<Klient>();
         }
         public void DodajKlienta(string nazwa, int wybor)
         {
             if (wybor == 1) Klienci.Add(new KlientCentrum(nazwa, this));
-            if (wybor == 2) Klienci.Add(new KlientZwykly(nazwa, this));          
+            if (wybor == 2) Klienci.Add(new KlientZwykly(nazwa, this));
         }
         public void UsunKlienta(int idx)
         {

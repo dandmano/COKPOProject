@@ -11,7 +11,7 @@ namespace COKPOProject
         public readonly int IdKlienta;
         public readonly Bank BankKlienta;
         protected string NazwaKlienta;
-        protected List<Karta> Karty;
+        protected List<Karta> Karty = new List<Karta>();
 
         public List<Karta> GetKarty() => Karty;
 
