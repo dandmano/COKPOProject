@@ -41,8 +41,9 @@ namespace COKPOProject
                     break;
             }
         }
-        public virtual void RejestrujTransakcje(decimal Kwota, string NrKarty)
+        public virtual Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
         {
+            throw new Exception("Karta Bankomatowa nie obsługiwana!");
             //Dodac pop-up w intefejscie graficznym z błedęm kart bankomatowej
         }
         public Klient(string NazwaKlienta, Bank BankKlienta)
@@ -55,9 +56,9 @@ namespace COKPOProject
     class KlientCentrum : Klient
     {
         public KlientCentrum(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
-        public override void RejestrujTransakcje(decimal Kwota, string NrKarty)
+        public override Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
         {
-            //Dodac rejestracje transakcji
+            return new Transakcja(this, Kwota, DateTime.Now, NrKarty);
         }
     }
 
