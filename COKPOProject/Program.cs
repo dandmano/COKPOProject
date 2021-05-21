@@ -17,6 +17,7 @@ namespace COKPOProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //to jest test. Jest git?
         }
     }
 }
