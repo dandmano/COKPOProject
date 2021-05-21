@@ -13,20 +13,20 @@ namespace COKPOProject
         protected string NazwaKlienta;
         protected List<Karta> Karty;
 
-        public List<Karta> getKarty() => Karty;
+        public List<Karta> GetKarty() => Karty;
 
-        public string getNazwa() => NazwaKlienta;
+        public string GetNazwa() => NazwaKlienta;
 
-        public void setNazwa(string Nazwa)
+        public void SetNazwa(string Nazwa)
         {
             this.NazwaKlienta = Nazwa;
         }
-        public void usunKarte(int index)
+        public void UsunKarte(int index)
         {
-            //Dodac wyjatek!!!!
-            Karty.Remove(Karty[index - 1]);
+            if (index > 0 && index <= Karty.Count) Karty.RemoveAt(index - 1);
+            else { }         //Dodac popup o błędnym indeksie
         }
-        public void dodajKarte(int wybor)
+        public void DodajKarte(int wybor)
         {
             switch (wybor)
             {
