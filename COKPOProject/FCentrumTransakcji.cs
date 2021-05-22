@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace COKPOProject
 {
-    public partial class Form1 : Form
+    public partial class FCentrumTransakcji : Form
     {
-        public Form1()
+        public FCentrumTransakcji()
         {
             InitializeComponent();
         }
