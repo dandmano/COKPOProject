@@ -54,6 +54,12 @@
     <Compile Include="FCentrumTransakcji.Designer.cs">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDodajBankPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDodajBankPopUp.Designer.cs">
+      <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FStronaGlowna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Transakcja.cs" />
     <EmbeddedResource Include="FCentrumTransakcji.resx">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDodajBankPopUp.resx">
+      <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FStronaGlowna.resx">
       <DependentUpon>FStronaGlowna.cs</DependentUpon>

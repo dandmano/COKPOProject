@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    class Transakcja
+    public class Transakcja
     {
         public readonly int IdTransakcji;
         public readonly decimal Kwota;

@@ -30,27 +30,55 @@ namespace COKPOProject
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCentrumTransakcji));
-            this.label1 = new System.Windows.Forms.Label();
+            this.CentrumTransakcjiLabel = new System.Windows.Forms.Label();
+            this.ListaBankow = new System.Windows.Forms.ListBox();
+            this.AddBankButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // CentrumTransakcjiLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(419, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Centrum Transakcji";
+            this.CentrumTransakcjiLabel.AutoSize = true;
+            this.CentrumTransakcjiLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CentrumTransakcjiLabel.Location = new System.Drawing.Point(410, 43);
+            this.CentrumTransakcjiLabel.Name = "CentrumTransakcjiLabel";
+            this.CentrumTransakcjiLabel.Size = new System.Drawing.Size(274, 34);
+            this.CentrumTransakcjiLabel.TabIndex = 0;
+            this.CentrumTransakcjiLabel.Text = "Centrum Transakcji";
+            // 
+            // ListaBankow
+            // 
+            this.ListaBankow.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ListaBankow.FormattingEnabled = true;
+            this.ListaBankow.ItemHeight = 22;
+            this.ListaBankow.Location = new System.Drawing.Point(29, 123);
+            this.ListaBankow.Name = "ListaBankow";
+            this.ListaBankow.Size = new System.Drawing.Size(352, 488);
+            this.ListaBankow.Sorted = true;
+            this.ListaBankow.TabIndex = 1;
+            this.ListaBankow.SelectedIndexChanged += new System.EventHandler(this.ListaBankow_SelectedIndexChanged);
+            // 
+            // AddBankButton
+            // 
+            this.AddBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddBankButton.Location = new System.Drawing.Point(928, 123);
+            this.AddBankButton.Name = "AddBankButton";
+            this.AddBankButton.Size = new System.Drawing.Size(166, 39);
+            this.AddBankButton.TabIndex = 2;
+            this.AddBankButton.Text = "Dodaj Bank";
+            this.AddBankButton.UseVisualStyleBackColor = true;
+            this.AddBankButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 753);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AddBankButton);
+            this.Controls.Add(this.ListaBankow);
+            this.Controls.Add(this.CentrumTransakcjiLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FCentrumTransakcji";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Centrum Transakcji";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -59,6 +87,8 @@ namespace COKPOProject
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CentrumTransakcjiLabel;
+        private System.Windows.Forms.ListBox ListaBankow;
+        private System.Windows.Forms.Button AddBankButton;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    class CentrumTransakcji
+    public class CentrumTransakcji
     {
         private List<Transakcja> Transakcje;
         private List<Bank> Banki;
@@ -34,6 +34,14 @@ namespace COKPOProject
                 return false;
             }
         }
+
+        public void DodajBank(string NazwaBanku)
+        {
+            Bank bank = new Bank(NazwaBanku);
+            Banki.Add(bank);
+        }
+
+        public List<Bank> GetBanki() => Banki;
 
         private bool SprawdzTransakcje(Transakcja T)
         {

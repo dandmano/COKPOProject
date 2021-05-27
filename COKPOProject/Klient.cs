@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    abstract class Klient
+    public abstract class Klient
     {
         public readonly int IdKlienta;
         public readonly Bank BankKlienta;
@@ -53,7 +53,7 @@ namespace COKPOProject
         }
     }
 
-    class KlientCentrum : Klient
+    public class KlientCentrum : Klient
     {
         public KlientCentrum(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
         public override Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
@@ -62,7 +62,7 @@ namespace COKPOProject
         }
     }
 
-    class KlientZwykly : Klient
+    public class KlientZwykly : Klient
     {
         public KlientZwykly(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
     }

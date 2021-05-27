@@ -14,9 +14,11 @@ namespace COKPOProject
         [STAThread]
         static void Main()
         {
+            CentrumTransakcji centrumTransakcji = new CentrumTransakcji();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CentrumObslugi());
+            Application.Run(new CentrumObslugiStronaGlowna(centrumTransakcji));
+
         }
     }
 }

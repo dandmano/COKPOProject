@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace COKPOProject
 {
-    public partial class CentrumObslugi : Form
+    public partial class CentrumObslugiStronaGlowna : Form
     {
-        public CentrumObslugi()
+        private CentrumTransakcji centrumTransakcji;
+        public CentrumObslugiStronaGlowna(CentrumTransakcji centrumTransakcji)
         {
+            this.centrumTransakcji = centrumTransakcji;
             InitializeComponent();
         }
 
@@ -30,7 +32,7 @@ namespace COKPOProject
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FCentrumTransakcji fCentrumTransakcji = new FCentrumTransakcji();
+            FCentrumTransakcji fCentrumTransakcji = new FCentrumTransakcji(centrumTransakcji);
             fCentrumTransakcji.ShowDialog();
             this.Close();
         }

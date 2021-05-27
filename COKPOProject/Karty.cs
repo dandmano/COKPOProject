@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    abstract class Karta
+    public abstract class Karta
     {
         public readonly string NrKarty;
         protected decimal Saldo;
@@ -36,7 +36,7 @@ namespace COKPOProject
         }
     }
 
-    class KartaDebetowa : Karta
+    public class KartaDebetowa : Karta
     {
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
@@ -47,7 +47,7 @@ namespace COKPOProject
 
     }
 
-    class KartaKredytowa : Karta
+    public class KartaKredytowa : Karta
     {
         private decimal LimitKredytu = 5000;
         public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
@@ -60,7 +60,7 @@ namespace COKPOProject
         public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota < Saldo + LimitKredytu;
     }
 
-    class KartaBankomatowa : Karta
+    public class KartaBankomatowa : Karta
     {
         public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    class Bank
+    public class Bank
     {
         public int IdBanku;
         private List<Klient> Klienci = new List<Klient>();
@@ -42,7 +42,10 @@ namespace COKPOProject
         {
             this.NazwaBanku = nazwa;
         }
-
+        public override string ToString()
+        {
+            return NazwaBanku; //Do edycji z ID
+        }
 
     }
 }
