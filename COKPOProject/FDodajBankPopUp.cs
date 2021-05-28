@@ -31,5 +31,15 @@ namespace COKPOProject
         {
             if (e.KeyCode == Keys.Enter) this.Close();
         }
+
+        private void BankAddAcceptButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BankAddCancenButton_Click(object sender, EventArgs e)
+        {
+            throw new Exception("Anulowano");
+        }
     }
 }
