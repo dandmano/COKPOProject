@@ -53,5 +53,10 @@ namespace COKPOProject
         {
 
         }
+
+        private void ClientListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -66,6 +66,12 @@
     <Compile Include="FDodajBankPopUp.Designer.cs">
       <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FKlient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FKlient.Designer.cs">
+      <DependentUpon>FKlient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FStronaGlowna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FDodajBankPopUp.resx">
       <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FKlient.resx">
+      <DependentUpon>FKlient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FStronaGlowna.resx">
       <DependentUpon>FStronaGlowna.cs</DependentUpon>
