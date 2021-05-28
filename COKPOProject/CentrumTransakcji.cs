@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace COKPOProject
 {
@@ -16,7 +17,7 @@ namespace COKPOProject
             Transakcje = new List<Transakcja>();
             Banki = new List<Bank>();
         }
-        public Transakcja GetTransakcja(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji));
+        public Transakcja GetTransakcja(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji)); //Obsluzyc?
 
         public List<Transakcja> GetTransakcje() => Transakcje;
 
@@ -45,8 +46,18 @@ namespace COKPOProject
 
         private bool SprawdzTransakcje(Transakcja T)
         {
-            Karta karta = ZnajdzKartePoNumerze(T.NrKarty);
-            return karta.CzyWystarczajaceSaldo(T.Kwota);
+            Karta karta;
+            try
+            {
+                karta = ZnajdzKartePoNumerze(T.NrKarty);
+                return karta.CzyWystarczajaceSaldo(T.Kwota);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Nie znaleziono karty o takim numerze z transakcji!");
+                throw new Exception("Nie znaleziono karty o takim numerze!");
+            }
+
         }
         private Karta ZnajdzKartePoNumerze(string NrKarty)
         {
