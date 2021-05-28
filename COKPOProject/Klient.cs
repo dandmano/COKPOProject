@@ -8,7 +8,7 @@ namespace COKPOProject
 {
     public abstract class Klient
     {
-        public readonly int IdKlienta;
+        //public readonly int IdKlienta;
         public readonly Bank BankKlienta;
         protected string NazwaKlienta;
         protected List<Karta> Karty = new List<Karta>();

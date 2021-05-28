@@ -13,8 +13,8 @@ namespace COKPOProject
         public readonly DateTime Data;
         public readonly string NrKarty;
         public readonly string NrKartyFrimy;
-        public readonly int IdFirmy;
-        public readonly int IdWlasciciela;
+        //public readonly int IdFirmy;
+        //public readonly int IdWlasciciela;
         private bool StatusAutoryzacji = false;
 
         public Transakcja(KlientCentrum Firma, decimal Kwota, DateTime Data, string NrKarty)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
+
 namespace COKPOProject
 {
     public abstract class Karta
@@ -12,6 +13,7 @@ namespace COKPOProject
         protected decimal Saldo;
         public readonly Bank BankWydajacy;
         public readonly Klient Wlasciciel;
+        private static Random random = new Random();
 
         public decimal GetSaldo() => Saldo;
         public void SetSaldo(decimal Kwota) { Saldo = Kwota; }
@@ -20,12 +22,14 @@ namespace COKPOProject
         {
             this.Wlasciciel = Wlasciciel;
             this.BankWydajacy = BankWydajacy;
+            this.NrKarty = this.LosujNumerKarty();
         }
         protected Karta(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo)
         {
             this.Wlasciciel = Wlasciciel;
             this.BankWydajacy = BankWydajacy;
             this.Saldo = Saldo;
+            this.NrKarty = this.LosujNumerKarty();
         }
         protected Karta(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty)
         {
@@ -33,6 +37,11 @@ namespace COKPOProject
             this.BankWydajacy = BankWydajacy;
             this.Saldo = Saldo;
             this.NrKarty = NrKarty;
+        }
+        private string LosujNumerKarty()
+        {
+            const string chars = "0123456789";
+            return new string(Enumerable.Repeat(chars, 16).Select(s => s[random.Next(s.Length)]).ToArray()); //sprawdzic czy dziala
         }
     }
 

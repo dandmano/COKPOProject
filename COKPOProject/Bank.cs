@@ -8,7 +8,7 @@ namespace COKPOProject
 {
     public class Bank
     {
-        public int IdBanku;
+        //public int IdBanku;
         private List<Klient> Klienci = new List<Klient>();
         private string NazwaBanku;
 
