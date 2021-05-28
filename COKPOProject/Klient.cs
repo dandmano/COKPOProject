@@ -6,30 +6,64 @@ using System.Threading.Tasks;
 
 namespace COKPOProject
 {
-    abstract class Klient
+    public abstract class Klient
     {
         public readonly int IdKlienta;
-        public readonly Bank BankKlienta; //UWAGA BłĄD TYMCZASOWY (BANK)
+        public readonly Bank BankKlienta;
         protected string NazwaKlienta;
-        protected List<Karta> Karty; //UWAGA BŁĄD TYMCZASOWY (KARTA)
+        protected List<Karta> Karty = new List<Karta>();
 
-        public List<Karta> getKarty() => Karty;
+        public List<Karta> GetKarty() => Karty;
 
-        public string getNazwa() => NazwaKlienta;
+        public string GetNazwa() => NazwaKlienta;
 
-        public void setNazwa(string Nazwa)
+        public void SetNazwa(string Nazwa)
         {
             this.NazwaKlienta = Nazwa;
         }
-        public void usunKarte(int index)
+        public void UsunKarte(int index)
         {
-            //Dodac wyjatek!!!!
-            Karty.Remove(Karty[index - 1]);
+            if (index > 0 && index <= Karty.Count) Karty.RemoveAt(index - 1);
+            else { }         //Dodac popup o błędnym indeksie
         }
-        public void dodajKarte()
+        public void DodajKarte(int wybor)
         {
-            //Uzupełnić po napisaniu klasy KARTA!!!  
+            switch (wybor)
+            {
+                case 1:
+                    Karty.Add(new KartaDebetowa(this, BankKlienta));
+                    break;
+                case 2:
+                    Karty.Add(new KartaKredytowa(this, BankKlienta));
+                    break;
+                case 3:
+                    Karty.Add(new KartaBankomatowa(this, BankKlienta));
+                    break;
+            }
         }
-        public virtual void RejestrujTransakcje(decimal Kwota, string NrKarty) { }
+        public virtual Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
+        {
+            throw new Exception("Karta Bankomatowa nie obsługiwana!");
+            //Dodac pop-up w intefejscie graficznym z błedęm kart bankomatowej
+        }
+        public Klient(string NazwaKlienta, Bank BankKlienta)
+        {
+            this.NazwaKlienta = NazwaKlienta;
+            this.BankKlienta = BankKlienta;
+        }
+    }
+
+    public class KlientCentrum : Klient
+    {
+        public KlientCentrum(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
+        public override Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
+        {
+            return new Transakcja(this, Kwota, DateTime.Now, NrKarty);
+        }
+    }
+
+    public class KlientZwykly : Klient
+    {
+        public KlientZwykly(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
     }
 }
