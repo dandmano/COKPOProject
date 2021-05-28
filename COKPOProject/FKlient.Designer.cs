@@ -84,6 +84,7 @@ namespace COKPOProject
             this.GoToCardButton.TabIndex = 13;
             this.GoToCardButton.Text = "Przejdź do Karty";
             this.GoToCardButton.UseVisualStyleBackColor = true;
+            this.GoToCardButton.Click += new System.EventHandler(this.GoToCardButton_Click);
             // 
             // AddCardButton
             // 

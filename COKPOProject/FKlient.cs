@@ -30,5 +30,10 @@ namespace COKPOProject
         {
 
         }
+
+        private void GoToCardButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
