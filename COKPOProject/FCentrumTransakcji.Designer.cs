@@ -50,7 +50,7 @@ namespace COKPOProject
             // 
             this.CentrumTransakcjiLabel.AutoSize = true;
             this.CentrumTransakcjiLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CentrumTransakcjiLabel.Location = new System.Drawing.Point(457, 12);
+            this.CentrumTransakcjiLabel.Location = new System.Drawing.Point(463, 12);
             this.CentrumTransakcjiLabel.Name = "CentrumTransakcjiLabel";
             this.CentrumTransakcjiLabel.Size = new System.Drawing.Size(274, 34);
             this.CentrumTransakcjiLabel.TabIndex = 0;
@@ -147,7 +147,7 @@ namespace COKPOProject
             // 
             this.BankListLabel.AutoSize = true;
             this.BankListLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BankListLabel.Location = new System.Drawing.Point(25, 65);
+            this.BankListLabel.Location = new System.Drawing.Point(24, 65);
             this.BankListLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankListLabel.Name = "BankListLabel";
             this.BankListLabel.Size = new System.Drawing.Size(76, 23);
@@ -158,7 +158,7 @@ namespace COKPOProject
             // 
             this.AwaitingTransacjtionLabel.AutoSize = true;
             this.AwaitingTransacjtionLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AwaitingTransacjtionLabel.Location = new System.Drawing.Point(323, 65);
+            this.AwaitingTransacjtionLabel.Location = new System.Drawing.Point(321, 65);
             this.AwaitingTransacjtionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AwaitingTransacjtionLabel.Name = "AwaitingTransacjtionLabel";
             this.AwaitingTransacjtionLabel.Size = new System.Drawing.Size(252, 23);
@@ -169,7 +169,7 @@ namespace COKPOProject
             // 
             this.TransactionArchivesLabel.AutoSize = true;
             this.TransactionArchivesLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TransactionArchivesLabel.Location = new System.Drawing.Point(616, 65);
+            this.TransactionArchivesLabel.Location = new System.Drawing.Point(615, 65);
             this.TransactionArchivesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TransactionArchivesLabel.Name = "TransactionArchivesLabel";
             this.TransactionArchivesLabel.Size = new System.Drawing.Size(222, 23);
@@ -214,7 +214,7 @@ namespace COKPOProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1183, 753);
+            this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.AuthorizeTransactionButton);
             this.Controls.Add(this.RemoveTransactionButton);
             this.Controls.Add(this.AddTransactionButton);
