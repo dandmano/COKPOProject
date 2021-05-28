@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="CentrumTransakcji.cs" />
+    <Compile Include="FBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBank.Designer.cs">
+      <DependentUpon>FBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCentrumTransakcji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transakcja.cs" />
+    <EmbeddedResource Include="FBank.resx">
+      <DependentUpon>FBank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCentrumTransakcji.resx">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </EmbeddedResource>
