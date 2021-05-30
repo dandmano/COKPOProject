@@ -67,7 +67,6 @@ namespace COKPOProject
             this.ListaBankow.Size = new System.Drawing.Size(265, 378);
             this.ListaBankow.Sorted = true;
             this.ListaBankow.TabIndex = 1;
-            this.ListaBankow.SelectedIndexChanged += new System.EventHandler(this.ListaBankow_SelectedIndexChanged);
             // 
             // AddBankButton
             // 
@@ -85,7 +84,7 @@ namespace COKPOProject
             // 
             this.RemoveBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.RemoveBankButton.Location = new System.Drawing.Point(29, 550);
-            this.RemoveBankButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RemoveBankButton.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveBankButton.Name = "RemoveBankButton";
             this.RemoveBankButton.Size = new System.Drawing.Size(267, 49);
             this.RemoveBankButton.TabIndex = 3;
@@ -109,7 +108,7 @@ namespace COKPOProject
             // 
             this.GoToBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.GoToBankButton.Location = new System.Drawing.Point(29, 661);
-            this.GoToBankButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GoToBankButton.Margin = new System.Windows.Forms.Padding(4);
             this.GoToBankButton.Name = "GoToBankButton";
             this.GoToBankButton.Size = new System.Drawing.Size(267, 49);
             this.GoToBankButton.TabIndex = 5;
@@ -234,6 +233,7 @@ namespace COKPOProject
             this.Name = "FCentrumTransakcji";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Centrum Transakcji";
+            this.Load += new System.EventHandler(this.FCentrumTransakcji_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

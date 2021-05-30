@@ -20,11 +20,6 @@ namespace COKPOProject
             UzupelnijListe();
         }
 
-        private void ListaBankow_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -42,15 +37,7 @@ namespace COKPOProject
             }
         }
 
-        private void UzupelnijListe()
-        {
-            ListaBankow.BeginUpdate();
-            foreach (Bank bank in centrumTransakcji.GetBanki())
-            {
-                ListaBankow.Items.Add(bank);
-            }
-            ListaBankow.EndUpdate();
-        }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -85,7 +72,9 @@ namespace COKPOProject
 
         private void GoToBankButton_Click(object sender, EventArgs e)
         {
-
+            FBank fBank = new FBank((Bank)ListaBankow.SelectedItem, this);
+            fBank.ShowDialog();
+            this.Hide();
         }
 
         private void DoneTranstacionListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,6 +90,20 @@ namespace COKPOProject
         private void RemoveTransactionButton_Click(object sender, EventArgs e)
         {
 
+        }
+        private void UzupelnijListe()
+        {
+            ListaBankow.BeginUpdate();
+            foreach (Bank bank in centrumTransakcji.GetBanki())
+            {
+                ListaBankow.Items.Add(bank);
+            }
+            ListaBankow.EndUpdate();
+        }
+
+        private void FCentrumTransakcji_Load(object sender, EventArgs e)
+        {
+            UzupelnijListe();
         }
     }
 }
