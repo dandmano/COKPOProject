@@ -41,7 +41,12 @@ namespace COKPOProject
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (ListaBankow.SelectedItem != null) ListaBankow.Items.Remove(ListaBankow.SelectedItem);
+            if (ListaBankow.SelectedItem != null)
+            {
+                centrumTransakcji.GetBanki().Remove((Bank)ListaBankow.SelectedItem);
+                ListaBankow.Items.Remove(ListaBankow.SelectedItem);
+            }
+            else MessageBox.Show("Zaznacz bank który chcesz usunąć.");
         }
 
         private void BankEditButton_Click(object sender, EventArgs e)
@@ -68,13 +73,21 @@ namespace COKPOProject
                     //XD
                 }
             }
+            else MessageBox.Show("Zaznacz bank którego nazwę chcesz edytować.");
         }
 
         private void GoToBankButton_Click(object sender, EventArgs e)
         {
-            FBank fBank = new FBank((Bank)ListaBankow.SelectedItem, this);
-            fBank.ShowDialog();
-            this.Hide();
+            if (ListaBankow.SelectedItem != null)
+            {
+                FBank fBank = new FBank((Bank)ListaBankow.SelectedItem, this);
+                this.Hide();
+                fBank.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz bank do którego chcesz przejść.");
+            }
         }
 
         private void DoneTranstacionListBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -29,6 +29,7 @@ namespace COKPOProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKlient));
             this.ClientiLabel = new System.Windows.Forms.Label();
             this.CardListBox = new System.Windows.Forms.ListBox();
             this.ClientButtonBack = new System.Windows.Forms.Button();
@@ -78,7 +79,7 @@ namespace COKPOProject
             // GoToCardButton
             // 
             this.GoToCardButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.GoToCardButton.Location = new System.Drawing.Point(843, 80);
+            this.GoToCardButton.Location = new System.Drawing.Point(840, 101);
             this.GoToCardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GoToCardButton.Name = "GoToCardButton";
             this.GoToCardButton.Size = new System.Drawing.Size(267, 49);
@@ -90,7 +91,7 @@ namespace COKPOProject
             // AddCardButton
             // 
             this.AddCardButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.AddCardButton.Location = new System.Drawing.Point(843, 134);
+            this.AddCardButton.Location = new System.Drawing.Point(840, 155);
             this.AddCardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddCardButton.Name = "AddCardButton";
             this.AddCardButton.Size = new System.Drawing.Size(267, 49);
@@ -101,7 +102,7 @@ namespace COKPOProject
             // CardRemoveButton
             // 
             this.CardRemoveButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.CardRemoveButton.Location = new System.Drawing.Point(845, 188);
+            this.CardRemoveButton.Location = new System.Drawing.Point(842, 209);
             this.CardRemoveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CardRemoveButton.Name = "CardRemoveButton";
             this.CardRemoveButton.Size = new System.Drawing.Size(267, 49);
@@ -112,7 +113,7 @@ namespace COKPOProject
             // ChangeClientNameButton
             // 
             this.ChangeClientNameButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ChangeClientNameButton.Location = new System.Drawing.Point(843, 242);
+            this.ChangeClientNameButton.Location = new System.Drawing.Point(840, 263);
             this.ChangeClientNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChangeClientNameButton.Name = "ChangeClientNameButton";
             this.ChangeClientNameButton.Size = new System.Drawing.Size(267, 49);
@@ -123,7 +124,7 @@ namespace COKPOProject
             // RegisterTransactionButton
             // 
             this.RegisterTransactionButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.RegisterTransactionButton.Location = new System.Drawing.Point(843, 496);
+            this.RegisterTransactionButton.Location = new System.Drawing.Point(840, 517);
             this.RegisterTransactionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegisterTransactionButton.Name = "RegisterTransactionButton";
             this.RegisterTransactionButton.Size = new System.Drawing.Size(267, 49);
@@ -156,7 +157,8 @@ namespace COKPOProject
             this.Controls.Add(this.ClientButtonBack);
             this.Controls.Add(this.CardListBox);
             this.Controls.Add(this.ClientiLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FKlient";
             this.Text = "FKlient";
             this.Load += new System.EventHandler(this.FKlient_Load);

@@ -41,5 +41,10 @@ namespace COKPOProject
         {
             throw new Exception("Anulowano");
         }
+
+        public void zmiennazwewejsciowa(string nazwa)
+        {
+            DodajBankTextBox.Text = nazwa;
+        }
     }
 }

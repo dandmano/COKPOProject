@@ -52,7 +52,7 @@ namespace COKPOProject
 
         private void ClientButtonBack_Click(object sender, EventArgs e)
         {
-            previuousform.ShowDialog();
+            previuousform.Show();
             this.Close();
         }
     }

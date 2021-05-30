@@ -29,10 +29,10 @@ namespace COKPOProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBank));
             this.BankLabel = new System.Windows.Forms.Label();
             this.ButtonAddClient = new System.Windows.Forms.Button();
             this.ButtonDeleteCustomer = new System.Windows.Forms.Button();
-            this.ButtonChangeBankName = new System.Windows.Forms.Button();
             this.ClientListBox = new System.Windows.Forms.ListBox();
             this.ButtonOpenClient = new System.Windows.Forms.Button();
             this.ButtonChangeClientsName = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@ namespace COKPOProject
             // ButtonAddClient
             // 
             this.ButtonAddClient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonAddClient.Location = new System.Drawing.Point(640, 71);
+            this.ButtonAddClient.Location = new System.Drawing.Point(839, 71);
             this.ButtonAddClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddClient.Name = "ButtonAddClient";
             this.ButtonAddClient.Size = new System.Drawing.Size(267, 49);
@@ -69,25 +69,14 @@ namespace COKPOProject
             // ButtonDeleteCustomer
             // 
             this.ButtonDeleteCustomer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonDeleteCustomer.Location = new System.Drawing.Point(913, 71);
+            this.ButtonDeleteCustomer.Location = new System.Drawing.Point(839, 141);
             this.ButtonDeleteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonDeleteCustomer.Name = "ButtonDeleteCustomer";
             this.ButtonDeleteCustomer.Size = new System.Drawing.Size(267, 49);
             this.ButtonDeleteCustomer.TabIndex = 3;
             this.ButtonDeleteCustomer.Text = "Usuń klienta";
             this.ButtonDeleteCustomer.UseVisualStyleBackColor = true;
-            // 
-            // ButtonChangeBankName
-            // 
-            this.ButtonChangeBankName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonChangeBankName.Location = new System.Drawing.Point(883, 502);
-            this.ButtonChangeBankName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonChangeBankName.Name = "ButtonChangeBankName";
-            this.ButtonChangeBankName.Size = new System.Drawing.Size(267, 49);
-            this.ButtonChangeBankName.TabIndex = 4;
-            this.ButtonChangeBankName.Text = "Zmień Nazwę Banku";
-            this.ButtonChangeBankName.UseVisualStyleBackColor = true;
-            this.ButtonChangeBankName.Click += new System.EventHandler(this.ButtonChangeBankName_Click);
+            this.ButtonDeleteCustomer.Click += new System.EventHandler(this.ButtonDeleteCustomer_Click);
             // 
             // ClientListBox
             // 
@@ -104,7 +93,7 @@ namespace COKPOProject
             // ButtonOpenClient
             // 
             this.ButtonOpenClient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonOpenClient.Location = new System.Drawing.Point(368, 71);
+            this.ButtonOpenClient.Location = new System.Drawing.Point(461, 71);
             this.ButtonOpenClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonOpenClient.Name = "ButtonOpenClient";
             this.ButtonOpenClient.Size = new System.Drawing.Size(267, 49);
@@ -116,13 +105,14 @@ namespace COKPOProject
             // ButtonChangeClientsName
             // 
             this.ButtonChangeClientsName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonChangeClientsName.Location = new System.Drawing.Point(883, 438);
+            this.ButtonChangeClientsName.Location = new System.Drawing.Point(839, 210);
             this.ButtonChangeClientsName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonChangeClientsName.Name = "ButtonChangeClientsName";
             this.ButtonChangeClientsName.Size = new System.Drawing.Size(267, 49);
             this.ButtonChangeClientsName.TabIndex = 7;
             this.ButtonChangeClientsName.Text = "Zmień nazwę klienta";
             this.ButtonChangeClientsName.UseVisualStyleBackColor = true;
+            this.ButtonChangeClientsName.Click += new System.EventHandler(this.ButtonChangeClientsName_Click);
             // 
             // ButtonNormalClient
             // 
@@ -163,7 +153,7 @@ namespace COKPOProject
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonBack.Location = new System.Drawing.Point(1056, 668);
+            this.ButtonBack.Location = new System.Drawing.Point(1013, 668);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(93, 49);
@@ -184,10 +174,10 @@ namespace COKPOProject
             this.Controls.Add(this.ButtonChangeClientsName);
             this.Controls.Add(this.ButtonOpenClient);
             this.Controls.Add(this.ClientListBox);
-            this.Controls.Add(this.ButtonChangeBankName);
             this.Controls.Add(this.ButtonDeleteCustomer);
             this.Controls.Add(this.ButtonAddClient);
             this.Controls.Add(this.BankLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FBank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -203,7 +193,6 @@ namespace COKPOProject
         private System.Windows.Forms.Label BankLabel;
         private System.Windows.Forms.Button ButtonAddClient;
         private System.Windows.Forms.Button ButtonDeleteCustomer;
-        private System.Windows.Forms.Button ButtonChangeBankName;
         private System.Windows.Forms.ListBox ClientListBox;
         private System.Windows.Forms.Button ButtonOpenClient;
         private System.Windows.Forms.Button ButtonChangeClientsName;

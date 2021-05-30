@@ -38,9 +38,9 @@ namespace COKPOProject
             // 
             this.DodajBankTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.DodajBankTextBox.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DodajBankTextBox.Location = new System.Drawing.Point(43, 76);
+            this.DodajBankTextBox.Location = new System.Drawing.Point(43, 53);
             this.DodajBankTextBox.Name = "DodajBankTextBox";
-            this.DodajBankTextBox.Size = new System.Drawing.Size(331, 40);
+            this.DodajBankTextBox.Size = new System.Drawing.Size(331, 48);
             this.DodajBankTextBox.TabIndex = 0;
             this.DodajBankTextBox.Text = "Wpisz nazwę banku";
             this.DodajBankTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -68,7 +68,7 @@ namespace COKPOProject
             // 
             // FDodajBankPopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;

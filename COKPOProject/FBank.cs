@@ -50,7 +50,7 @@ namespace COKPOProject
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
-            previusform.ShowDialog();
+            previusform.Show();
             this.Close();
         }
 
@@ -103,7 +103,60 @@ namespace COKPOProject
 
         private void ButtonAddClient_Click(object sender, EventArgs e)
         {
+            try
+            {
+                FDodajKlientaPopUp fDodajKlientaPopUp = new FDodajKlientaPopUp(bank);
+                fDodajKlientaPopUp.ShowDialog();
+                Klient klient = fDodajKlientaPopUp.GetKlientt();
+                bank.GetKlienci().Add(klient);
+                UpdateClientList();
+            }
+            catch (Exception ex)
+            {
+                //XD
+            }
+        }
 
+        private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            if (ClientListBox.SelectedItem != null)
+            {
+                bank.GetKlienci().Remove((Klient)ClientListBox.SelectedItem);
+                ClientListBox.Update();
+                ClientListBox.Items.Remove(ClientListBox.SelectedItem);
+                ClientListBox.EndUpdate();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz klienta którego chcesz usunąć.");
+            }
+        }
+
+        private void ButtonChangeClientsName_Click(object sender, EventArgs e)
+        {
+            if (ClientListBox.SelectedItem != null)
+            {
+                try
+                {
+                    Klient tmp = bank.GetKlienci().Find(x => x == (Klient)ClientListBox.SelectedItem);
+                    FDodajBankPopUp f = new FDodajBankPopUp();
+                    f.zmiennazwewejsciowa("Wpisz nazwę klienta");
+                    f.ShowDialog();
+                    tmp.SetNazwa(f.ZwrocNazweBanku());
+                    ClientListBox.Update();
+                    ClientListBox.Items.Remove(ClientListBox.SelectedItem);
+                    ClientListBox.Items.Add(tmp);
+                    ClientListBox.EndUpdate();
+                }
+                catch (Exception ex)
+                {
+                    //XD
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz klienta którego nazwę chcesz edytować.");
+            }
         }
     }
 }

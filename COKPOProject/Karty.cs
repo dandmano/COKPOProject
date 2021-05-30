@@ -43,6 +43,11 @@ namespace COKPOProject
             const string chars = "0123456789";
             return new string(Enumerable.Repeat(chars, 16).Select(s => s[random.Next(s.Length)]).ToArray()); //sprawdzic czy dziala
         }
+
+        public override string ToString()
+        {
+            return NrKarty;
+        }
     }
 
     public class KartaDebetowa : Karta
