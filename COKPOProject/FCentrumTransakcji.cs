@@ -107,6 +107,7 @@ namespace COKPOProject
         private void UzupelnijListe()
         {
             ListaBankow.BeginUpdate();
+            ListaBankow.Items.Clear();
             foreach (Bank bank in centrumTransakcji.GetBanki())
             {
                 ListaBankow.Items.Add(bank);

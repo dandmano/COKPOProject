@@ -22,6 +22,7 @@ namespace COKPOProject
             InitializeComponent();
             ClientiLabel.Text = klient.GetNazwa();
             UpdateCardList();
+            if (klient is KlientCentrum) RegisterTransactionButton.Visible = true;
         }
 
         private void FKlient_Load(object sender, EventArgs e)
@@ -54,6 +55,14 @@ namespace COKPOProject
         {
             previuousform.Show();
             this.Close();
+        }
+
+        private void CardListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tmp = (Karta)CardListBox.SelectedItem;
+            NrKartyTextBox.Text = tmp.NrKarty;
+            SaldoTextBox.Text = tmp.SaldoProp.ToString("C0");
+            BankTextBox.Text = tmp.BankWydajacy.ToString();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace COKPOProject
                 else if (ChooseClientTypeBox.SelectedIndex == 0 && ChooseCardTypeBox.SelectedIndex == 2)
                 {
                     klient = new KlientZwykly(clientname, bank);
-                    klient.DodajKarte(0, saldo, numerkarty);
+                    klient.DodajKarte(2, saldo, numerkarty);
                 }
                 else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 0)
                 {
@@ -83,12 +83,12 @@ namespace COKPOProject
                 else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 1)
                 {
                     klient = new KlientCentrum(clientname, bank);
-                    klient.DodajKarte(0, saldo, numerkarty);
+                    klient.DodajKarte(1, saldo, numerkarty);
                 }
                 else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 2)
                 {
                     klient = new KlientCentrum(clientname, bank);
-                    klient.DodajKarte(0, saldo, numerkarty);
+                    klient.DodajKarte(2, saldo, numerkarty);
                 }
                 else
                 {

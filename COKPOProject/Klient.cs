@@ -30,30 +30,38 @@ namespace COKPOProject
         {
             switch (wybor)
             {
-                case 1:
+                case 0:
                     if (nrkarty == "" && saldo == -1)
                         Karty.Add(new KartaDebetowa(this, BankKlienta));
                     else if (nrkarty != "" && saldo == -1)
                         Karty.Add(new KartaDebetowa(this, BankKlienta, 0, nrkarty));
                     else if (nrkarty != "" && saldo != -1)
                         Karty.Add(new KartaDebetowa(this, BankKlienta, saldo, nrkarty));
+                    else if (nrkarty == "" && saldo != -1)
+                        Karty.Add(new KartaDebetowa(this, BankKlienta, saldo));
                     break;
-                case 2:
+                case 1:
                     if (nrkarty == "" && saldo == -1)
                         Karty.Add(new KartaKredytowa(this, BankKlienta));
                     else if (nrkarty != "" && saldo == -1)
                         Karty.Add(new KartaKredytowa(this, BankKlienta, 0, nrkarty));
                     else if (nrkarty != "" && saldo != -1)
                         Karty.Add(new KartaKredytowa(this, BankKlienta, saldo, nrkarty));
+                    else if (nrkarty == "" && saldo != -1)
+                        Karty.Add(new KartaKredytowa(this, BankKlienta, saldo));
                     break;
-                case 3:
+                case 2:
                     if (nrkarty == "" && saldo == -1)
                         Karty.Add(new KartaBankomatowa(this, BankKlienta));
                     else if (nrkarty != "" && saldo == -1)
                         Karty.Add(new KartaBankomatowa(this, BankKlienta, 0, nrkarty));
                     else if (nrkarty != "" && saldo != -1)
                         Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo, nrkarty));
+                    else if (nrkarty == "" && saldo != -1)
+                        Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo));
                     break;
+                default:
+                    throw new Exception("Blad przy wyborze karty");
             }
         }
         public virtual Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)

@@ -67,9 +67,13 @@ namespace COKPOProject
 
         private void ButtonOpenClient_Click(object sender, EventArgs e)
         {
-            FKlient fKlient = new FKlient((Klient)ClientListBox.SelectedItem, this);
-            fKlient.ShowDialog();
-            this.Hide();
+            if (ClientListBox.SelectedItem != null)
+            {
+                FKlient fKlient = new FKlient((Klient)ClientListBox.SelectedItem, this);
+                this.Hide();
+                fKlient.ShowDialog();
+            }
+            else MessageBox.Show("Wybierz klienta do którego chcesz przejść");
         }
 
         private void ButtonAllClients_Click(object sender, EventArgs e)

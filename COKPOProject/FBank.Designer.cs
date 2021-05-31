@@ -177,10 +177,13 @@ namespace COKPOProject
             this.Controls.Add(this.ButtonDeleteCustomer);
             this.Controls.Add(this.ButtonAddClient);
             this.Controls.Add(this.BankLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FBank";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FBank";
             this.Load += new System.EventHandler(this.FBank_Load);
             this.ResumeLayout(false);

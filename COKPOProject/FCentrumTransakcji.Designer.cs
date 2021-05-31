@@ -37,7 +37,7 @@ namespace COKPOProject
             this.BankEditButton = new System.Windows.Forms.Button();
             this.GoToBankButton = new System.Windows.Forms.Button();
             this.AwaitingTransactionListBox = new System.Windows.Forms.ListBox();
-            this.DoneTranstacionListBox = new System.Windows.Forms.ListBox();
+            this.DoneTransactionListBox = new System.Windows.Forms.ListBox();
             this.BankListLabel = new System.Windows.Forms.Label();
             this.AwaitingTransacjtionLabel = new System.Windows.Forms.Label();
             this.TransactionArchivesLabel = new System.Windows.Forms.Label();
@@ -129,18 +129,18 @@ namespace COKPOProject
             this.AwaitingTransactionListBox.TabIndex = 6;
             this.AwaitingTransactionListBox.SelectedIndexChanged += new System.EventHandler(this.AwaitingTransactionListBox_SelectedIndexChanged);
             // 
-            // DoneTranstacionListBox
+            // DoneTransactionListBox
             // 
-            this.DoneTranstacionListBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DoneTranstacionListBox.FormattingEnabled = true;
-            this.DoneTranstacionListBox.ItemHeight = 22;
-            this.DoneTranstacionListBox.Location = new System.Drawing.Point(620, 102);
-            this.DoneTranstacionListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DoneTranstacionListBox.Name = "DoneTranstacionListBox";
-            this.DoneTranstacionListBox.Size = new System.Drawing.Size(265, 378);
-            this.DoneTranstacionListBox.Sorted = true;
-            this.DoneTranstacionListBox.TabIndex = 7;
-            this.DoneTranstacionListBox.SelectedIndexChanged += new System.EventHandler(this.DoneTranstacionListBox_SelectedIndexChanged);
+            this.DoneTransactionListBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DoneTransactionListBox.FormattingEnabled = true;
+            this.DoneTransactionListBox.ItemHeight = 22;
+            this.DoneTransactionListBox.Location = new System.Drawing.Point(620, 102);
+            this.DoneTransactionListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DoneTransactionListBox.Name = "DoneTransactionListBox";
+            this.DoneTransactionListBox.Size = new System.Drawing.Size(265, 378);
+            this.DoneTransactionListBox.Sorted = true;
+            this.DoneTransactionListBox.TabIndex = 7;
+            this.DoneTransactionListBox.SelectedIndexChanged += new System.EventHandler(this.DoneTranstacionListBox_SelectedIndexChanged);
             // 
             // BankListLabel
             // 
@@ -220,7 +220,7 @@ namespace COKPOProject
             this.Controls.Add(this.TransactionArchivesLabel);
             this.Controls.Add(this.AwaitingTransacjtionLabel);
             this.Controls.Add(this.BankListLabel);
-            this.Controls.Add(this.DoneTranstacionListBox);
+            this.Controls.Add(this.DoneTransactionListBox);
             this.Controls.Add(this.AwaitingTransactionListBox);
             this.Controls.Add(this.GoToBankButton);
             this.Controls.Add(this.BankEditButton);
@@ -228,10 +228,13 @@ namespace COKPOProject
             this.Controls.Add(this.AddBankButton);
             this.Controls.Add(this.ListaBankow);
             this.Controls.Add(this.CentrumTransakcjiLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FCentrumTransakcji";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Centrum Transakcji";
             this.Load += new System.EventHandler(this.FCentrumTransakcji_Load);
             this.ResumeLayout(false);
@@ -248,7 +251,7 @@ namespace COKPOProject
         private System.Windows.Forms.Button BankEditButton;
         private System.Windows.Forms.Button GoToBankButton;
         private System.Windows.Forms.ListBox AwaitingTransactionListBox;
-        private System.Windows.Forms.ListBox DoneTranstacionListBox;
+        private System.Windows.Forms.ListBox DoneTransactionListBox;
         private System.Windows.Forms.Label BankListLabel;
         private System.Windows.Forms.Label AwaitingTransacjtionLabel;
         private System.Windows.Forms.Label TransactionArchivesLabel;

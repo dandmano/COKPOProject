@@ -13,9 +13,10 @@ namespace COKPOProject
         protected decimal Saldo;
         public readonly Bank BankWydajacy;
         public readonly Klient Wlasciciel;
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
 
         public decimal GetSaldo() => Saldo;
+        public decimal SaldoProp { get => Saldo;}
         public void SetSaldo(decimal Kwota) { Saldo = Kwota; }
         public abstract bool CzyWystarczajaceSaldo(decimal Kwota);
         protected Karta(Klient Wlasciciel, Bank BankWydajacy)
