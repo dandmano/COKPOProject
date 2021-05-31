@@ -37,7 +37,7 @@ namespace COKPOProject
         {
             ListBoxBanks.BeginUpdate();
             ListBoxBanks.Items.Clear();
-            foreach (var bank in centrumTransakcji.GetBanki())
+            foreach (var bank in centrumTransakcji.Banki)
             {
                 ListBoxBanks.Items.Add(bank);
             }
@@ -57,7 +57,7 @@ namespace COKPOProject
                 fDodajBankPopUp.ShowDialog();
                 centrumTransakcji.DodajBank(fDodajBankPopUp.ReturnBankName());
                 ListBoxBanks.BeginUpdate();
-                ListBoxBanks.Items.Add(centrumTransakcji.GetBanki().Last());
+                ListBoxBanks.Items.Add(centrumTransakcji.Banki.Last());
                 ListBoxBanks.EndUpdate();
             }
             catch
@@ -70,7 +70,7 @@ namespace COKPOProject
         {
             if (ListBoxBanks.SelectedItem != null)
             {
-                centrumTransakcji.GetBanki().Remove((Bank)ListBoxBanks.SelectedItem);
+                centrumTransakcji.Banki.Remove((Bank)ListBoxBanks.SelectedItem);
                 ListBoxBanks.Items.Remove(ListBoxBanks.SelectedItem);
             }
             else MessageBox.Show("Zaznacz bank który chcesz usunąć.");
@@ -87,7 +87,7 @@ namespace COKPOProject
                     ListBoxBanks.BeginUpdate();
                     if (ListBoxBanks.SelectedItem is Bank tmp)
                     {
-                        tmp.SetNazwaBanku(fDodajBankPopUp.ReturnBankName());
+                        tmp.NazwaBanku = fDodajBankPopUp.ReturnBankName();
                         ListBoxBanks.Items.Clear();
                         UzupelnijListe();
                     }

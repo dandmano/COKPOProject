@@ -103,6 +103,7 @@ namespace COKPOProject
             this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 31);
             this.ComboBoxChooseCard.TabIndex = 4;
             this.ComboBoxChooseCard.Text = "Wybierz rodzaj karty";
+            this.ComboBoxChooseCard.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseCard_SelectedIndexChanged);
             // 
             // ButtonAcceptAddClient
             // 

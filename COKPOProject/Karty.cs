@@ -10,14 +10,12 @@ namespace COKPOProject
     public abstract class Karta
     {
         public readonly string NrKarty;
-        protected decimal Saldo;
+        public decimal Saldo { get; set; }
         public readonly Bank BankWydajacy;
         public readonly Klient Wlasciciel;
         private static readonly Random Random = new Random();
 
-        public decimal GetSaldo() => Saldo;
-        public decimal SaldoProp { get => Saldo; }
-        public void SetSaldo(decimal Kwota) { Saldo = Kwota; }
+        //Metoda porównująca kwotę z saldem i oceniająca czy transkacja jest możliwa
         public abstract bool CzyWystarczajaceSaldo(decimal Kwota);
 
         protected Karta(Klient Wlasciciel, Bank BankWydajacy)
@@ -43,15 +41,16 @@ namespace COKPOProject
             this.NrKarty = NrKarty;
         }
 
+        //Wewnętrzna metoda losująca numer karty
         private static string LosujNumerKarty()
         {
             const string chars = "0123456789";
-            return new string(Enumerable.Repeat(chars, 16).Select(s => s[Random.Next(s.Length)]).ToArray()); //sprawdzic czy dziala
+            return new string(Enumerable.Repeat(chars, 16).Select(s => s[Random.Next(s.Length)]).ToArray());
         }
 
         public override string ToString()
         {
-            return NrKarty;
+            return NrKarty; //Do wypisywania w textboxach
         }
     }
 

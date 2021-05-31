@@ -9,66 +9,61 @@ namespace COKPOProject
 {
     public class CentrumTransakcji
     {
-        private List<Transakcja> Transakcje;
-        private List<Bank> Banki;
+        public List<Transakcja> Transakcje { get; }
+        public List<Bank> Banki { get; }
 
         public CentrumTransakcji()
         {
             Transakcje = new List<Transakcja>();
             Banki = new List<Bank>();
         }
+
+        //Metoda znajdująca i zwracająca transakcję o podanym ID
         public Transakcja GetTransakcja(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji)); //Obsluzyc?
 
-        public List<Transakcja> GetTransakcje() => Transakcje;
 
+        //Metoda Autoryzująca na podstawie wyniku metody SprawdzTransakcję
         public bool AutoryzujTransakcje(Transakcja T)
         {
             Transakcje.Add(T);
             if (SprawdzTransakcje(T))
             {
-                T.SetStatus(true);
+                T.StatusAutoryzacji = true;
                 return true;
             }
-            else
-            {
-                T.SetStatus(false);
-                return false;
-            }
+            T.StatusAutoryzacji = false;
+            return false;
         }
 
         public void DodajBank(string NazwaBanku)
         {
-            Bank bank = new Bank(NazwaBanku);
-            Banki.Add(bank);
+            Banki.Add(new Bank(NazwaBanku));
         }
 
-        public List<Bank> GetBanki() => Banki;
-
+        //Metoda sprawdzająca czy stan na koncie karty jest wystarczający/ czy można wykonać transakcję (karta bankomatowa nie wspierana)
         private bool SprawdzTransakcje(Transakcja T)
         {
-            Karta karta;
             try
             {
-                karta = ZnajdzKartePoNumerze(T.NrKarty);
+                var karta = ZnajdzKartePoNumerze(T.NrKarty);
                 return karta.CzyWystarczajaceSaldo(T.Kwota);
             }
-            catch (Exception e)
+            catch (Exception exe)
             {
                 MessageBox.Show("Nie znaleziono karty o takim numerze z transakcji!");
-                throw new Exception("Nie znaleziono karty o takim numerze!");
+                throw exe;
             }
 
         }
+
+        //Metoda wyszukująca kartę po numerze
         private Karta ZnajdzKartePoNumerze(string NrKarty)
         {
-            foreach (Bank bank in Banki)
+            foreach (var karta in Banki.SelectMany(bank => bank.Klienci, (bank, klient) => klient.Karty.Find(x => x.NrKarty.Equals(NrKarty))).Where(karta => karta != null))
             {
-                foreach (Klient klient in bank.GetKlienci())
-                {
-                    Karta karta = klient.GetKarty().Find(x => x.NrKarty.Equals(NrKarty));
-                    if (karta != null) return karta;
-                }
+                return karta;
             }
+
             throw new Exception("Nie znaleziono banku!");
         }
     }

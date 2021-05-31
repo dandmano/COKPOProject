@@ -6,15 +6,15 @@ using System.Windows.Forms;
 
 namespace COKPOProject
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
-            CentrumTransakcji centrumTransakcji = new CentrumTransakcji();
+            var centrumTransakcji = new CentrumTransakcji();
             Stworzbankitd(centrumTransakcji);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -22,22 +22,22 @@ namespace COKPOProject
 
         }
 
-        static void Stworzbankitd(CentrumTransakcji centrumTransakcji)
+        private static void Stworzbankitd(CentrumTransakcji centrumTransakcji)
         {
             centrumTransakcji.DodajBank("Millenium");
             centrumTransakcji.DodajBank("Alior");
-            centrumTransakcji.GetBanki()[0].DodajKlienta("Jan Kowalski", 2);
-            centrumTransakcji.GetBanki()[0].GetKlienci()[0].DodajKarte(0, 1500, "");
-            centrumTransakcji.GetBanki()[0].GetKlienci()[0].DodajKarte(0, 25, "");
-            centrumTransakcji.GetBanki()[0].DodajKlienta("Mlekpol", 1);
-            centrumTransakcji.GetBanki()[0].GetKlienci()[1].DodajKarte(1, 13000, "");
-            centrumTransakcji.GetBanki()[0].GetKlienci()[1].DodajKarte(0, 50, "");
-            centrumTransakcji.GetBanki()[1].DodajKlienta("Mateusz Debil", 2);
-            centrumTransakcji.GetBanki()[1].GetKlienci()[0].DodajKarte(0, 69, "");
-            centrumTransakcji.GetBanki()[1].GetKlienci()[0].DodajKarte(1, 6969, "");
-            centrumTransakcji.GetBanki()[1].DodajKlienta("Adidasz", 1);
-            centrumTransakcji.GetBanki()[1].GetKlienci()[1].DodajKarte(1, 1513214, "");
-            centrumTransakcji.GetBanki()[1].GetKlienci()[1].DodajKarte(0, 3232, "");
+            centrumTransakcji.Banki[0].DodajKlienta("Jan Kowalski", 2);
+            centrumTransakcji.Banki[0].Klienci[0].DodajKarte(0, 1500, "");
+            centrumTransakcji.Banki[0].Klienci[0].DodajKarte(0, 25, "");
+            centrumTransakcji.Banki[0].DodajKlienta("Mlekpol", 1);
+            centrumTransakcji.Banki[0].Klienci[1].DodajKarte(1, 13000, "");
+            centrumTransakcji.Banki[0].Klienci[1].DodajKarte(0, 50, "");
+            centrumTransakcji.Banki[1].DodajKlienta("Mateusz Debil", 2);
+            centrumTransakcji.Banki[1].Klienci[0].DodajKarte(0, 69, "");
+            centrumTransakcji.Banki[1].Klienci[0].DodajKarte(1, 6969, "");
+            centrumTransakcji.Banki[1].DodajKlienta("Adidasz", 1);
+            centrumTransakcji.Banki[1].Klienci[1].DodajKarte(1, 1513214, "");
+            centrumTransakcji.Banki[1].Klienci[1].DodajKarte(0, 3232, "");
 
         }
     }

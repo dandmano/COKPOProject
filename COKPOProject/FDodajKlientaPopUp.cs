@@ -46,6 +46,12 @@ namespace COKPOProject
             ComboBoxChooseClient.BackColor = Color.DarkSeaGreen;
         }
 
+        //Metoda wykrycia zmiany zaznaczenia w comboboxie Karty
+        private void ComboBoxChooseCard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxChooseCard.BackColor = Color.DarkSeaGreen;
+        }
+
         //Metoda wykrywająca enter w textboxie klienta i akceptujaca nazwę
         private void TextBoxClientName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -121,7 +127,7 @@ namespace COKPOProject
                 default:
                     throw new Exception("Błąd w wyborze opcji klienta!");
             }
-            bank.GetKlienci().Add(klient);
+            bank.Klienci.Add(klient);
             Close();
         }
 
@@ -157,5 +163,7 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
+
+
     }
 }

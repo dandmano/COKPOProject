@@ -21,14 +21,14 @@ namespace COKPOProject
             this.bank = bank;
             this.previusform = fCentrumTransakcji;
             InitializeComponent();
-            LabelBank.Text = bank.GetNazwaBanku();
+            LabelBank.Text = bank.NazwaBanku;
             UpdateClientList();
         }
 
         //Metoda uruchamiająca się przy ładowaniu
         private void FBank_Load(object sender, EventArgs e)
         {
-            LabelBank.Text = bank.GetNazwaBanku();
+            LabelBank.Text = bank.NazwaBanku;
             UpdateClientList();
         }
 
@@ -41,7 +41,7 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.GetKlienci())
+            foreach (var klient in bank.Klienci)
             {
                 ListBoxClients.Items.Add(klient);
             }
@@ -70,7 +70,7 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.GetKlienci())
+            foreach (var klient in bank.Klienci)
             {
                 if (klient is KlientZwykly)
                     ListBoxClients.Items.Add(klient);
@@ -83,7 +83,7 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.GetKlienci())
+            foreach (var klient in bank.Klienci)
             {
                 if (klient is KlientCentrum)
                     ListBoxClients.Items.Add(klient);
@@ -123,7 +123,7 @@ namespace COKPOProject
         {
             if (ListBoxClients.SelectedItem != null)
             {
-                bank.GetKlienci().Remove((Klient)ListBoxClients.SelectedItem);
+                bank.UsunKlienta((Klient)ListBoxClients.SelectedItem);
                 ListBoxClients.Update();
                 ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
                 ListBoxClients.EndUpdate();
@@ -141,11 +141,11 @@ namespace COKPOProject
             {
                 try
                 {
-                    var tmp = bank.GetKlienci().Find(x => x == (Klient)ListBoxClients.SelectedItem);
+                    var tmp = (Klient)ListBoxClients.SelectedItem;
                     var f = new FDodajBankPopUp();
                     f.ChangeTextBoxTextValue("Wpisz nazwę klienta");
                     f.ShowDialog();
-                    tmp.SetNazwa(f.ReturnBankName());
+                    tmp.NazwaKlienta = f.ReturnBankName();
                     ListBoxClients.Update();
                     ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
                     ListBoxClients.Items.Add(tmp);

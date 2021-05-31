@@ -21,7 +21,7 @@ namespace COKPOProject
             this.klient = klient;
             this.previuousform = fBank;
             InitializeComponent();
-            ClientiLabel.Text = klient.GetNazwa();
+            ClientiLabel.Text = klient.NazwaKlienta;
             UpdateCardList();
             if (klient is KlientCentrum) ButtonRegisterTransaction.Visible = true;
         }
@@ -29,7 +29,7 @@ namespace COKPOProject
         //Metoda uruchamiająca się przy ładowaniu forma
         private void FKlient_Load(object sender, EventArgs e)
         {
-            ClientiLabel.Text = klient.GetNazwa();
+            ClientiLabel.Text = klient.NazwaKlienta;
             UpdateCardList();
         }
 
@@ -42,7 +42,7 @@ namespace COKPOProject
         {
             ListBoxCards.Update();
             ListBoxCards.Items.Clear();
-            foreach (var karta in klient.GetKarty())
+            foreach (var karta in klient.Karty)
             {
                 ListBoxCards.Items.Add(karta);
             }
@@ -80,7 +80,7 @@ namespace COKPOProject
         {
             if (ListBoxCards.SelectedItem != null)
             {
-                klient.GetKarty().Remove((Karta)ListBoxCards.SelectedItem);
+                klient.Karty.Remove((Karta)ListBoxCards.SelectedItem);
                 UpdateCardList();
             }
             else MessageBox.Show("Wybierz kartę, którą chcesz usunąć.");
@@ -90,31 +90,38 @@ namespace COKPOProject
         private void ListBoxCards_SelectedIndexChanged(object sender, EventArgs e)
         {
             var tmp = (Karta)ListBoxCards.SelectedItem;
-            TextBoxCardNumber.Text = tmp.NrKarty;
-            TextBoxSaldo.Text = tmp.SaldoProp.ToString("C");
-            TextBoxBank.Text = tmp.BankWydajacy.ToString();
+
             switch (tmp)
             {
                 case KartaDebetowa karta:
-                    TextBoxCardType.Text = "Debetowa";
-                    LabelCreditLimit.Visible = false;
-                    TextBoxCreditLimit.Visible = false;
-                    ButtonChangeCreditLimit.Visible = false;
+                    ChangeDisplay(tmp.NrKarty, tmp.Saldo.ToString("C"), tmp.BankWydajacy.ToString(), "Debetowa", false, false, false);
                     break;
+
                 case KartaKredytowa karta:
-                    TextBoxCardType.Text = "Kredytowa";
+                    ChangeDisplay(tmp.NrKarty, tmp.Saldo.ToString("C"), tmp.BankWydajacy.ToString(), "Kredytowa", true, true, true);
                     TextBoxCreditLimit.Text = karta.LimitKredytu.ToString("C");
-                    LabelCreditLimit.Visible = true;
-                    TextBoxCreditLimit.Visible = true;
-                    ButtonChangeCreditLimit.Visible = true;
                     break;
+
                 case KartaBankomatowa karta:
-                    TextBoxCardType.Text = "Bankomatowa";
-                    LabelCreditLimit.Visible = false;
-                    TextBoxCreditLimit.Visible = false;
-                    ButtonChangeCreditLimit.Visible = false;
+                    ChangeDisplay(tmp.NrKarty, tmp.Saldo.ToString("C"), tmp.BankWydajacy.ToString(), "Bankomatowa", false, false, false);
+                    break;
+
+                default:
+                    ChangeDisplay("", "", "", "", false, false, false);
                     break;
             }
+        }
+
+        private void ChangeDisplay(string cardnumber, string saldo, string bank, string cardtype, bool label, bool text,
+            bool button)
+        {
+            TextBoxCardNumber.Text = cardnumber;
+            TextBoxSaldo.Text = saldo;
+            TextBoxBank.Text = bank;
+            TextBoxCardType.Text = cardtype;
+            LabelCreditLimit.Visible = label;
+            TextBoxCreditLimit.Visible = text;
+            ButtonChangeCreditLimit.Visible = button;
         }
 
         //Metoda zmieniająca limit kredytu
