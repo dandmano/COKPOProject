@@ -12,7 +12,9 @@ namespace COKPOProject
 {
     public partial class FCentrumTransakcji : Form
     {
-        CentrumTransakcji centrumTransakcji;
+        private readonly CentrumTransakcji centrumTransakcji;
+
+        //Konstruktor form
         public FCentrumTransakcji(CentrumTransakcji centrumTransakcji)
         {
             this.centrumTransakcji = centrumTransakcji;
@@ -20,67 +22,88 @@ namespace COKPOProject
             UzupelnijListe();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Odpala się przy otwieraniu forma
+        private void FCentrumTransakcji_Load(object sender, EventArgs e)
+        {
+            UzupelnijListe();
+        }
+
+        //Odświeżanie/uzupełnianie listy banków
+        private void UzupelnijListe()
+        {
+            ListBoxBanks.BeginUpdate();
+            ListBoxBanks.Items.Clear();
+            foreach (Bank bank in centrumTransakcji.GetBanki())
+            {
+                ListBoxBanks.Items.Add(bank);
+            }
+            ListBoxBanks.EndUpdate();
+        }
+
+        //
+        // Metody przycisków
+        //
+
+        // Metoda przycisku - Dodaj Bank
+        private void ButtonAddBank_Click(object sender, EventArgs e)
         {
             try
             {
                 FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
                 fDodajBankPopUp.ShowDialog();
                 centrumTransakcji.DodajBank(fDodajBankPopUp.ZwrocNazweBanku());
-                ListaBankow.BeginUpdate();
-                ListaBankow.Items.Add(centrumTransakcji.GetBanki().Last());
-                ListaBankow.EndUpdate();
+                ListBoxBanks.BeginUpdate();
+                ListBoxBanks.Items.Add(centrumTransakcji.GetBanki().Last());
+                ListBoxBanks.EndUpdate();
             }
-            catch (Exception ex)
+            catch
             {
                 //XD
             }
         }
-
-
-
-        private void button1_Click_1(object sender, EventArgs e)
+        //Metoda przycisku - Usun Bank
+        private void ButtonRemoveBank_Click(object sender, EventArgs e)
         {
-            if (ListaBankow.SelectedItem != null)
+            if (ListBoxBanks.SelectedItem != null)
             {
-                centrumTransakcji.GetBanki().Remove((Bank)ListaBankow.SelectedItem);
-                ListaBankow.Items.Remove(ListaBankow.SelectedItem);
+                centrumTransakcji.GetBanki().Remove((Bank)ListBoxBanks.SelectedItem);
+                ListBoxBanks.Items.Remove(ListBoxBanks.SelectedItem);
             }
             else MessageBox.Show("Zaznacz bank który chcesz usunąć.");
         }
-
-        private void BankEditButton_Click(object sender, EventArgs e)
+        //Metoda przycisku - Edytuj nazwę Banku
+        private void ButtonEditBank_Click(object sender, EventArgs e)
         {
-            if (ListaBankow.SelectedItem != null)
+            if (ListBoxBanks.SelectedItem != null)
             {
                 try
                 {
                     FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
                     fDodajBankPopUp.ShowDialog();
-                    ListaBankow.BeginUpdate();
-                    if (ListaBankow.SelectedItem is Bank)
+                    ListBoxBanks.BeginUpdate();
+                    if (ListBoxBanks.SelectedItem is Bank)
                     {
-                        Bank tmp = (Bank)ListaBankow.SelectedItem;
+                        Bank tmp = (Bank)ListBoxBanks.SelectedItem;
                         tmp.SetNazwaBanku(fDodajBankPopUp.ZwrocNazweBanku());
-                        ListaBankow.Items.Clear();
+                        ListBoxBanks.Items.Clear();
                         UzupelnijListe();
                     }
-                    ListaBankow.EndUpdate();
+                    ListBoxBanks.EndUpdate();
 
                 }
-                catch (Exception ex)
+                catch
                 {
                     //XD
                 }
             }
             else MessageBox.Show("Zaznacz bank którego nazwę chcesz edytować.");
         }
-
-        private void GoToBankButton_Click(object sender, EventArgs e)
+        //Metoda przycisku - Przejdź do banku
+        private void ButtonGoToBank_Click(object sender, EventArgs e)
         {
-            if (ListaBankow.SelectedItem != null)
+            if (ListBoxBanks.SelectedItem != null)
             {
-                FBank fBank = new FBank((Bank)ListaBankow.SelectedItem, this);
+                FBank fBank = new FBank((Bank)ListBoxBanks.SelectedItem, this);
                 this.Hide();
                 fBank.ShowDialog();
             }
@@ -88,36 +111,6 @@ namespace COKPOProject
             {
                 MessageBox.Show("Wybierz bank do którego chcesz przejść.");
             }
-        }
-
-        private void DoneTranstacionListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AwaitingTransactionListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RemoveTransactionButton_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void UzupelnijListe()
-        {
-            ListaBankow.BeginUpdate();
-            ListaBankow.Items.Clear();
-            foreach (Bank bank in centrumTransakcji.GetBanki())
-            {
-                ListaBankow.Items.Add(bank);
-            }
-            ListaBankow.EndUpdate();
-        }
-
-        private void FCentrumTransakcji_Load(object sender, EventArgs e)
-        {
-            UzupelnijListe();
         }
     }
 }

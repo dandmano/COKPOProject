@@ -10,26 +10,19 @@ using System.Windows.Forms;
 
 namespace COKPOProject
 {
-    public partial class CentrumObslugiStronaGlowna : Form
+    public partial class FStronaGlowna : Form
     {
-        private CentrumTransakcji centrumTransakcji;
-        public CentrumObslugiStronaGlowna(CentrumTransakcji centrumTransakcji)
+        private readonly CentrumTransakcji centrumTransakcji;
+        //Konstruktor forma
+        public FStronaGlowna(CentrumTransakcji centrumTransakcji)
         {
             this.centrumTransakcji = centrumTransakcji;
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        //
+        //Metody przycisków
+        //
+        private void ButtonBegin_Click(object sender, EventArgs e)
         {
             this.Hide();
             FCentrumTransakcji fCentrumTransakcji = new FCentrumTransakcji(centrumTransakcji);

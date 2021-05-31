@@ -18,7 +18,7 @@ namespace COKPOProject
             Stworzbankitd(centrumTransakcji);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CentrumObslugiStronaGlowna(centrumTransakcji));
+            Application.Run(new FStronaGlowna(centrumTransakcji));
 
         }
 

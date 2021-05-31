@@ -30,204 +30,201 @@ namespace COKPOProject
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCentrumTransakcji));
-            this.CentrumTransakcjiLabel = new System.Windows.Forms.Label();
-            this.ListaBankow = new System.Windows.Forms.ListBox();
-            this.AddBankButton = new System.Windows.Forms.Button();
-            this.RemoveBankButton = new System.Windows.Forms.Button();
-            this.BankEditButton = new System.Windows.Forms.Button();
-            this.GoToBankButton = new System.Windows.Forms.Button();
-            this.AwaitingTransactionListBox = new System.Windows.Forms.ListBox();
-            this.DoneTransactionListBox = new System.Windows.Forms.ListBox();
-            this.BankListLabel = new System.Windows.Forms.Label();
-            this.AwaitingTransacjtionLabel = new System.Windows.Forms.Label();
-            this.TransactionArchivesLabel = new System.Windows.Forms.Label();
-            this.AddTransactionButton = new System.Windows.Forms.Button();
-            this.RemoveTransactionButton = new System.Windows.Forms.Button();
-            this.AuthorizeTransactionButton = new System.Windows.Forms.Button();
+            this.LabelCentrumTransakcji = new System.Windows.Forms.Label();
+            this.ListBoxBanks = new System.Windows.Forms.ListBox();
+            this.ButtonAddBank = new System.Windows.Forms.Button();
+            this.ButtonRemoveBank = new System.Windows.Forms.Button();
+            this.ButtonEditBank = new System.Windows.Forms.Button();
+            this.ButtonGoToBank = new System.Windows.Forms.Button();
+            this.ListBoxAwaitingTransaction = new System.Windows.Forms.ListBox();
+            this.ListBoxDoneTransaction = new System.Windows.Forms.ListBox();
+            this.LabelBankList = new System.Windows.Forms.Label();
+            this.LabelAwaitingTransacjtion = new System.Windows.Forms.Label();
+            this.LabelTransactionArchives = new System.Windows.Forms.Label();
+            this.ButtonAddTransaction = new System.Windows.Forms.Button();
+            this.ButtonRemoveTransaction = new System.Windows.Forms.Button();
+            this.ButtonAuthorizeTransaction = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CentrumTransakcjiLabel
+            // LabelCentrumTransakcji
             // 
-            this.CentrumTransakcjiLabel.AutoSize = true;
-            this.CentrumTransakcjiLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CentrumTransakcjiLabel.Location = new System.Drawing.Point(463, 12);
-            this.CentrumTransakcjiLabel.Name = "CentrumTransakcjiLabel";
-            this.CentrumTransakcjiLabel.Size = new System.Drawing.Size(274, 34);
-            this.CentrumTransakcjiLabel.TabIndex = 0;
-            this.CentrumTransakcjiLabel.Text = "Centrum Transakcji";
+            this.LabelCentrumTransakcji.AutoSize = true;
+            this.LabelCentrumTransakcji.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCentrumTransakcji.Location = new System.Drawing.Point(463, 12);
+            this.LabelCentrumTransakcji.Name = "LabelCentrumTransakcji";
+            this.LabelCentrumTransakcji.Size = new System.Drawing.Size(274, 34);
+            this.LabelCentrumTransakcji.TabIndex = 0;
+            this.LabelCentrumTransakcji.Text = "Centrum Transakcji";
             // 
-            // ListaBankow
+            // ListBoxBanks
             // 
-            this.ListaBankow.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ListaBankow.FormattingEnabled = true;
-            this.ListaBankow.ItemHeight = 22;
-            this.ListaBankow.Location = new System.Drawing.Point(29, 102);
-            this.ListaBankow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ListaBankow.Name = "ListaBankow";
-            this.ListaBankow.Size = new System.Drawing.Size(265, 378);
-            this.ListaBankow.Sorted = true;
-            this.ListaBankow.TabIndex = 1;
+            this.ListBoxBanks.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ListBoxBanks.FormattingEnabled = true;
+            this.ListBoxBanks.ItemHeight = 22;
+            this.ListBoxBanks.Location = new System.Drawing.Point(29, 102);
+            this.ListBoxBanks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxBanks.Name = "ListBoxBanks";
+            this.ListBoxBanks.Size = new System.Drawing.Size(265, 378);
+            this.ListBoxBanks.Sorted = true;
+            this.ListBoxBanks.TabIndex = 1;
             // 
-            // AddBankButton
+            // ButtonAddBank
             // 
-            this.AddBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddBankButton.Location = new System.Drawing.Point(29, 495);
-            this.AddBankButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AddBankButton.Name = "AddBankButton";
-            this.AddBankButton.Size = new System.Drawing.Size(267, 49);
-            this.AddBankButton.TabIndex = 2;
-            this.AddBankButton.Text = "Dodaj Bank";
-            this.AddBankButton.UseVisualStyleBackColor = true;
-            this.AddBankButton.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonAddBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonAddBank.Location = new System.Drawing.Point(29, 495);
+            this.ButtonAddBank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddBank.Name = "ButtonAddBank";
+            this.ButtonAddBank.Size = new System.Drawing.Size(267, 49);
+            this.ButtonAddBank.TabIndex = 2;
+            this.ButtonAddBank.Text = "Dodaj Bank";
+            this.ButtonAddBank.UseVisualStyleBackColor = true;
+            this.ButtonAddBank.Click += new System.EventHandler(this.ButtonAddBank_Click);
             // 
-            // RemoveBankButton
+            // ButtonRemoveBank
             // 
-            this.RemoveBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RemoveBankButton.Location = new System.Drawing.Point(29, 550);
-            this.RemoveBankButton.Margin = new System.Windows.Forms.Padding(4);
-            this.RemoveBankButton.Name = "RemoveBankButton";
-            this.RemoveBankButton.Size = new System.Drawing.Size(267, 49);
-            this.RemoveBankButton.TabIndex = 3;
-            this.RemoveBankButton.Text = "Usun Bank";
-            this.RemoveBankButton.UseVisualStyleBackColor = true;
-            this.RemoveBankButton.Click += new System.EventHandler(this.button1_Click_1);
+            this.ButtonRemoveBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonRemoveBank.Location = new System.Drawing.Point(29, 550);
+            this.ButtonRemoveBank.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonRemoveBank.Name = "ButtonRemoveBank";
+            this.ButtonRemoveBank.Size = new System.Drawing.Size(267, 49);
+            this.ButtonRemoveBank.TabIndex = 3;
+            this.ButtonRemoveBank.Text = "Usun Bank";
+            this.ButtonRemoveBank.UseVisualStyleBackColor = true;
+            this.ButtonRemoveBank.Click += new System.EventHandler(this.ButtonRemoveBank_Click);
             // 
-            // BankEditButton
+            // ButtonEditBank
             // 
-            this.BankEditButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BankEditButton.Location = new System.Drawing.Point(29, 606);
-            this.BankEditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BankEditButton.Name = "BankEditButton";
-            this.BankEditButton.Size = new System.Drawing.Size(267, 49);
-            this.BankEditButton.TabIndex = 4;
-            this.BankEditButton.Text = "Edytuj Nazwę Banku";
-            this.BankEditButton.UseVisualStyleBackColor = true;
-            this.BankEditButton.Click += new System.EventHandler(this.BankEditButton_Click);
+            this.ButtonEditBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonEditBank.Location = new System.Drawing.Point(29, 606);
+            this.ButtonEditBank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonEditBank.Name = "ButtonEditBank";
+            this.ButtonEditBank.Size = new System.Drawing.Size(267, 49);
+            this.ButtonEditBank.TabIndex = 4;
+            this.ButtonEditBank.Text = "Edytuj Nazwę Banku";
+            this.ButtonEditBank.UseVisualStyleBackColor = true;
+            this.ButtonEditBank.Click += new System.EventHandler(this.ButtonEditBank_Click);
             // 
-            // GoToBankButton
+            // ButtonGoToBank
             // 
-            this.GoToBankButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GoToBankButton.Location = new System.Drawing.Point(29, 661);
-            this.GoToBankButton.Margin = new System.Windows.Forms.Padding(4);
-            this.GoToBankButton.Name = "GoToBankButton";
-            this.GoToBankButton.Size = new System.Drawing.Size(267, 49);
-            this.GoToBankButton.TabIndex = 5;
-            this.GoToBankButton.Text = "Przejdź Do Banku";
-            this.GoToBankButton.UseVisualStyleBackColor = true;
-            this.GoToBankButton.Click += new System.EventHandler(this.GoToBankButton_Click);
+            this.ButtonGoToBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonGoToBank.Location = new System.Drawing.Point(29, 661);
+            this.ButtonGoToBank.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonGoToBank.Name = "ButtonGoToBank";
+            this.ButtonGoToBank.Size = new System.Drawing.Size(267, 49);
+            this.ButtonGoToBank.TabIndex = 5;
+            this.ButtonGoToBank.Text = "Przejdź Do Banku";
+            this.ButtonGoToBank.UseVisualStyleBackColor = true;
+            this.ButtonGoToBank.Click += new System.EventHandler(this.ButtonGoToBank_Click);
             // 
-            // AwaitingTransactionListBox
+            // ListBoxAwaitingTransaction
             // 
-            this.AwaitingTransactionListBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AwaitingTransactionListBox.FormattingEnabled = true;
-            this.AwaitingTransactionListBox.ItemHeight = 22;
-            this.AwaitingTransactionListBox.Location = new System.Drawing.Point(327, 102);
-            this.AwaitingTransactionListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AwaitingTransactionListBox.Name = "AwaitingTransactionListBox";
-            this.AwaitingTransactionListBox.Size = new System.Drawing.Size(265, 378);
-            this.AwaitingTransactionListBox.Sorted = true;
-            this.AwaitingTransactionListBox.TabIndex = 6;
-            this.AwaitingTransactionListBox.SelectedIndexChanged += new System.EventHandler(this.AwaitingTransactionListBox_SelectedIndexChanged);
+            this.ListBoxAwaitingTransaction.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ListBoxAwaitingTransaction.FormattingEnabled = true;
+            this.ListBoxAwaitingTransaction.ItemHeight = 22;
+            this.ListBoxAwaitingTransaction.Location = new System.Drawing.Point(327, 102);
+            this.ListBoxAwaitingTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxAwaitingTransaction.Name = "ListBoxAwaitingTransaction";
+            this.ListBoxAwaitingTransaction.Size = new System.Drawing.Size(265, 378);
+            this.ListBoxAwaitingTransaction.Sorted = true;
+            this.ListBoxAwaitingTransaction.TabIndex = 6;
             // 
-            // DoneTransactionListBox
+            // ListBoxDoneTransaction
             // 
-            this.DoneTransactionListBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DoneTransactionListBox.FormattingEnabled = true;
-            this.DoneTransactionListBox.ItemHeight = 22;
-            this.DoneTransactionListBox.Location = new System.Drawing.Point(620, 102);
-            this.DoneTransactionListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DoneTransactionListBox.Name = "DoneTransactionListBox";
-            this.DoneTransactionListBox.Size = new System.Drawing.Size(265, 378);
-            this.DoneTransactionListBox.Sorted = true;
-            this.DoneTransactionListBox.TabIndex = 7;
-            this.DoneTransactionListBox.SelectedIndexChanged += new System.EventHandler(this.DoneTranstacionListBox_SelectedIndexChanged);
+            this.ListBoxDoneTransaction.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ListBoxDoneTransaction.FormattingEnabled = true;
+            this.ListBoxDoneTransaction.ItemHeight = 22;
+            this.ListBoxDoneTransaction.Location = new System.Drawing.Point(620, 102);
+            this.ListBoxDoneTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxDoneTransaction.Name = "ListBoxDoneTransaction";
+            this.ListBoxDoneTransaction.Size = new System.Drawing.Size(265, 378);
+            this.ListBoxDoneTransaction.Sorted = true;
+            this.ListBoxDoneTransaction.TabIndex = 7;
             // 
-            // BankListLabel
+            // LabelBankList
             // 
-            this.BankListLabel.AutoSize = true;
-            this.BankListLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BankListLabel.Location = new System.Drawing.Point(24, 65);
-            this.BankListLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.BankListLabel.Name = "BankListLabel";
-            this.BankListLabel.Size = new System.Drawing.Size(76, 23);
-            this.BankListLabel.TabIndex = 8;
-            this.BankListLabel.Text = "Banki :";
+            this.LabelBankList.AutoSize = true;
+            this.LabelBankList.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelBankList.Location = new System.Drawing.Point(24, 65);
+            this.LabelBankList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelBankList.Name = "LabelBankList";
+            this.LabelBankList.Size = new System.Drawing.Size(76, 23);
+            this.LabelBankList.TabIndex = 8;
+            this.LabelBankList.Text = "Banki :";
             // 
-            // AwaitingTransacjtionLabel
+            // LabelAwaitingTransacjtion
             // 
-            this.AwaitingTransacjtionLabel.AutoSize = true;
-            this.AwaitingTransacjtionLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AwaitingTransacjtionLabel.Location = new System.Drawing.Point(321, 65);
-            this.AwaitingTransacjtionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.AwaitingTransacjtionLabel.Name = "AwaitingTransacjtionLabel";
-            this.AwaitingTransacjtionLabel.Size = new System.Drawing.Size(252, 23);
-            this.AwaitingTransacjtionLabel.TabIndex = 9;
-            this.AwaitingTransacjtionLabel.Text = "Oczekujące Transakcje :";
+            this.LabelAwaitingTransacjtion.AutoSize = true;
+            this.LabelAwaitingTransacjtion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelAwaitingTransacjtion.Location = new System.Drawing.Point(321, 65);
+            this.LabelAwaitingTransacjtion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelAwaitingTransacjtion.Name = "LabelAwaitingTransacjtion";
+            this.LabelAwaitingTransacjtion.Size = new System.Drawing.Size(252, 23);
+            this.LabelAwaitingTransacjtion.TabIndex = 9;
+            this.LabelAwaitingTransacjtion.Text = "Oczekujące Transakcje :";
             // 
-            // TransactionArchivesLabel
+            // LabelTransactionArchives
             // 
-            this.TransactionArchivesLabel.AutoSize = true;
-            this.TransactionArchivesLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TransactionArchivesLabel.Location = new System.Drawing.Point(615, 65);
-            this.TransactionArchivesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.TransactionArchivesLabel.Name = "TransactionArchivesLabel";
-            this.TransactionArchivesLabel.Size = new System.Drawing.Size(222, 23);
-            this.TransactionArchivesLabel.TabIndex = 10;
-            this.TransactionArchivesLabel.Text = "Archiwum Transakcji :";
+            this.LabelTransactionArchives.AutoSize = true;
+            this.LabelTransactionArchives.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelTransactionArchives.Location = new System.Drawing.Point(615, 65);
+            this.LabelTransactionArchives.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelTransactionArchives.Name = "LabelTransactionArchives";
+            this.LabelTransactionArchives.Size = new System.Drawing.Size(222, 23);
+            this.LabelTransactionArchives.TabIndex = 10;
+            this.LabelTransactionArchives.Text = "Archiwum Transakcji :";
             // 
-            // AddTransactionButton
+            // ButtonAddTransaction
             // 
-            this.AddTransactionButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddTransactionButton.Location = new System.Drawing.Point(327, 495);
-            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AddTransactionButton.Name = "AddTransactionButton";
-            this.AddTransactionButton.Size = new System.Drawing.Size(267, 49);
-            this.AddTransactionButton.TabIndex = 11;
-            this.AddTransactionButton.Text = "Dodaj Transakcję";
-            this.AddTransactionButton.UseVisualStyleBackColor = true;
+            this.ButtonAddTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonAddTransaction.Location = new System.Drawing.Point(327, 495);
+            this.ButtonAddTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddTransaction.Name = "ButtonAddTransaction";
+            this.ButtonAddTransaction.Size = new System.Drawing.Size(267, 49);
+            this.ButtonAddTransaction.TabIndex = 11;
+            this.ButtonAddTransaction.Text = "Dodaj Transakcję";
+            this.ButtonAddTransaction.UseVisualStyleBackColor = true;
             // 
-            // RemoveTransactionButton
+            // ButtonRemoveTransaction
             // 
-            this.RemoveTransactionButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RemoveTransactionButton.Location = new System.Drawing.Point(327, 550);
-            this.RemoveTransactionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RemoveTransactionButton.Name = "RemoveTransactionButton";
-            this.RemoveTransactionButton.Size = new System.Drawing.Size(267, 49);
-            this.RemoveTransactionButton.TabIndex = 12;
-            this.RemoveTransactionButton.Text = "Usuń Transakcję";
-            this.RemoveTransactionButton.UseVisualStyleBackColor = true;
-            this.RemoveTransactionButton.Click += new System.EventHandler(this.RemoveTransactionButton_Click);
+            this.ButtonRemoveTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonRemoveTransaction.Location = new System.Drawing.Point(327, 550);
+            this.ButtonRemoveTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonRemoveTransaction.Name = "ButtonRemoveTransaction";
+            this.ButtonRemoveTransaction.Size = new System.Drawing.Size(267, 49);
+            this.ButtonRemoveTransaction.TabIndex = 12;
+            this.ButtonRemoveTransaction.Text = "Usuń Transakcję";
+            this.ButtonRemoveTransaction.UseVisualStyleBackColor = true;
             // 
-            // AuthorizeTransactionButton
+            // ButtonAuthorizeTransaction
             // 
-            this.AuthorizeTransactionButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AuthorizeTransactionButton.Location = new System.Drawing.Point(327, 606);
-            this.AuthorizeTransactionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AuthorizeTransactionButton.Name = "AuthorizeTransactionButton";
-            this.AuthorizeTransactionButton.Size = new System.Drawing.Size(267, 49);
-            this.AuthorizeTransactionButton.TabIndex = 13;
-            this.AuthorizeTransactionButton.Text = "Autoryzuj Transakcje";
-            this.AuthorizeTransactionButton.UseVisualStyleBackColor = true;
+            this.ButtonAuthorizeTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonAuthorizeTransaction.Location = new System.Drawing.Point(327, 606);
+            this.ButtonAuthorizeTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAuthorizeTransaction.Name = "ButtonAuthorizeTransaction";
+            this.ButtonAuthorizeTransaction.Size = new System.Drawing.Size(267, 49);
+            this.ButtonAuthorizeTransaction.TabIndex = 13;
+            this.ButtonAuthorizeTransaction.Text = "Autoryzuj Transakcje";
+            this.ButtonAuthorizeTransaction.UseVisualStyleBackColor = true;
             // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 753);
-            this.Controls.Add(this.AuthorizeTransactionButton);
-            this.Controls.Add(this.RemoveTransactionButton);
-            this.Controls.Add(this.AddTransactionButton);
-            this.Controls.Add(this.TransactionArchivesLabel);
-            this.Controls.Add(this.AwaitingTransacjtionLabel);
-            this.Controls.Add(this.BankListLabel);
-            this.Controls.Add(this.DoneTransactionListBox);
-            this.Controls.Add(this.AwaitingTransactionListBox);
-            this.Controls.Add(this.GoToBankButton);
-            this.Controls.Add(this.BankEditButton);
-            this.Controls.Add(this.RemoveBankButton);
-            this.Controls.Add(this.AddBankButton);
-            this.Controls.Add(this.ListaBankow);
-            this.Controls.Add(this.CentrumTransakcjiLabel);
+            this.Controls.Add(this.ButtonAuthorizeTransaction);
+            this.Controls.Add(this.ButtonRemoveTransaction);
+            this.Controls.Add(this.ButtonAddTransaction);
+            this.Controls.Add(this.LabelTransactionArchives);
+            this.Controls.Add(this.LabelAwaitingTransacjtion);
+            this.Controls.Add(this.LabelBankList);
+            this.Controls.Add(this.ListBoxDoneTransaction);
+            this.Controls.Add(this.ListBoxAwaitingTransaction);
+            this.Controls.Add(this.ButtonGoToBank);
+            this.Controls.Add(this.ButtonEditBank);
+            this.Controls.Add(this.ButtonRemoveBank);
+            this.Controls.Add(this.ButtonAddBank);
+            this.Controls.Add(this.ListBoxBanks);
+            this.Controls.Add(this.LabelCentrumTransakcji);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -244,19 +241,19 @@ namespace COKPOProject
 
         #endregion
 
-        private System.Windows.Forms.Label CentrumTransakcjiLabel;
-        private System.Windows.Forms.ListBox ListaBankow;
-        private System.Windows.Forms.Button AddBankButton;
-        private System.Windows.Forms.Button RemoveBankButton;
-        private System.Windows.Forms.Button BankEditButton;
-        private System.Windows.Forms.Button GoToBankButton;
-        private System.Windows.Forms.ListBox AwaitingTransactionListBox;
-        private System.Windows.Forms.ListBox DoneTransactionListBox;
-        private System.Windows.Forms.Label BankListLabel;
-        private System.Windows.Forms.Label AwaitingTransacjtionLabel;
-        private System.Windows.Forms.Label TransactionArchivesLabel;
-        private System.Windows.Forms.Button AddTransactionButton;
-        private System.Windows.Forms.Button RemoveTransactionButton;
-        private System.Windows.Forms.Button AuthorizeTransactionButton;
+        private System.Windows.Forms.Label LabelCentrumTransakcji;
+        private System.Windows.Forms.ListBox ListBoxBanks;
+        private System.Windows.Forms.Button ButtonAddBank;
+        private System.Windows.Forms.Button ButtonRemoveBank;
+        private System.Windows.Forms.Button ButtonEditBank;
+        private System.Windows.Forms.Button ButtonGoToBank;
+        private System.Windows.Forms.ListBox ListBoxAwaitingTransaction;
+        private System.Windows.Forms.ListBox ListBoxDoneTransaction;
+        private System.Windows.Forms.Label LabelBankList;
+        private System.Windows.Forms.Label LabelAwaitingTransacjtion;
+        private System.Windows.Forms.Label LabelTransactionArchives;
+        private System.Windows.Forms.Button ButtonAddTransaction;
+        private System.Windows.Forms.Button ButtonRemoveTransaction;
+        private System.Windows.Forms.Button ButtonAuthorizeTransaction;
     }
 }
