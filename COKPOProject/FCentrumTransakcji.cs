@@ -28,12 +28,16 @@ namespace COKPOProject
             UzupelnijListe();
         }
 
+        //
+        //Metody użytkowe
+        //
+
         //Odświeżanie/uzupełnianie listy banków
         private void UzupelnijListe()
         {
             ListBoxBanks.BeginUpdate();
             ListBoxBanks.Items.Clear();
-            foreach (Bank bank in centrumTransakcji.GetBanki())
+            foreach (var bank in centrumTransakcji.GetBanki())
             {
                 ListBoxBanks.Items.Add(bank);
             }
@@ -49,7 +53,7 @@ namespace COKPOProject
         {
             try
             {
-                FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
+                var fDodajBankPopUp = new FDodajBankPopUp();
                 fDodajBankPopUp.ShowDialog();
                 centrumTransakcji.DodajBank(fDodajBankPopUp.ReturnBankName());
                 ListBoxBanks.BeginUpdate();
@@ -78,12 +82,11 @@ namespace COKPOProject
             {
                 try
                 {
-                    FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
+                    var fDodajBankPopUp = new FDodajBankPopUp();
                     fDodajBankPopUp.ShowDialog();
                     ListBoxBanks.BeginUpdate();
-                    if (ListBoxBanks.SelectedItem is Bank)
+                    if (ListBoxBanks.SelectedItem is Bank tmp)
                     {
-                        Bank tmp = (Bank)ListBoxBanks.SelectedItem;
                         tmp.SetNazwaBanku(fDodajBankPopUp.ReturnBankName());
                         ListBoxBanks.Items.Clear();
                         UzupelnijListe();
@@ -103,7 +106,7 @@ namespace COKPOProject
         {
             if (ListBoxBanks.SelectedItem != null)
             {
-                FBank fBank = new FBank((Bank)ListBoxBanks.SelectedItem, this);
+                var fBank = new FBank((Bank)ListBoxBanks.SelectedItem, this);
                 this.Hide();
                 fBank.ShowDialog();
             }

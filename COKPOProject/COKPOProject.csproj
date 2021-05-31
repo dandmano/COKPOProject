@@ -60,11 +60,23 @@
     <Compile Include="FCentrumTransakcji.Designer.cs">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="FZmienLimitKredytuPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FZmienLimitKredytuPopUp.Designer.cs">
+      <DependentUpon>FZmienLimitKredytuPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FDodajBankPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FDodajBankPopUp.Designer.cs">
       <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDodajKartePopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDodajKartePopUp.Designer.cs">
+      <DependentUpon>FDodajKartePopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FDodajKlientaPopUp.cs">
       <SubType>Form</SubType>
@@ -96,8 +108,14 @@
     <EmbeddedResource Include="FCentrumTransakcji.resx">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FZmienLimitKredytuPopUp.resx">
+      <DependentUpon>FZmienLimitKredytuPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FDodajBankPopUp.resx">
       <DependentUpon>FDodajBankPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDodajKartePopUp.resx">
+      <DependentUpon>FDodajKartePopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FDodajKlientaPopUp.resx">
       <DependentUpon>FDodajKlientaPopUp.cs</DependentUpon>

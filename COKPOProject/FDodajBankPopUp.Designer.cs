@@ -44,7 +44,7 @@ namespace COKPOProject
             this.TextBoxBankName.TabIndex = 0;
             this.TextBoxBankName.Text = "Wpisz nazwę banku";
             this.TextBoxBankName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TextBoxBankName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DodajBankTextBox_KeyDown);
+            this.TextBoxBankName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAddBank_KeyDown);
             // 
             // ButtonBankAddAccept
             // 
@@ -64,7 +64,7 @@ namespace COKPOProject
             this.ButtonBankAddCancel.TabIndex = 2;
             this.ButtonBankAddCancel.Text = "Anuluj";
             this.ButtonBankAddCancel.UseVisualStyleBackColor = true;
-            this.ButtonBankAddCancel.Click += new System.EventHandler(this.BankAddCancenButton_Click);
+            this.ButtonBankAddCancel.Click += new System.EventHandler(this.BankAddCancelButton_Click);
             // 
             // FDodajBankPopUp
             // 

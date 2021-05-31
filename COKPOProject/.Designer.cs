@@ -63,8 +63,10 @@ namespace COKPOProject
             this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.ButtonBegin);
             this.Controls.Add(this.LabelMainMenuText);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FStronaGlowna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Centrum Obsługi Kart Płatniczych";

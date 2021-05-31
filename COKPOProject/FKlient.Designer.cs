@@ -31,19 +31,23 @@ namespace COKPOProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKlient));
             this.ClientiLabel = new System.Windows.Forms.Label();
-            this.CardListBox = new System.Windows.Forms.ListBox();
-            this.ClientButtonBack = new System.Windows.Forms.Button();
-            this.GoToCardButton = new System.Windows.Forms.Button();
-            this.AddCardButton = new System.Windows.Forms.Button();
-            this.CardRemoveButton = new System.Windows.Forms.Button();
-            this.ChangeClientNameButton = new System.Windows.Forms.Button();
-            this.RegisterTransactionButton = new System.Windows.Forms.Button();
-            this.NrKartyLabel = new System.Windows.Forms.Label();
-            this.NrKartyTextBox = new System.Windows.Forms.TextBox();
-            this.SaldoLabel = new System.Windows.Forms.Label();
-            this.SaldoTextBox = new System.Windows.Forms.TextBox();
-            this.BankLabel = new System.Windows.Forms.Label();
-            this.BankTextBox = new System.Windows.Forms.TextBox();
+            this.ListBoxCards = new System.Windows.Forms.ListBox();
+            this.ButtonClientReturn = new System.Windows.Forms.Button();
+            this.ButtonAddCard = new System.Windows.Forms.Button();
+            this.ButtonDeleteCard = new System.Windows.Forms.Button();
+            this.ButtonRegisterTransaction = new System.Windows.Forms.Button();
+            this.LabelCardNumber = new System.Windows.Forms.Label();
+            this.TextBoxCardNumber = new System.Windows.Forms.TextBox();
+            this.LabelSaldo = new System.Windows.Forms.Label();
+            this.TextBoxSaldo = new System.Windows.Forms.TextBox();
+            this.LabelBank = new System.Windows.Forms.Label();
+            this.TextBoxBank = new System.Windows.Forms.TextBox();
+            this.LabelListBoxCards = new System.Windows.Forms.Label();
+            this.LabelCardType = new System.Windows.Forms.Label();
+            this.TextBoxCardType = new System.Windows.Forms.TextBox();
+            this.LabelCreditLimit = new System.Windows.Forms.Label();
+            this.TextBoxCreditLimit = new System.Windows.Forms.TextBox();
+            this.ButtonChangeCreditLimit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ClientiLabel
@@ -55,175 +59,224 @@ namespace COKPOProject
             this.ClientiLabel.Size = new System.Drawing.Size(89, 34);
             this.ClientiLabel.TabIndex = 1;
             this.ClientiLabel.Text = "Klient";
-            this.ClientiLabel.Click += new System.EventHandler(this.ClientiLabel_Click);
             // 
-            // CardListBox
+            // ListBoxCards
             // 
-            this.CardListBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CardListBox.FormattingEnabled = true;
-            this.CardListBox.ItemHeight = 22;
-            this.CardListBox.Location = new System.Drawing.Point(12, 101);
-            this.CardListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CardListBox.Name = "CardListBox";
-            this.CardListBox.Size = new System.Drawing.Size(351, 444);
-            this.CardListBox.Sorted = true;
-            this.CardListBox.TabIndex = 6;
-            this.CardListBox.SelectedIndexChanged += new System.EventHandler(this.CardListBox_SelectedIndexChanged);
+            this.ListBoxCards.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ListBoxCards.FormattingEnabled = true;
+            this.ListBoxCards.ItemHeight = 22;
+            this.ListBoxCards.Location = new System.Drawing.Point(12, 121);
+            this.ListBoxCards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxCards.Name = "ListBoxCards";
+            this.ListBoxCards.Size = new System.Drawing.Size(351, 444);
+            this.ListBoxCards.Sorted = true;
+            this.ListBoxCards.TabIndex = 6;
+            this.ListBoxCards.SelectedIndexChanged += new System.EventHandler(this.ListBoxCards_SelectedIndexChanged);
             // 
-            // ClientButtonBack
+            // ButtonClientReturn
             // 
-            this.ClientButtonBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ClientButtonBack.Location = new System.Drawing.Point(1073, 690);
-            this.ClientButtonBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ClientButtonBack.Name = "ClientButtonBack";
-            this.ClientButtonBack.Size = new System.Drawing.Size(93, 49);
-            this.ClientButtonBack.TabIndex = 12;
-            this.ClientButtonBack.Text = "Wstecz";
-            this.ClientButtonBack.UseVisualStyleBackColor = true;
-            this.ClientButtonBack.Click += new System.EventHandler(this.ClientButtonBack_Click);
+            this.ButtonClientReturn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonClientReturn.Location = new System.Drawing.Point(1050, 678);
+            this.ButtonClientReturn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonClientReturn.Name = "ButtonClientReturn";
+            this.ButtonClientReturn.Size = new System.Drawing.Size(93, 49);
+            this.ButtonClientReturn.TabIndex = 12;
+            this.ButtonClientReturn.Text = "Wstecz";
+            this.ButtonClientReturn.UseVisualStyleBackColor = true;
+            this.ButtonClientReturn.Click += new System.EventHandler(this.ButtonClientReturn_Click);
             // 
-            // GoToCardButton
+            // ButtonAddCard
             // 
-            this.GoToCardButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.GoToCardButton.Location = new System.Drawing.Point(842, 101);
-            this.GoToCardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GoToCardButton.Name = "GoToCardButton";
-            this.GoToCardButton.Size = new System.Drawing.Size(267, 49);
-            this.GoToCardButton.TabIndex = 13;
-            this.GoToCardButton.Text = "Przejdź do Karty";
-            this.GoToCardButton.UseVisualStyleBackColor = true;
-            this.GoToCardButton.Click += new System.EventHandler(this.GoToCardButton_Click);
+            this.ButtonAddCard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonAddCard.Location = new System.Drawing.Point(876, 171);
+            this.ButtonAddCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddCard.Name = "ButtonAddCard";
+            this.ButtonAddCard.Size = new System.Drawing.Size(267, 49);
+            this.ButtonAddCard.TabIndex = 14;
+            this.ButtonAddCard.Text = "Dodaj Kartę";
+            this.ButtonAddCard.UseVisualStyleBackColor = true;
+            this.ButtonAddCard.Click += new System.EventHandler(this.ButtonAddCard_Click);
             // 
-            // AddCardButton
+            // ButtonDeleteCard
             // 
-            this.AddCardButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.AddCardButton.Location = new System.Drawing.Point(842, 156);
-            this.AddCardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AddCardButton.Name = "AddCardButton";
-            this.AddCardButton.Size = new System.Drawing.Size(267, 49);
-            this.AddCardButton.TabIndex = 14;
-            this.AddCardButton.Text = "Dodaj Kartę";
-            this.AddCardButton.UseVisualStyleBackColor = true;
+            this.ButtonDeleteCard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonDeleteCard.Location = new System.Drawing.Point(876, 259);
+            this.ButtonDeleteCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonDeleteCard.Name = "ButtonDeleteCard";
+            this.ButtonDeleteCard.Size = new System.Drawing.Size(267, 49);
+            this.ButtonDeleteCard.TabIndex = 15;
+            this.ButtonDeleteCard.Text = "Usuń Kartę";
+            this.ButtonDeleteCard.UseVisualStyleBackColor = true;
+            this.ButtonDeleteCard.Click += new System.EventHandler(this.ButtonDeleteCard_Click);
             // 
-            // CardRemoveButton
+            // ButtonRegisterTransaction
             // 
-            this.CardRemoveButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.CardRemoveButton.Location = new System.Drawing.Point(842, 209);
-            this.CardRemoveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CardRemoveButton.Name = "CardRemoveButton";
-            this.CardRemoveButton.Size = new System.Drawing.Size(267, 49);
-            this.CardRemoveButton.TabIndex = 15;
-            this.CardRemoveButton.Text = "Usuń Kartę";
-            this.CardRemoveButton.UseVisualStyleBackColor = true;
+            this.ButtonRegisterTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonRegisterTransaction.Location = new System.Drawing.Point(876, 343);
+            this.ButtonRegisterTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonRegisterTransaction.Name = "ButtonRegisterTransaction";
+            this.ButtonRegisterTransaction.Size = new System.Drawing.Size(267, 49);
+            this.ButtonRegisterTransaction.TabIndex = 17;
+            this.ButtonRegisterTransaction.Text = "Rejestruj Transakcję";
+            this.ButtonRegisterTransaction.UseVisualStyleBackColor = true;
+            this.ButtonRegisterTransaction.Visible = false;
             // 
-            // ChangeClientNameButton
+            // LabelCardNumber
             // 
-            this.ChangeClientNameButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ChangeClientNameButton.Location = new System.Drawing.Point(842, 262);
-            this.ChangeClientNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ChangeClientNameButton.Name = "ChangeClientNameButton";
-            this.ChangeClientNameButton.Size = new System.Drawing.Size(267, 49);
-            this.ChangeClientNameButton.TabIndex = 16;
-            this.ChangeClientNameButton.Text = "Zmień Nazwę Klienta";
-            this.ChangeClientNameButton.UseVisualStyleBackColor = true;
+            this.LabelCardNumber.AutoSize = true;
+            this.LabelCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCardNumber.Location = new System.Drawing.Point(460, 197);
+            this.LabelCardNumber.Name = "LabelCardNumber";
+            this.LabelCardNumber.Size = new System.Drawing.Size(130, 23);
+            this.LabelCardNumber.TabIndex = 19;
+            this.LabelCardNumber.Text = "Numer Karty";
             // 
-            // RegisterTransactionButton
+            // TextBoxCardNumber
             // 
-            this.RegisterTransactionButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.RegisterTransactionButton.Location = new System.Drawing.Point(842, 515);
-            this.RegisterTransactionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RegisterTransactionButton.Name = "RegisterTransactionButton";
-            this.RegisterTransactionButton.Size = new System.Drawing.Size(267, 49);
-            this.RegisterTransactionButton.TabIndex = 17;
-            this.RegisterTransactionButton.Text = "Rejestruj Transakcję";
-            this.RegisterTransactionButton.UseVisualStyleBackColor = true;
-            this.RegisterTransactionButton.Visible = false;
+            this.TextBoxCardNumber.BackColor = System.Drawing.Color.White;
+            this.TextBoxCardNumber.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TextBoxCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxCardNumber.Location = new System.Drawing.Point(464, 223);
+            this.TextBoxCardNumber.Name = "TextBoxCardNumber";
+            this.TextBoxCardNumber.ReadOnly = true;
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(309, 32);
+            this.TextBoxCardNumber.TabIndex = 18;
             // 
-            // NrKartyLabel
+            // LabelSaldo
             // 
-            this.NrKartyLabel.AutoSize = true;
-            this.NrKartyLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NrKartyLabel.Location = new System.Drawing.Point(435, 95);
-            this.NrKartyLabel.Name = "NrKartyLabel";
-            this.NrKartyLabel.Size = new System.Drawing.Size(130, 23);
-            this.NrKartyLabel.TabIndex = 19;
-            this.NrKartyLabel.Text = "Numer Karty";
+            this.LabelSaldo.AutoSize = true;
+            this.LabelSaldo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelSaldo.Location = new System.Drawing.Point(460, 285);
+            this.LabelSaldo.Name = "LabelSaldo";
+            this.LabelSaldo.Size = new System.Drawing.Size(64, 23);
+            this.LabelSaldo.TabIndex = 21;
+            this.LabelSaldo.Text = "Saldo";
             // 
-            // NrKartyTextBox
+            // TextBoxSaldo
             // 
-            this.NrKartyTextBox.BackColor = System.Drawing.Color.White;
-            this.NrKartyTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NrKartyTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NrKartyTextBox.Location = new System.Drawing.Point(439, 121);
-            this.NrKartyTextBox.Name = "NrKartyTextBox";
-            this.NrKartyTextBox.ReadOnly = true;
-            this.NrKartyTextBox.Size = new System.Drawing.Size(267, 32);
-            this.NrKartyTextBox.TabIndex = 18;
+            this.TextBoxSaldo.BackColor = System.Drawing.Color.White;
+            this.TextBoxSaldo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TextBoxSaldo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxSaldo.Location = new System.Drawing.Point(464, 311);
+            this.TextBoxSaldo.Name = "TextBoxSaldo";
+            this.TextBoxSaldo.ReadOnly = true;
+            this.TextBoxSaldo.Size = new System.Drawing.Size(309, 32);
+            this.TextBoxSaldo.TabIndex = 20;
             // 
-            // SaldoLabel
+            // LabelBank
             // 
-            this.SaldoLabel.AutoSize = true;
-            this.SaldoLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SaldoLabel.Location = new System.Drawing.Point(435, 183);
-            this.SaldoLabel.Name = "SaldoLabel";
-            this.SaldoLabel.Size = new System.Drawing.Size(64, 23);
-            this.SaldoLabel.TabIndex = 21;
-            this.SaldoLabel.Text = "Saldo";
+            this.LabelBank.AutoSize = true;
+            this.LabelBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelBank.Location = new System.Drawing.Point(460, 369);
+            this.LabelBank.Name = "LabelBank";
+            this.LabelBank.Size = new System.Drawing.Size(59, 23);
+            this.LabelBank.TabIndex = 23;
+            this.LabelBank.Text = "Bank";
             // 
-            // SaldoTextBox
+            // TextBoxBank
             // 
-            this.SaldoTextBox.BackColor = System.Drawing.Color.White;
-            this.SaldoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.SaldoTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SaldoTextBox.Location = new System.Drawing.Point(439, 209);
-            this.SaldoTextBox.Name = "SaldoTextBox";
-            this.SaldoTextBox.ReadOnly = true;
-            this.SaldoTextBox.Size = new System.Drawing.Size(267, 32);
-            this.SaldoTextBox.TabIndex = 20;
+            this.TextBoxBank.BackColor = System.Drawing.Color.White;
+            this.TextBoxBank.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TextBoxBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxBank.Location = new System.Drawing.Point(464, 395);
+            this.TextBoxBank.Name = "TextBoxBank";
+            this.TextBoxBank.ReadOnly = true;
+            this.TextBoxBank.Size = new System.Drawing.Size(309, 32);
+            this.TextBoxBank.TabIndex = 22;
             // 
-            // BankLabel
+            // LabelListBoxCards
             // 
-            this.BankLabel.AutoSize = true;
-            this.BankLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BankLabel.Location = new System.Drawing.Point(435, 273);
-            this.BankLabel.Name = "BankLabel";
-            this.BankLabel.Size = new System.Drawing.Size(59, 23);
-            this.BankLabel.TabIndex = 23;
-            this.BankLabel.Text = "Bank";
+            this.LabelListBoxCards.AutoSize = true;
+            this.LabelListBoxCards.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelListBoxCards.Location = new System.Drawing.Point(12, 95);
+            this.LabelListBoxCards.Name = "LabelListBoxCards";
+            this.LabelListBoxCards.Size = new System.Drawing.Size(140, 23);
+            this.LabelListBoxCards.TabIndex = 24;
+            this.LabelListBoxCards.Text = "Lista Klientów";
             // 
-            // BankTextBox
+            // LabelCardType
             // 
-            this.BankTextBox.BackColor = System.Drawing.Color.White;
-            this.BankTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.BankTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BankTextBox.Location = new System.Drawing.Point(439, 299);
-            this.BankTextBox.Name = "BankTextBox";
-            this.BankTextBox.ReadOnly = true;
-            this.BankTextBox.Size = new System.Drawing.Size(267, 32);
-            this.BankTextBox.TabIndex = 22;
+            this.LabelCardType.AutoSize = true;
+            this.LabelCardType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCardType.Location = new System.Drawing.Point(460, 117);
+            this.LabelCardType.Name = "LabelCardType";
+            this.LabelCardType.Size = new System.Drawing.Size(98, 23);
+            this.LabelCardType.TabIndex = 26;
+            this.LabelCardType.Text = "Typ Karty";
+            // 
+            // TextBoxCardType
+            // 
+            this.TextBoxCardType.BackColor = System.Drawing.Color.White;
+            this.TextBoxCardType.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TextBoxCardType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxCardType.Location = new System.Drawing.Point(464, 143);
+            this.TextBoxCardType.Name = "TextBoxCardType";
+            this.TextBoxCardType.ReadOnly = true;
+            this.TextBoxCardType.Size = new System.Drawing.Size(309, 32);
+            this.TextBoxCardType.TabIndex = 25;
+            // 
+            // LabelCreditLimit
+            // 
+            this.LabelCreditLimit.AutoSize = true;
+            this.LabelCreditLimit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCreditLimit.Location = new System.Drawing.Point(460, 507);
+            this.LabelCreditLimit.Name = "LabelCreditLimit";
+            this.LabelCreditLimit.Size = new System.Drawing.Size(134, 23);
+            this.LabelCreditLimit.TabIndex = 28;
+            this.LabelCreditLimit.Text = "Limit Kredytu";
+            this.LabelCreditLimit.Visible = false;
+            // 
+            // TextBoxCreditLimit
+            // 
+            this.TextBoxCreditLimit.BackColor = System.Drawing.Color.White;
+            this.TextBoxCreditLimit.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TextBoxCreditLimit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxCreditLimit.Location = new System.Drawing.Point(464, 533);
+            this.TextBoxCreditLimit.Name = "TextBoxCreditLimit";
+            this.TextBoxCreditLimit.ReadOnly = true;
+            this.TextBoxCreditLimit.Size = new System.Drawing.Size(309, 32);
+            this.TextBoxCreditLimit.TabIndex = 27;
+            this.TextBoxCreditLimit.Visible = false;
+            // 
+            // ButtonChangeCreditLimit
+            // 
+            this.ButtonChangeCreditLimit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonChangeCreditLimit.Location = new System.Drawing.Point(876, 523);
+            this.ButtonChangeCreditLimit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonChangeCreditLimit.Name = "ButtonChangeCreditLimit";
+            this.ButtonChangeCreditLimit.Size = new System.Drawing.Size(267, 49);
+            this.ButtonChangeCreditLimit.TabIndex = 29;
+            this.ButtonChangeCreditLimit.Text = "Zmień limit kredytu";
+            this.ButtonChangeCreditLimit.UseVisualStyleBackColor = true;
+            this.ButtonChangeCreditLimit.Visible = false;
+            this.ButtonChangeCreditLimit.Click += new System.EventHandler(this.ButtonChangeCreditLimit_Click);
             // 
             // FKlient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 753);
-            this.Controls.Add(this.BankLabel);
-            this.Controls.Add(this.BankTextBox);
-            this.Controls.Add(this.SaldoLabel);
-            this.Controls.Add(this.SaldoTextBox);
-            this.Controls.Add(this.NrKartyLabel);
-            this.Controls.Add(this.NrKartyTextBox);
-            this.Controls.Add(this.RegisterTransactionButton);
-            this.Controls.Add(this.ChangeClientNameButton);
-            this.Controls.Add(this.CardRemoveButton);
-            this.Controls.Add(this.AddCardButton);
-            this.Controls.Add(this.GoToCardButton);
-            this.Controls.Add(this.ClientButtonBack);
-            this.Controls.Add(this.CardListBox);
+            this.Controls.Add(this.ButtonChangeCreditLimit);
+            this.Controls.Add(this.LabelCreditLimit);
+            this.Controls.Add(this.TextBoxCreditLimit);
+            this.Controls.Add(this.LabelCardType);
+            this.Controls.Add(this.TextBoxCardType);
+            this.Controls.Add(this.LabelListBoxCards);
+            this.Controls.Add(this.LabelBank);
+            this.Controls.Add(this.TextBoxBank);
+            this.Controls.Add(this.LabelSaldo);
+            this.Controls.Add(this.TextBoxSaldo);
+            this.Controls.Add(this.LabelCardNumber);
+            this.Controls.Add(this.TextBoxCardNumber);
+            this.Controls.Add(this.ButtonRegisterTransaction);
+            this.Controls.Add(this.ButtonDeleteCard);
+            this.Controls.Add(this.ButtonAddCard);
+            this.Controls.Add(this.ButtonClientReturn);
+            this.Controls.Add(this.ListBoxCards);
             this.Controls.Add(this.ClientiLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FKlient";
@@ -238,18 +291,22 @@ namespace COKPOProject
         #endregion
 
         private System.Windows.Forms.Label ClientiLabel;
-        private System.Windows.Forms.ListBox CardListBox;
-        private System.Windows.Forms.Button ClientButtonBack;
-        private System.Windows.Forms.Button GoToCardButton;
-        private System.Windows.Forms.Button AddCardButton;
-        private System.Windows.Forms.Button CardRemoveButton;
-        private System.Windows.Forms.Button ChangeClientNameButton;
-        private System.Windows.Forms.Button RegisterTransactionButton;
-        private System.Windows.Forms.Label NrKartyLabel;
-        private System.Windows.Forms.TextBox NrKartyTextBox;
-        private System.Windows.Forms.Label SaldoLabel;
-        private System.Windows.Forms.TextBox SaldoTextBox;
-        private System.Windows.Forms.Label BankLabel;
-        private System.Windows.Forms.TextBox BankTextBox;
+        private System.Windows.Forms.ListBox ListBoxCards;
+        private System.Windows.Forms.Button ButtonClientReturn;
+        private System.Windows.Forms.Button ButtonAddCard;
+        private System.Windows.Forms.Button ButtonDeleteCard;
+        private System.Windows.Forms.Button ButtonRegisterTransaction;
+        private System.Windows.Forms.Label LabelCardNumber;
+        private System.Windows.Forms.TextBox TextBoxCardNumber;
+        private System.Windows.Forms.Label LabelSaldo;
+        private System.Windows.Forms.TextBox TextBoxSaldo;
+        private System.Windows.Forms.Label LabelBank;
+        private System.Windows.Forms.TextBox TextBoxBank;
+        private System.Windows.Forms.Label LabelListBoxCards;
+        private System.Windows.Forms.Label LabelCardType;
+        private System.Windows.Forms.TextBox TextBoxCardType;
+        private System.Windows.Forms.Label LabelCreditLimit;
+        private System.Windows.Forms.TextBox TextBoxCreditLimit;
+        private System.Windows.Forms.Button ButtonChangeCreditLimit;
     }
 }

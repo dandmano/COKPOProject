@@ -12,123 +12,121 @@ namespace COKPOProject
 {
     public partial class FBank : Form
     {
-        private Bank bank;
-        private FCentrumTransakcji previusform;
+        private readonly Bank bank;
+        private readonly FCentrumTransakcji previusform;
+
+        //Konstruktor Forma
         public FBank(Bank bank, FCentrumTransakcji fCentrumTransakcji)
         {
             this.bank = bank;
             this.previusform = fCentrumTransakcji;
             InitializeComponent();
-            BankLabel.Text = bank.GetNazwaBanku();
+            LabelBank.Text = bank.GetNazwaBanku();
             UpdateClientList();
         }
 
+        //Metoda uruchamiająca się przy ładowaniu
         private void FBank_Load(object sender, EventArgs e)
         {
-            BankLabel.Text = bank.GetNazwaBanku();
+            LabelBank.Text = bank.GetNazwaBanku();
             UpdateClientList();
         }
 
-        private void ButtonChangeBankName_Click(object sender, EventArgs e)
+        //
+        //Metody użytkowe
+        //
+
+        //Metoda aktualizująca/uzupełniająca listę klientów
+        private void UpdateClientList()
         {
-
-            try
+            ListBoxClients.Update();
+            ListBoxClients.Items.Clear();
+            foreach (var klient in bank.GetKlienci())
             {
-                FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
-                fDodajBankPopUp.ShowDialog();
-
-                bank.SetNazwaBanku(fDodajBankPopUp.ReturnBankName());
-                BankLabel.Text = bank.GetNazwaBanku();
-
+                ListBoxClients.Items.Add(klient);
             }
-            catch (Exception ex)
-            {
-                //XD
-            }
-
+            ListBoxClients.EndUpdate();
         }
 
+        //
+        // Metody przycisków oraz wydarzeń
+        //
+
+        //Metoda przycisku - Wstecz
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             previusform.Show();
             this.Close();
         }
 
-        private void UpdateClientList()
+        //Metoda przycisku - Wszyscy Klienci
+        private void ButtonAllClients_Click(object sender, EventArgs e)
         {
-            ClientListBox.Update();
-            ClientListBox.Items.Clear();
-            foreach (Klient klient in bank.GetKlienci())
-            {
-                ClientListBox.Items.Add(klient);
-            }
-            ClientListBox.EndUpdate();
+            UpdateClientList();
         }
 
-        private void ButtonOpenClient_Click(object sender, EventArgs e)
+        //Metoda przycisku - Zwykli Klienci
+        private void ButtonNormalClient_Click(object sender, EventArgs e)
         {
-            if (ClientListBox.SelectedItem != null)
+            ListBoxClients.Update();
+            ListBoxClients.Items.Clear();
+            foreach (var klient in bank.GetKlienci())
             {
-                FKlient fKlient = new FKlient((Klient)ClientListBox.SelectedItem, this);
+                if (klient is KlientZwykly)
+                    ListBoxClients.Items.Add(klient);
+            }
+            ListBoxClients.EndUpdate();
+        }
+
+        //Metoda przycisku - Klienci Centrum
+        private void ButtonClientCentrum_Click(object sender, EventArgs e)
+        {
+            ListBoxClients.Update();
+            ListBoxClients.Items.Clear();
+            foreach (var klient in bank.GetKlienci())
+            {
+                if (klient is KlientCentrum)
+                    ListBoxClients.Items.Add(klient);
+            }
+            ListBoxClients.EndUpdate();
+        }
+
+        //Metoda przycisku - Przejdź do klienta
+        private void ButtonGoToClient_Click(object sender, EventArgs e)
+        {
+            if (ListBoxClients.SelectedItem != null)
+            {
+                var fKlient = new FKlient((Klient)ListBoxClients.SelectedItem, this);
                 this.Hide();
                 fKlient.ShowDialog();
             }
             else MessageBox.Show("Wybierz klienta do którego chcesz przejść");
         }
 
-        private void ButtonAllClients_Click(object sender, EventArgs e)
-        {
-            UpdateClientList();
-        }
-
-        private void ButtonNormalClient_Click(object sender, EventArgs e)
-        {
-            ClientListBox.Update();
-            ClientListBox.Items.Clear();
-            foreach (Klient klient in bank.GetKlienci())
-            {
-                if (klient is KlientZwykly)
-                    ClientListBox.Items.Add(klient);
-            }
-            ClientListBox.EndUpdate();
-        }
-
-        private void ButtonClientCentrum_Click(object sender, EventArgs e)
-        {
-            ClientListBox.Update();
-            ClientListBox.Items.Clear();
-            foreach (Klient klient in bank.GetKlienci())
-            {
-                if (klient is KlientCentrum)
-                    ClientListBox.Items.Add(klient);
-            }
-            ClientListBox.EndUpdate();
-        }
-
+        //Metoda przycisku - Dodaj Klienta
         private void ButtonAddClient_Click(object sender, EventArgs e)
         {
             try
             {
-                FDodajKlientaPopUp fDodajKlientaPopUp = new FDodajKlientaPopUp(bank);
+                var fDodajKlientaPopUp = new FDodajKlientaPopUp(bank);
                 fDodajKlientaPopUp.ShowDialog();
-                Klient klient = fDodajKlientaPopUp.GetKlientt();
-                bank.GetKlienci().Add(klient);
                 UpdateClientList();
             }
-            catch (Exception ex)
+            catch
             {
                 //XD
             }
         }
 
+        //Metoda przycisku - Usuń Klienta
         private void ButtonDeleteCustomer_Click(object sender, EventArgs e)
         {
-            if (ClientListBox.SelectedItem != null)
+            if (ListBoxClients.SelectedItem != null)
             {
-                bank.GetKlienci().Remove((Klient)ClientListBox.SelectedItem);
-                ClientListBox.Update();
-                ClientListBox.Items.Remove(ClientListBox.SelectedItem);
-                ClientListBox.EndUpdate();
+                bank.GetKlienci().Remove((Klient)ListBoxClients.SelectedItem);
+                ListBoxClients.Update();
+                ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
+                ListBoxClients.EndUpdate();
             }
             else
             {
@@ -136,23 +134,24 @@ namespace COKPOProject
             }
         }
 
+        //Metoda przycisku - Zmień nazwę klienta
         private void ButtonChangeClientsName_Click(object sender, EventArgs e)
         {
-            if (ClientListBox.SelectedItem != null)
+            if (ListBoxClients.SelectedItem != null)
             {
                 try
                 {
-                    Klient tmp = bank.GetKlienci().Find(x => x == (Klient)ClientListBox.SelectedItem);
-                    FDodajBankPopUp f = new FDodajBankPopUp();
+                    var tmp = bank.GetKlienci().Find(x => x == (Klient)ListBoxClients.SelectedItem);
+                    var f = new FDodajBankPopUp();
                     f.ChangeTextBoxTextValue("Wpisz nazwę klienta");
                     f.ShowDialog();
                     tmp.SetNazwa(f.ReturnBankName());
-                    ClientListBox.Update();
-                    ClientListBox.Items.Remove(ClientListBox.SelectedItem);
-                    ClientListBox.Items.Add(tmp);
-                    ClientListBox.EndUpdate();
+                    ListBoxClients.Update();
+                    ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
+                    ListBoxClients.Items.Add(tmp);
+                    ListBoxClients.EndUpdate();
                 }
-                catch (Exception ex)
+                catch
                 {
                     //XD
                 }

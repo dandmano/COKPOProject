@@ -17,7 +17,11 @@ namespace COKPOProject
         {
             InitializeComponent();
         }
+
+        //
         //Metody użytkowe
+        //
+
         public string ReturnBankName()
         {
             return TextBoxBankName.Text;
@@ -32,7 +36,7 @@ namespace COKPOProject
         //
 
         //Metoda wydarzenia Text boxu Banku - jak wciśnięty enter
-        private void DodajBankTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void TextBoxAddBank_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) this.Close();
         }
@@ -44,7 +48,7 @@ namespace COKPOProject
         }
 
         //Metoda przycisku - Anuluj
-        private void BankAddCancenButton_Click(object sender, EventArgs e)
+        private void BankAddCancelButton_Click(object sender, EventArgs e)
         {
             throw new Exception("Anulowano");
         }
