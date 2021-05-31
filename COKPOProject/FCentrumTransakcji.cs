@@ -51,7 +51,7 @@ namespace COKPOProject
             {
                 FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
                 fDodajBankPopUp.ShowDialog();
-                centrumTransakcji.DodajBank(fDodajBankPopUp.ZwrocNazweBanku());
+                centrumTransakcji.DodajBank(fDodajBankPopUp.ReturnBankName());
                 ListBoxBanks.BeginUpdate();
                 ListBoxBanks.Items.Add(centrumTransakcji.GetBanki().Last());
                 ListBoxBanks.EndUpdate();
@@ -84,7 +84,7 @@ namespace COKPOProject
                     if (ListBoxBanks.SelectedItem is Bank)
                     {
                         Bank tmp = (Bank)ListBoxBanks.SelectedItem;
-                        tmp.SetNazwaBanku(fDodajBankPopUp.ZwrocNazweBanku());
+                        tmp.SetNazwaBanku(fDodajBankPopUp.ReturnBankName());
                         ListBoxBanks.Items.Clear();
                         UzupelnijListe();
                     }

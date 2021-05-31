@@ -37,7 +37,7 @@ namespace COKPOProject
                 FDodajBankPopUp fDodajBankPopUp = new FDodajBankPopUp();
                 fDodajBankPopUp.ShowDialog();
 
-                bank.SetNazwaBanku(fDodajBankPopUp.ZwrocNazweBanku());
+                bank.SetNazwaBanku(fDodajBankPopUp.ReturnBankName());
                 BankLabel.Text = bank.GetNazwaBanku();
 
             }
@@ -144,9 +144,9 @@ namespace COKPOProject
                 {
                     Klient tmp = bank.GetKlienci().Find(x => x == (Klient)ClientListBox.SelectedItem);
                     FDodajBankPopUp f = new FDodajBankPopUp();
-                    f.zmiennazwewejsciowa("Wpisz nazwę klienta");
+                    f.ChangeTextBoxTextValue("Wpisz nazwę klienta");
                     f.ShowDialog();
-                    tmp.SetNazwa(f.ZwrocNazweBanku());
+                    tmp.SetNazwa(f.ReturnBankName());
                     ClientListBox.Update();
                     ClientListBox.Items.Remove(ClientListBox.SelectedItem);
                     ClientListBox.Items.Add(tmp);

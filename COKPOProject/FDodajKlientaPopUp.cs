@@ -13,120 +13,144 @@ namespace COKPOProject
     public partial class FDodajKlientaPopUp : Form
     {
         private Klient klient;
-        private string clientname = "";
-        private string numerkarty = "";
+        private string clientName = "";
+        private string cardNumber = "";
         private decimal saldo = -1;
-        private string saldoo = "";
-        private Bank bank;
+        private readonly Bank bank;
+
+        //Konstruktor forma
         public FDodajKlientaPopUp(Bank bank)
         {
             this.bank = bank;
             InitializeComponent();
         }
 
-        private void ChooseClientTypeBox_SelectedIndexChanged(object sender, EventArgs e)
-        { // 0-zwyklyklient 1-klientcentrum
-            if (ChooseClientTypeBox.SelectedIndex == 0)
+        //Metody użytkowe
+        public Klient GetKlientt() => klient;
+        //
+        // Metody przycisków oraz wydarzeń
+        //
+
+        //Metoda wykrycia zmiany zaznaczenia w comboboxie klienta
+        private void ComboBoxChooseClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 0-zwyklyklient 1-klientcentrum
+            switch (ComboBoxChooseClient.SelectedIndex)
             {
-                ClientNameTextBox.Text = "Imię i nazwisko";
+                case 0:
+                    TextBoxClientName.Text = "Imię i nazwisko";
+                    break;
+                case 1:
+                    TextBoxClientName.Text = "Nazwa firmy";
+                    break;
             }
-            else if (ChooseClientTypeBox.SelectedIndex == 1)
+
+            ComboBoxChooseClient.BackColor = Color.DarkSeaGreen;
+        }
+
+        //Metoda wykrywająca enter w textboxie klienta i akceptujaca nazwę
+        private void TextBoxClientName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                ClientNameTextBox.Text = "Nazwa firmy";
-            }
-        }
-
-        private void ClientNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            clientname = ClientNameTextBox.Text;
-        }
-
-        private void CardNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-            numerkarty = CardNumberTextBox.Text;
-        }
-
-        private void CardSaldoTextBox_TextChanged(object sender, EventArgs e)
-        {
-            saldoo = CardSaldoTextBox.Text;
-        }
-
-        private void AcceptButton2_Click(object sender, EventArgs e)
-        {
-            if (clientname == "" || ChooseClientTypeBox.SelectedIndex == -1 || ChooseCardTypeBox.SelectedIndex == -1)
-            {
-                MessageBox.Show("Wpisz i wybierz wymagane wartości!");
-            }
-            else //0-debetowa 1-kredytowa 2-bankomatowa
-            {
-                if (saldoo != "") saldo = decimal.Parse(saldoo);
-                if (ChooseClientTypeBox.SelectedIndex == 0 && ChooseCardTypeBox.SelectedIndex == 0)
-                {
-                    klient = new KlientZwykly(clientname, bank);
-                    klient.DodajKarte(0, saldo, numerkarty);
-                }
-                else if (ChooseClientTypeBox.SelectedIndex == 0 && ChooseCardTypeBox.SelectedIndex == 1)
-                {
-                    klient = new KlientZwykly(clientname, bank);
-                    klient.DodajKarte(1, saldo, numerkarty);
-                }
-                else if (ChooseClientTypeBox.SelectedIndex == 0 && ChooseCardTypeBox.SelectedIndex == 2)
-                {
-                    klient = new KlientZwykly(clientname, bank);
-                    klient.DodajKarte(2, saldo, numerkarty);
-                }
-                else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 0)
-                {
-                    klient = new KlientCentrum(clientname, bank);
-                    klient.DodajKarte(0, saldo, numerkarty);
-                }
-                else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 1)
-                {
-                    klient = new KlientCentrum(clientname, bank);
-                    klient.DodajKarte(1, saldo, numerkarty);
-                }
-                else if (ChooseClientTypeBox.SelectedIndex == 1 && ChooseCardTypeBox.SelectedIndex == 2)
-                {
-                    klient = new KlientCentrum(clientname, bank);
-                    klient.DodajKarte(2, saldo, numerkarty);
-                }
-                else
-                {
-                    MessageBox.Show("Błąd w elsie przy tworzeniu klienta");
-                }
-                Close();
+                clientName = TextBoxClientName.Text;
+                TextBoxClientName.BackColor = Color.DarkSeaGreen;
             }
         }
 
-        private void CancelButton2_Click(object sender, EventArgs e)
+        //Metoda wykrywająca enter w textboxie numeru karty i akceptujaca nazwę
+        private void TextBoxCardNumber_KeyDown(object sender, KeyEventArgs e)
         {
-            throw new Exception("Cancelbutton");
+            if (e.KeyCode == Keys.Enter)
+            {
+                cardNumber = TextBoxCardNumber.Text;
+                TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
+            }
         }
 
+        //Metoda wykrywająca enter w textboxie salda i akceptujaca saldo
+        private void TextBoxCardSaldo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                saldo = decimal.Parse(TextBoxCardNumber.Text);
+                TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
+            }
+        }
+
+        //Metoda przycisku - Akceptuj - akceptująca wprowadzone dane i kontynuująca program
+        private void ButtonAcceptAddClient_Click(object sender, EventArgs e)
+        {
+            if (clientName == "" || ComboBoxChooseClient.SelectedIndex == -1 || ComboBoxChooseCard.SelectedIndex == -1)
+            {
+                MessageBox.Show("Wpisz i wybierz wymagane wartości. Pamiętaj aby potwierdzić je enterem, żeby świeciły na zielono!");
+            }
+            else //ComboboxSelectedInex= 0-debetowa 1-kredytowa 2-bankomatowa
+            {    //Case= 0-Klient zwykły 1-klient Centrum
+                switch (ComboBoxChooseClient.SelectedIndex)
+                {
+                    case 0 when ComboBoxChooseCard.SelectedIndex == 0:
+                        klient = new KlientZwykly(clientName, bank);
+                        klient.DodajKarte(0, saldo, cardNumber);
+                        break;
+                    case 0 when ComboBoxChooseCard.SelectedIndex == 1:
+                        klient = new KlientZwykly(clientName, bank);
+                        klient.DodajKarte(1, saldo, cardNumber);
+                        break;
+                    case 0 when ComboBoxChooseCard.SelectedIndex == 2:
+                        klient = new KlientZwykly(clientName, bank);
+                        klient.DodajKarte(2, saldo, cardNumber);
+                        break;
+                    case 1 when ComboBoxChooseCard.SelectedIndex == 0:
+                        klient = new KlientCentrum(clientName, bank);
+                        klient.DodajKarte(0, saldo, cardNumber);
+                        break;
+                    case 1 when ComboBoxChooseCard.SelectedIndex == 1:
+                        klient = new KlientCentrum(clientName, bank);
+                        klient.DodajKarte(1, saldo, cardNumber);
+                        break;
+                    case 1 when ComboBoxChooseCard.SelectedIndex == 2:
+                        klient = new KlientCentrum(clientName, bank);
+                        klient.DodajKarte(2, saldo, cardNumber);
+                        break;
+                    default:
+                        throw new Exception("Błąd w wyborze opcji klienta!");
+                }
+            }
+            Close();
+        }
+
+        //Metoda przycisku - Anuluj - porzuca zmiany
+        private void ButtonCancelAddClient_Click(object sender, EventArgs e)
+        {
+            throw new Exception("Cancelbutton pressed");
+        }
+
+        //
+        //Metody obsługujące ograniczenia wpisywania w TextBoxach
+        //
+
+        //Metoda pozwalająca wpisywać liczby oraz przecinek do text boxu
         private void CardSaldoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
             {
                 e.Handled = true;
             }
 
-            // If you want, you can allow decimal (float) numbers
             if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
         }
 
+        //Metoda pozwalająca wpisywać tylko liczby
         private void CardNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
-
         }
-        public Klient GetKlientt() => klient;
     }
 }
