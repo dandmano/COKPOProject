@@ -53,7 +53,7 @@ namespace COKPOProject
             this.ComboBoxChooseClient.Location = new System.Drawing.Point(50, 72);
             this.ComboBoxChooseClient.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseClient.Name = "ComboBoxChooseClient";
-            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 27);
+            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 31);
             this.ComboBoxChooseClient.TabIndex = 0;
             this.ComboBoxChooseClient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseClient_SelectedIndexChanged);
             // 
@@ -63,7 +63,7 @@ namespace COKPOProject
             this.TextBoxClientName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxClientName.MaxLength = 30;
             this.TextBoxClientName.Name = "TextBoxClientName";
-            this.TextBoxClientName.Size = new System.Drawing.Size(406, 27);
+            this.TextBoxClientName.Size = new System.Drawing.Size(406, 32);
             this.TextBoxClientName.TabIndex = 1;
             // 
             // TextBoxCardNumber
@@ -73,7 +73,7 @@ namespace COKPOProject
             this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardNumber.MaxLength = 16;
             this.TextBoxCardNumber.Name = "TextBoxCardNumber";
-            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 27);
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 32);
             this.TextBoxCardNumber.TabIndex = 2;
             this.TextBoxCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardNumber_KeyPress);
             // 
@@ -84,7 +84,7 @@ namespace COKPOProject
             this.TextBoxCardSaldo.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardSaldo.MaxLength = 12;
             this.TextBoxCardSaldo.Name = "TextBoxCardSaldo";
-            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 27);
+            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 32);
             this.TextBoxCardSaldo.TabIndex = 3;
             this.TextBoxCardSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardSaldo_KeyPress);
             // 
@@ -98,7 +98,7 @@ namespace COKPOProject
             this.ComboBoxChooseCard.Location = new System.Drawing.Point(50, 199);
             this.ComboBoxChooseCard.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseCard.Name = "ComboBoxChooseCard";
-            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 27);
+            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 31);
             this.ComboBoxChooseCard.TabIndex = 4;
             // 
             // ButtonAcceptAddClient
@@ -114,6 +114,7 @@ namespace COKPOProject
             // 
             // ButtonCancelAddClient
             // 
+            this.ButtonCancelAddClient.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ButtonCancelAddClient.Location = new System.Drawing.Point(270, 377);
             this.ButtonCancelAddClient.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonCancelAddClient.Name = "ButtonCancelAddClient";
@@ -127,66 +128,62 @@ namespace COKPOProject
             // 
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelWarning.Location = new System.Drawing.Point(176, 9);
+            this.LabelWarning.Location = new System.Drawing.Point(154, 8);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(151, 25);
+            this.LabelWarning.Size = new System.Drawing.Size(193, 32);
             this.LabelWarning.TabIndex = 7;
             this.LabelWarning.Text = "Stwórz Klienta";
+            this.LabelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelChooseClientType
             // 
-            this.LabelChooseClientType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelChooseClientType.Location = new System.Drawing.Point(46, 40);
             this.LabelChooseClientType.Name = "LabelChooseClientType";
-            this.LabelChooseClientType.Size = new System.Drawing.Size(180, 28);
+            this.LabelChooseClientType.Size = new System.Drawing.Size(323, 28);
             this.LabelChooseClientType.TabIndex = 8;
             this.LabelChooseClientType.Text = "Wybierz rodzaj klienta";
-            this.LabelChooseClientType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelChooseClientType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelEnterClientName
             // 
-            this.LabelEnterClientName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelEnterClientName.Location = new System.Drawing.Point(46, 103);
+            this.LabelEnterClientName.Location = new System.Drawing.Point(46, 107);
             this.LabelEnterClientName.Name = "LabelEnterClientName";
-            this.LabelEnterClientName.Size = new System.Drawing.Size(166, 28);
+            this.LabelEnterClientName.Size = new System.Drawing.Size(323, 28);
             this.LabelEnterClientName.TabIndex = 9;
             this.LabelEnterClientName.Text = "Wpisz nazwę klienta";
             this.LabelEnterClientName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelChooseCardType
             // 
-            this.LabelChooseCardType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelChooseCardType.Location = new System.Drawing.Point(46, 167);
             this.LabelChooseCardType.Name = "LabelChooseCardType";
-            this.LabelChooseCardType.Size = new System.Drawing.Size(166, 28);
+            this.LabelChooseCardType.Size = new System.Drawing.Size(323, 28);
             this.LabelChooseCardType.TabIndex = 10;
             this.LabelChooseCardType.Text = "Wybierz rodzaj karty";
-            this.LabelChooseCardType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelChooseCardType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelCardNumber
             // 
-            this.LabelCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelCardNumber.Location = new System.Drawing.Point(46, 230);
             this.LabelCardNumber.Name = "LabelCardNumber";
-            this.LabelCardNumber.Size = new System.Drawing.Size(219, 28);
+            this.LabelCardNumber.Size = new System.Drawing.Size(323, 28);
             this.LabelCardNumber.TabIndex = 11;
             this.LabelCardNumber.Text = "(Opcjonalnie) Numer Karty";
-            this.LabelCardNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelCardNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelSaldo
             // 
-            this.LabelSaldo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelSaldo.Location = new System.Drawing.Point(46, 292);
             this.LabelSaldo.Name = "LabelSaldo";
-            this.LabelSaldo.Size = new System.Drawing.Size(166, 28);
+            this.LabelSaldo.Size = new System.Drawing.Size(323, 28);
             this.LabelSaldo.TabIndex = 12;
             this.LabelSaldo.Text = "(Opcjonalnie) Saldo";
-            this.LabelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FDodajKlientaPopUp
             // 
             this.AcceptButton = this.ButtonAcceptAddClient;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.CancelButton = this.ButtonCancelAddClient;

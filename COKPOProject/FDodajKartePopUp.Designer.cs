@@ -47,7 +47,7 @@ namespace COKPOProject
             this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardNumber.MaxLength = 16;
             this.TextBoxCardNumber.Name = "TextBoxCardNumber";
-            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 27);
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 32);
             this.TextBoxCardNumber.TabIndex = 2;
             this.TextBoxCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardNumber_KeyPress);
             // 
@@ -58,7 +58,7 @@ namespace COKPOProject
             this.TextBoxCardSaldo.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardSaldo.MaxLength = 12;
             this.TextBoxCardSaldo.Name = "TextBoxCardSaldo";
-            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 27);
+            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 32);
             this.TextBoxCardSaldo.TabIndex = 3;
             this.TextBoxCardSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardSaldo_KeyPress);
             // 
@@ -72,7 +72,7 @@ namespace COKPOProject
             this.ComboBoxChooseCard.Location = new System.Drawing.Point(50, 75);
             this.ComboBoxChooseCard.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseCard.Name = "ComboBoxChooseCard";
-            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 27);
+            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 31);
             this.ComboBoxChooseCard.TabIndex = 4;
             // 
             // ButtonAcceptAddCard
@@ -100,54 +100,51 @@ namespace COKPOProject
             // 
             // LabelChooseCardType
             // 
-            this.LabelChooseCardType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelChooseCardType.Location = new System.Drawing.Point(46, 43);
+            this.LabelChooseCardType.Location = new System.Drawing.Point(46, 44);
             this.LabelChooseCardType.Name = "LabelChooseCardType";
-            this.LabelChooseCardType.Size = new System.Drawing.Size(165, 28);
+            this.LabelChooseCardType.Size = new System.Drawing.Size(223, 28);
             this.LabelChooseCardType.TabIndex = 8;
             this.LabelChooseCardType.Text = "Wybierz rodzaj karty";
-            this.LabelChooseCardType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelChooseCardType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelCardNumber
             // 
-            this.LabelCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelCardNumber.Location = new System.Drawing.Point(46, 110);
+            this.LabelCardNumber.Location = new System.Drawing.Point(46, 111);
             this.LabelCardNumber.Name = "LabelCardNumber";
-            this.LabelCardNumber.Size = new System.Drawing.Size(223, 28);
+            this.LabelCardNumber.Size = new System.Drawing.Size(327, 28);
             this.LabelCardNumber.TabIndex = 9;
             this.LabelCardNumber.Text = "(Opcjonalnie) Numer Karty";
-            this.LabelCardNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelCardNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LabelWarning
             // 
             this.LabelWarning.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelWarning.Location = new System.Drawing.Point(193, 9);
+            this.LabelWarning.Location = new System.Drawing.Point(167, 10);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(135, 25);
+            this.LabelWarning.Size = new System.Drawing.Size(174, 32);
             this.LabelWarning.TabIndex = 7;
             this.LabelWarning.Text = "Stwórz Kartę";
             this.LabelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelSaldo
             // 
-            this.LabelSaldo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelSaldo.Location = new System.Drawing.Point(46, 173);
+            this.LabelSaldo.Location = new System.Drawing.Point(46, 174);
             this.LabelSaldo.Name = "LabelSaldo";
-            this.LabelSaldo.Size = new System.Drawing.Size(159, 28);
+            this.LabelSaldo.Size = new System.Drawing.Size(232, 28);
             this.LabelSaldo.TabIndex = 10;
             this.LabelSaldo.Text = "(Opcjolanie) Saldo";
-            this.LabelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FDodajKartePopUp
             // 
             this.AcceptButton = this.ButtonAcceptAddCard;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.CancelButton = this.ButtonCancelAddCard;
-            this.ClientSize = new System.Drawing.Size(512, 336);
+            this.ClientSize = new System.Drawing.Size(513, 339);
             this.Controls.Add(this.LabelSaldo);
             this.Controls.Add(this.LabelCardNumber);
             this.Controls.Add(this.LabelChooseCardType);
