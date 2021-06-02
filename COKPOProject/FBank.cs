@@ -72,7 +72,7 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.Klienci.OfType<KlientZwykly>())
+            foreach (var klient in bank.Klienci.OfType<ZwyklyKlient>())
             {
                 ListBoxClients.Items.Add(klient);
             }
@@ -80,11 +80,11 @@ namespace COKPOProject
         }
 
         //Metoda przycisku - Klienci Centrum
-        private void ButtonClientCentrum_Click(object sender, EventArgs e)
+        private void ButtonFirm_Click(object sender, EventArgs e)
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.Klienci.OfType<KlientCentrum>())
+            foreach (var klient in bank.Klienci.OfType<Firma>())
             {
                 ListBoxClients.Items.Add(klient);
             }
@@ -141,6 +141,7 @@ namespace COKPOProject
 
                 var tmp = (Klient)ListBoxClients.SelectedItem;
                 var f = new FDodajBankPopUp("Wpisz nazwę klienta");
+                f.ChangeTextBoxValue(tmp.NazwaKlienta);
                 f.ShowDialog();
                 if (f.DialogResult != DialogResult.OK) return;
                 tmp.NazwaKlienta = f.BankName;

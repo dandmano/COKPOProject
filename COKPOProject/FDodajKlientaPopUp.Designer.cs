@@ -48,8 +48,8 @@ namespace COKPOProject
             // 
             this.ComboBoxChooseClient.FormattingEnabled = true;
             this.ComboBoxChooseClient.Items.AddRange(new object[] {
-            "Klient Zwykły",
-            "Klient Centrum"});
+            "Zwykły Klient",
+            "Firma"});
             this.ComboBoxChooseClient.Location = new System.Drawing.Point(50, 72);
             this.ComboBoxChooseClient.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseClient.Name = "ComboBoxChooseClient";

@@ -23,10 +23,10 @@ namespace COKPOProject
             switch (wybor)
             {
                 case 1:
-                    Klienci.Add(new KlientCentrum(nazwa, this));
+                    Klienci.Add(new Firma(nazwa, this));
                     break;
                 case 2:
-                    Klienci.Add(new KlientZwykly(nazwa, this));
+                    Klienci.Add(new ZwyklyKlient(nazwa, this));
                     break;
                 default:
                     throw new WrongIndexException("Nie istnieje taki index w dodaj klienta!", wybor);

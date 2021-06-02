@@ -13,15 +13,17 @@ namespace COKPOProject
         public readonly DateTime Data;
         public readonly string NrKarty;
         public readonly string NrKartyFrimy;
+        public readonly string NazwaFirmy;
         public bool StatusAutoryzacji { get; set; } = false;
 
-        public Transakcja(KlientCentrum Firma, decimal Kwota, DateTime Data, string NrKarty, int IdTransakcji)
+        public Transakcja(Firma Firma, decimal Kwota, DateTime Data, string NrKarty, int IdTransakcji)
         {
             this.Kwota = Kwota;
             this.Data = Data;
             this.NrKarty = NrKarty;
             this.IdTransakcji = IdTransakcji;
             this.NrKartyFrimy = Firma.Karty[0].NrKarty;
+            this.NazwaFirmy = Firma.NazwaKlienta;
         }
     }
 }

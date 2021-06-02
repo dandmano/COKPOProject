@@ -48,7 +48,7 @@ namespace COKPOProject
                 BankName = TextBoxBankName.Text;
                 this.Close();
             }
-            MessageBox.Show("Nazwa banku nie może być pusta!", "Uwaga!");
+            else MessageBox.Show("Nazwa banku nie może być pusta!", "Uwaga!");
         }
 
         //Metoda przycisku - Anuluj

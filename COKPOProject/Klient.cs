@@ -85,15 +85,15 @@ namespace COKPOProject
 
 
 
-    public class KlientCentrum : Klient
+    public class Firma : Klient
     {
-        public KlientCentrum(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
+        public Firma(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
     }
 
 
 
-    public class KlientZwykly : Klient
+    public class ZwyklyKlient : Klient
     {
-        public KlientZwykly(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
+        public ZwyklyKlient(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
     }
 }

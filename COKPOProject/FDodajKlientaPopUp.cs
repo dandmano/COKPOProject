@@ -60,27 +60,27 @@ namespace COKPOProject
             switch (ComboBoxChooseClient.SelectedIndex)
             {
                 case 0 when ComboBoxChooseCard.SelectedIndex == 0:
-                    klient = new KlientZwykly(clientName, bank);
+                    klient = new ZwyklyKlient(clientName, bank);
                     klient.DodajKarte(0, saldo, cardNumber);
                     break;
                 case 0 when ComboBoxChooseCard.SelectedIndex == 1:
-                    klient = new KlientZwykly(clientName, bank);
+                    klient = new ZwyklyKlient(clientName, bank);
                     klient.DodajKarte(1, saldo, cardNumber);
                     break;
                 case 0 when ComboBoxChooseCard.SelectedIndex == 2:
-                    klient = new KlientZwykly(clientName, bank);
+                    klient = new ZwyklyKlient(clientName, bank);
                     klient.DodajKarte(2, saldo, cardNumber);
                     break;
                 case 1 when ComboBoxChooseCard.SelectedIndex == 0:
-                    klient = new KlientCentrum(clientName, bank);
+                    klient = new Firma(clientName, bank);
                     klient.DodajKarte(0, saldo, cardNumber);
                     break;
                 case 1 when ComboBoxChooseCard.SelectedIndex == 1:
-                    klient = new KlientCentrum(clientName, bank);
+                    klient = new Firma(clientName, bank);
                     klient.DodajKarte(1, saldo, cardNumber);
                     break;
                 case 1 when ComboBoxChooseCard.SelectedIndex == 2:
-                    klient = new KlientCentrum(clientName, bank);
+                    klient = new Firma(clientName, bank);
                     klient.DodajKarte(2, saldo, cardNumber);
                     break;
                 default:

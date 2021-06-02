@@ -38,7 +38,7 @@ namespace COKPOProject
             this.ButtonChangeClientsName = new System.Windows.Forms.Button();
             this.ButtonNormalClient = new System.Windows.Forms.Button();
             this.ButtonAllClients = new System.Windows.Forms.Button();
-            this.ButtonClientCentrum = new System.Windows.Forms.Button();
+            this.ButtonFirm = new System.Windows.Forms.Button();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.LabelListBoxClients = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -138,17 +138,17 @@ namespace COKPOProject
             this.ButtonAllClients.UseVisualStyleBackColor = true;
             this.ButtonAllClients.Click += new System.EventHandler(this.ButtonAllClients_Click);
             // 
-            // ButtonClientCentrum
+            // ButtonFirm
             // 
-            this.ButtonClientCentrum.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonClientCentrum.Location = new System.Drawing.Point(44, 668);
-            this.ButtonClientCentrum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonClientCentrum.Name = "ButtonClientCentrum";
-            this.ButtonClientCentrum.Size = new System.Drawing.Size(351, 49);
-            this.ButtonClientCentrum.TabIndex = 10;
-            this.ButtonClientCentrum.Text = "Klienci centrum";
-            this.ButtonClientCentrum.UseVisualStyleBackColor = true;
-            this.ButtonClientCentrum.Click += new System.EventHandler(this.ButtonClientCentrum_Click);
+            this.ButtonFirm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ButtonFirm.Location = new System.Drawing.Point(44, 668);
+            this.ButtonFirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonFirm.Name = "ButtonFirm";
+            this.ButtonFirm.Size = new System.Drawing.Size(351, 49);
+            this.ButtonFirm.TabIndex = 10;
+            this.ButtonFirm.Text = "Firmy";
+            this.ButtonFirm.UseVisualStyleBackColor = true;
+            this.ButtonFirm.Click += new System.EventHandler(this.ButtonFirm_Click);
             // 
             // ButtonBack
             // 
@@ -179,7 +179,7 @@ namespace COKPOProject
             this.ClientSize = new System.Drawing.Size(1181, 753);
             this.Controls.Add(this.LabelListBoxClients);
             this.Controls.Add(this.ButtonBack);
-            this.Controls.Add(this.ButtonClientCentrum);
+            this.Controls.Add(this.ButtonFirm);
             this.Controls.Add(this.ButtonAllClients);
             this.Controls.Add(this.ButtonNormalClient);
             this.Controls.Add(this.ButtonChangeClientsName);
@@ -212,7 +212,7 @@ namespace COKPOProject
         private System.Windows.Forms.Button ButtonChangeClientsName;
         private System.Windows.Forms.Button ButtonNormalClient;
         private System.Windows.Forms.Button ButtonAllClients;
-        private System.Windows.Forms.Button ButtonClientCentrum;
+        private System.Windows.Forms.Button ButtonFirm;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label LabelListBoxClients;
     }
