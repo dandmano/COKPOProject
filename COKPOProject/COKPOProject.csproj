@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="CentrumTransakcji.cs" />
+    <Compile Include="COKPExceptions.cs" />
     <Compile Include="FBank.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -115,8 +115,15 @@ namespace COKPOProject
         {
             if (ListBoxClients.SelectedItem != null)
             {
-                bank.UsunKlienta((Klient)ListBoxClients.SelectedItem);
-                ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
+                try
+                {
+                    bank.UsunKlienta((Klient)ListBoxClients.SelectedItem);
+                    ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
+                }
+                catch (ClientDoesNotExistException ex)
+                {
+                    MessageBox.Show("Nie istnieje klient o nazwie: " + ex.NotExistingClient.NazwaKlienta, "Uwaga!");
+                }
             }
             else
             {

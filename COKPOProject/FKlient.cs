@@ -23,7 +23,6 @@ namespace COKPOProject
             InitializeComponent();
             ClientiLabel.Text = klient.NazwaKlienta;
             UpdateCardList();
-            if (klient is KlientCentrum) ButtonRegisterTransaction.Visible = true;
         }
 
         //Metoda uruchamiająca się przy ładowaniu forma

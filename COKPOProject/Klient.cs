@@ -34,7 +34,7 @@ namespace COKPOProject
                     DodajKarteBankomatowa(saldo, nrkarty);
                     break;
                 default:
-                    throw new Exception("Blad przy wyborze karty");
+                    throw new WrongIndexException("Nie istnieje taki index przy tworzeniu karty", wybor);
             }
         }
 
@@ -77,12 +77,6 @@ namespace COKPOProject
             else throw new Exception("Błąd przy tworzeniu karty");
         }
 
-        public virtual Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
-        {
-            throw new Exception("Karta Bankomatowa nie obsługiwana!");
-            //Dodac pop-up w intefejscie graficznym z błedęm kart bankomatowej
-        }
-
         public override string ToString()
         {
             return NazwaKlienta; //Do wypisywania w textboxach
@@ -94,11 +88,6 @@ namespace COKPOProject
     public class KlientCentrum : Klient
     {
         public KlientCentrum(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
-
-        public override Transakcja RejestrujTransakcje(decimal Kwota, string NrKarty)
-        {
-            return new Transakcja(this, Kwota, DateTime.Now, NrKarty, 1); //ID TRANSAKCJI HANDLE!
-        }
     }
 
 

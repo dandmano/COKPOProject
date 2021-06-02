@@ -50,7 +50,7 @@ namespace COKPOProject
             }
             catch (Exception exe)
             {
-                MessageBox.Show("Nie znaleziono karty o takim numerze z transakcji!", "Uwaga!");
+                MessageBox.Show(exe.Message, "Uwaga!");
                 throw exe;
             }
 
@@ -64,7 +64,7 @@ namespace COKPOProject
                 return karta;
             }
 
-            throw new Exception("Nie znaleziono banku!");
+            throw new Exception("Nie znaleziono karty o takim numerze!");
         }
     }
 }

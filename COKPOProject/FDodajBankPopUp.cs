@@ -42,9 +42,13 @@ namespace COKPOProject
         //Metoda przycisku - Akceptuj
         private void BankAddAcceptButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            BankName = TextBoxBankName.Text;
-            this.Close();
+            if (!string.IsNullOrEmpty(TextBoxBankName.Text))
+            {
+                this.DialogResult = DialogResult.OK;
+                BankName = TextBoxBankName.Text;
+                this.Close();
+            }
+            MessageBox.Show("Nazwa banku nie może być pusta!", "Uwaga!");
         }
 
         //Metoda przycisku - Anuluj

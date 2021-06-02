@@ -35,7 +35,6 @@ namespace COKPOProject
             this.ButtonClientReturn = new System.Windows.Forms.Button();
             this.ButtonAddCard = new System.Windows.Forms.Button();
             this.ButtonDeleteCard = new System.Windows.Forms.Button();
-            this.ButtonRegisterTransaction = new System.Windows.Forms.Button();
             this.LabelCardNumber = new System.Windows.Forms.Label();
             this.TextBoxCardNumber = new System.Windows.Forms.TextBox();
             this.LabelSaldo = new System.Windows.Forms.Label();
@@ -88,7 +87,7 @@ namespace COKPOProject
             // ButtonAddCard
             // 
             this.ButtonAddCard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonAddCard.Location = new System.Drawing.Point(876, 171);
+            this.ButtonAddCard.Location = new System.Drawing.Point(876, 143);
             this.ButtonAddCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddCard.Name = "ButtonAddCard";
             this.ButtonAddCard.Size = new System.Drawing.Size(267, 49);
@@ -100,7 +99,7 @@ namespace COKPOProject
             // ButtonDeleteCard
             // 
             this.ButtonDeleteCard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonDeleteCard.Location = new System.Drawing.Point(876, 259);
+            this.ButtonDeleteCard.Location = new System.Drawing.Point(876, 223);
             this.ButtonDeleteCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonDeleteCard.Name = "ButtonDeleteCard";
             this.ButtonDeleteCard.Size = new System.Drawing.Size(267, 49);
@@ -108,18 +107,6 @@ namespace COKPOProject
             this.ButtonDeleteCard.Text = "Usuń Kartę";
             this.ButtonDeleteCard.UseVisualStyleBackColor = true;
             this.ButtonDeleteCard.Click += new System.EventHandler(this.ButtonDeleteCard_Click);
-            // 
-            // ButtonRegisterTransaction
-            // 
-            this.ButtonRegisterTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonRegisterTransaction.Location = new System.Drawing.Point(876, 343);
-            this.ButtonRegisterTransaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonRegisterTransaction.Name = "ButtonRegisterTransaction";
-            this.ButtonRegisterTransaction.Size = new System.Drawing.Size(267, 49);
-            this.ButtonRegisterTransaction.TabIndex = 17;
-            this.ButtonRegisterTransaction.Text = "Rejestruj Transakcję";
-            this.ButtonRegisterTransaction.UseVisualStyleBackColor = true;
-            this.ButtonRegisterTransaction.Visible = false;
             // 
             // LabelCardNumber
             // 
@@ -190,9 +177,9 @@ namespace COKPOProject
             this.LabelListBoxCards.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LabelListBoxCards.Location = new System.Drawing.Point(12, 95);
             this.LabelListBoxCards.Name = "LabelListBoxCards";
-            this.LabelListBoxCards.Size = new System.Drawing.Size(140, 23);
+            this.LabelListBoxCards.Size = new System.Drawing.Size(95, 23);
             this.LabelListBoxCards.TabIndex = 24;
-            this.LabelListBoxCards.Text = "Lista Klientów";
+            this.LabelListBoxCards.Text = "Lista Kart";
             // 
             // LabelCardType
             // 
@@ -268,7 +255,6 @@ namespace COKPOProject
             this.Controls.Add(this.TextBoxSaldo);
             this.Controls.Add(this.LabelCardNumber);
             this.Controls.Add(this.TextBoxCardNumber);
-            this.Controls.Add(this.ButtonRegisterTransaction);
             this.Controls.Add(this.ButtonDeleteCard);
             this.Controls.Add(this.ButtonAddCard);
             this.Controls.Add(this.ButtonClientReturn);
@@ -295,7 +281,6 @@ namespace COKPOProject
         private System.Windows.Forms.Button ButtonClientReturn;
         private System.Windows.Forms.Button ButtonAddCard;
         private System.Windows.Forms.Button ButtonDeleteCard;
-        private System.Windows.Forms.Button ButtonRegisterTransaction;
         private System.Windows.Forms.Label LabelCardNumber;
         private System.Windows.Forms.TextBox TextBoxCardNumber;
         private System.Windows.Forms.Label LabelSaldo;

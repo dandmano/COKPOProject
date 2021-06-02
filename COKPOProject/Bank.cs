@@ -28,11 +28,13 @@ namespace COKPOProject
                 case 2:
                     Klienci.Add(new KlientZwykly(nazwa, this));
                     break;
+                default:
+                    throw new WrongIndexException("Nie istnieje taki index w dodaj klienta!", wybor);
             }
         }
         public void UsunKlienta(Klient klient)
         {
-            Klienci.Remove(klient);
+            if (!Klienci.Remove(klient)) throw new ClientDoesNotExistException(klient);
         }
         public override string ToString()
         {
