@@ -45,6 +45,11 @@ namespace COKPOProject
             {
                 this.cardNumber = TextBoxCardNumber.Text;
             }
+            else if (!string.IsNullOrEmpty(TextBoxCardNumber.Text))
+            {
+                MessageBox.Show("Nr Karty musi składaś się z 16 cyfr!", "Uwaga!");
+                return;
+            }
             //Case= 0-debetowa 1-kredytowa 2-bankomatowa
             switch (ComboBoxChooseCard.SelectedIndex)
             {

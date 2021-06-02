@@ -37,6 +37,11 @@ namespace COKPOProject
             this.ButtonAcceptAddClient = new System.Windows.Forms.Button();
             this.ButtonCancelAddClient = new System.Windows.Forms.Button();
             this.LabelWarning = new System.Windows.Forms.Label();
+            this.LabelChooseClientType = new System.Windows.Forms.Label();
+            this.LabelEnterClientName = new System.Windows.Forms.Label();
+            this.LabelChooseCardType = new System.Windows.Forms.Label();
+            this.LabelCardNumber = new System.Windows.Forms.Label();
+            this.LabelSaldo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ComboBoxChooseClient
@@ -48,46 +53,39 @@ namespace COKPOProject
             this.ComboBoxChooseClient.Location = new System.Drawing.Point(50, 72);
             this.ComboBoxChooseClient.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseClient.Name = "ComboBoxChooseClient";
-            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 31);
+            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 27);
             this.ComboBoxChooseClient.TabIndex = 0;
-            this.ComboBoxChooseClient.Text = "Wybierz rodzaj klienta";
             this.ComboBoxChooseClient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseClient_SelectedIndexChanged);
             // 
             // TextBoxClientName
             // 
-            this.TextBoxClientName.Location = new System.Drawing.Point(50, 128);
+            this.TextBoxClientName.Location = new System.Drawing.Point(50, 135);
             this.TextBoxClientName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxClientName.MaxLength = 30;
             this.TextBoxClientName.Name = "TextBoxClientName";
-            this.TextBoxClientName.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxClientName.Size = new System.Drawing.Size(406, 27);
             this.TextBoxClientName.TabIndex = 1;
-            this.TextBoxClientName.Text = "Wpisz nazwę klienta";
-            this.TextBoxClientName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxClientName_KeyDown);
             // 
             // TextBoxCardNumber
             // 
-            this.TextBoxCardNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TextBoxCardNumber.Location = new System.Drawing.Point(50, 243);
+            this.TextBoxCardNumber.BackColor = System.Drawing.Color.White;
+            this.TextBoxCardNumber.Location = new System.Drawing.Point(50, 261);
             this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardNumber.MaxLength = 16;
             this.TextBoxCardNumber.Name = "TextBoxCardNumber";
-            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 27);
             this.TextBoxCardNumber.TabIndex = 2;
-            this.TextBoxCardNumber.Text = "(Opcjonalnie) Numer Karty";
-            this.TextBoxCardNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCardNumber_KeyDown);
             this.TextBoxCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardNumber_KeyPress);
             // 
             // TextBoxCardSaldo
             // 
-            this.TextBoxCardSaldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TextBoxCardSaldo.Location = new System.Drawing.Point(50, 296);
+            this.TextBoxCardSaldo.BackColor = System.Drawing.Color.White;
+            this.TextBoxCardSaldo.Location = new System.Drawing.Point(50, 324);
             this.TextBoxCardSaldo.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardSaldo.MaxLength = 12;
             this.TextBoxCardSaldo.Name = "TextBoxCardSaldo";
-            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 27);
             this.TextBoxCardSaldo.TabIndex = 3;
-            this.TextBoxCardSaldo.Text = "(Opcjonalnie) Saldo";
-            this.TextBoxCardSaldo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCardSaldo_KeyDown);
             this.TextBoxCardSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardSaldo_KeyPress);
             // 
             // ComboBoxChooseCard
@@ -97,17 +95,15 @@ namespace COKPOProject
             "Karta Debetowa",
             "Karta Kredytowa",
             "Karta Bankomatowa"});
-            this.ComboBoxChooseCard.Location = new System.Drawing.Point(50, 184);
+            this.ComboBoxChooseCard.Location = new System.Drawing.Point(50, 199);
             this.ComboBoxChooseCard.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseCard.Name = "ComboBoxChooseCard";
-            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 31);
+            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 27);
             this.ComboBoxChooseCard.TabIndex = 4;
-            this.ComboBoxChooseCard.Text = "Wybierz rodzaj karty";
-            this.ComboBoxChooseCard.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseCard_SelectedIndexChanged);
             // 
             // ButtonAcceptAddClient
             // 
-            this.ButtonAcceptAddClient.Location = new System.Drawing.Point(50, 364);
+            this.ButtonAcceptAddClient.Location = new System.Drawing.Point(50, 377);
             this.ButtonAcceptAddClient.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonAcceptAddClient.Name = "ButtonAcceptAddClient";
             this.ButtonAcceptAddClient.Size = new System.Drawing.Size(186, 52);
@@ -118,7 +114,7 @@ namespace COKPOProject
             // 
             // ButtonCancelAddClient
             // 
-            this.ButtonCancelAddClient.Location = new System.Drawing.Point(272, 364);
+            this.ButtonCancelAddClient.Location = new System.Drawing.Point(270, 377);
             this.ButtonCancelAddClient.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonCancelAddClient.Name = "ButtonCancelAddClient";
             this.ButtonCancelAddClient.Size = new System.Drawing.Size(186, 52);
@@ -130,18 +126,76 @@ namespace COKPOProject
             // LabelWarning
             // 
             this.LabelWarning.AutoSize = true;
-            this.LabelWarning.Location = new System.Drawing.Point(54, 29);
+            this.LabelWarning.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelWarning.Location = new System.Drawing.Point(176, 9);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(402, 23);
+            this.LabelWarning.Size = new System.Drawing.Size(151, 25);
             this.LabelWarning.TabIndex = 7;
-            this.LabelWarning.Text = "Wpisywane wartości potwierdź enterem!";
+            this.LabelWarning.Text = "Stwórz Klienta";
+            // 
+            // LabelChooseClientType
+            // 
+            this.LabelChooseClientType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelChooseClientType.Location = new System.Drawing.Point(46, 40);
+            this.LabelChooseClientType.Name = "LabelChooseClientType";
+            this.LabelChooseClientType.Size = new System.Drawing.Size(180, 28);
+            this.LabelChooseClientType.TabIndex = 8;
+            this.LabelChooseClientType.Text = "Wybierz rodzaj klienta";
+            this.LabelChooseClientType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelEnterClientName
+            // 
+            this.LabelEnterClientName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelEnterClientName.Location = new System.Drawing.Point(46, 103);
+            this.LabelEnterClientName.Name = "LabelEnterClientName";
+            this.LabelEnterClientName.Size = new System.Drawing.Size(166, 28);
+            this.LabelEnterClientName.TabIndex = 9;
+            this.LabelEnterClientName.Text = "Wpisz nazwę klienta";
+            this.LabelEnterClientName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LabelChooseCardType
+            // 
+            this.LabelChooseCardType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelChooseCardType.Location = new System.Drawing.Point(46, 167);
+            this.LabelChooseCardType.Name = "LabelChooseCardType";
+            this.LabelChooseCardType.Size = new System.Drawing.Size(166, 28);
+            this.LabelChooseCardType.TabIndex = 10;
+            this.LabelChooseCardType.Text = "Wybierz rodzaj karty";
+            this.LabelChooseCardType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelCardNumber
+            // 
+            this.LabelCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelCardNumber.Location = new System.Drawing.Point(46, 230);
+            this.LabelCardNumber.Name = "LabelCardNumber";
+            this.LabelCardNumber.Size = new System.Drawing.Size(219, 28);
+            this.LabelCardNumber.TabIndex = 11;
+            this.LabelCardNumber.Text = "(Opcjonalnie) Numer Karty";
+            this.LabelCardNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelSaldo
+            // 
+            this.LabelSaldo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelSaldo.Location = new System.Drawing.Point(46, 292);
+            this.LabelSaldo.Name = "LabelSaldo";
+            this.LabelSaldo.Size = new System.Drawing.Size(166, 28);
+            this.LabelSaldo.TabIndex = 12;
+            this.LabelSaldo.Text = "(Opcjonalnie) Saldo";
+            this.LabelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FDodajKlientaPopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AcceptButton = this.ButtonAcceptAddClient;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(512, 442);
+            this.CancelButton = this.ButtonCancelAddClient;
+            this.ClientSize = new System.Drawing.Size(512, 454);
+            this.Controls.Add(this.LabelSaldo);
+            this.Controls.Add(this.LabelCardNumber);
+            this.Controls.Add(this.LabelChooseCardType);
+            this.Controls.Add(this.LabelEnterClientName);
+            this.Controls.Add(this.LabelChooseClientType);
             this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.ButtonCancelAddClient);
             this.Controls.Add(this.ButtonAcceptAddClient);
@@ -171,5 +225,10 @@ namespace COKPOProject
         private System.Windows.Forms.Button ButtonAcceptAddClient;
         private System.Windows.Forms.Button ButtonCancelAddClient;
         private System.Windows.Forms.Label LabelWarning;
+        private System.Windows.Forms.Label LabelChooseClientType;
+        private System.Windows.Forms.Label LabelEnterClientName;
+        private System.Windows.Forms.Label LabelChooseCardType;
+        private System.Windows.Forms.Label LabelCardNumber;
+        private System.Windows.Forms.Label LabelSaldo;
     }
 }

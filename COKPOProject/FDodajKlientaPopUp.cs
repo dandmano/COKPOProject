@@ -29,65 +29,30 @@ namespace COKPOProject
         // Metody przycisków oraz wydarzeń
         //
 
-        //Metoda wykrycia zmiany zaznaczenia w comboboxie klienta
-        private void ComboBoxChooseClient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 0-zwyklyklient 1-klientcentrum
-            switch (ComboBoxChooseClient.SelectedIndex)
-            {
-                case 0:
-                    TextBoxClientName.Text = "Imię i nazwisko";
-                    break;
-                case 1:
-                    TextBoxClientName.Text = "Nazwa firmy";
-                    break;
-            }
-
-            ComboBoxChooseClient.BackColor = Color.DarkSeaGreen;
-        }
-
-        //Metoda wykrycia zmiany zaznaczenia w comboboxie Karty
-        private void ComboBoxChooseCard_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxChooseCard.BackColor = Color.DarkSeaGreen;
-        }
-
-        //Metoda wykrywająca enter w textboxie klienta i akceptujaca nazwę
-        private void TextBoxClientName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            clientName = TextBoxClientName.Text;
-            TextBoxClientName.BackColor = Color.DarkSeaGreen;
-        }
-
-        //Metoda wykrywająca enter w textboxie numeru karty i akceptujaca nazwę
-        private void TextBoxCardNumber_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            if (TextBoxCardNumber.Text.Length != 16)
-            {
-                MessageBox.Show("Numer karty składa się z 16 cyfr!", "Uwaga!");
-                TextBoxCardNumber.Text = "(Opcjonalnie)Numer Karty";
-                return;
-            }
-            cardNumber = TextBoxCardNumber.Text;
-            TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
-        }
-
-        //Metoda wykrywająca enter w textboxie salda i akceptujaca saldo
-        private void TextBoxCardSaldo_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            saldo = decimal.Parse(TextBoxCardSaldo.Text);
-            TextBoxCardSaldo.BackColor = Color.DarkSeaGreen;
-        }
-
         //Metoda przycisku - Akceptuj - akceptująca wprowadzone dane i kontynuująca program
         private void ButtonAcceptAddClient_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(TextBoxClientName.Text))
+            {
+                clientName = TextBoxClientName.Text;
+            }
             if (clientName == "" || ComboBoxChooseClient.SelectedIndex == -1 || ComboBoxChooseCard.SelectedIndex == -1)
             {
-                MessageBox.Show("Wpisz i wybierz wymagane wartości. Pamiętaj aby potwierdzić je enterem, żeby świeciły na zielono!", "Uwaga!");
+                MessageBox.Show("Podaj i wybierz wymagane wartości", "Uwaga!");
+                return;
+            }
+            if (!string.IsNullOrEmpty(TextBoxCardSaldo.Text))
+            {
+                this.saldo = decimal.Parse(TextBoxCardSaldo.Text);
+            }
+
+            if (TextBoxCardNumber.TextLength == 16)
+            {
+                this.cardNumber = TextBoxCardNumber.Text;
+            }
+            else if (!string.IsNullOrEmpty(TextBoxCardNumber.Text))
+            {
+                MessageBox.Show("Nr Karty musi składaś się z 16 cyfr!", "Uwaga!");
                 return;
             }
             //ComboboxSelectedIndex= 0-debetowa 1-kredytowa 2-bankomatowa
@@ -125,6 +90,19 @@ namespace COKPOProject
             this.DialogResult = DialogResult.OK;
             Close();
         }
+        //Metoda zmieniająca LabelNazwyKlienta w zależności od wybranego typu klienta
+        private void ComboBoxChooseClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (ComboBoxChooseClient.SelectedIndex)
+            {
+                case 0:
+                    LabelEnterClientName.Text = "Imie i nazwisko";
+                    break;
+                case 1:
+                    LabelEnterClientName.Text = "Nazwa firmy";
+                    break;
+            }
+        }
 
         //Metoda przycisku - Anuluj - porzuca zmiany
         private void ButtonCancelAddClient_Click(object sender, EventArgs e)
@@ -158,7 +136,6 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
-
 
     }
 }
