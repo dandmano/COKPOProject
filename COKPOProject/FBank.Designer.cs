@@ -46,14 +46,13 @@ namespace COKPOProject
             // LabelBank
             // 
             this.LabelBank.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LabelBank.AutoSize = true;
-            this.LabelBank.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelBank.Location = new System.Drawing.Point(555, 20);
+            this.LabelBank.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelBank.Location = new System.Drawing.Point(37, 20);
             this.LabelBank.Name = "LabelBank";
-            this.LabelBank.Size = new System.Drawing.Size(90, 34);
+            this.LabelBank.Size = new System.Drawing.Size(1125, 71);
             this.LabelBank.TabIndex = 1;
             this.LabelBank.Text = "BANK";
-            this.LabelBank.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LabelBank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ButtonAddClient
             // 

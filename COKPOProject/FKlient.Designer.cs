@@ -51,13 +51,13 @@ namespace COKPOProject
             // 
             // ClientiLabel
             // 
-            this.ClientiLabel.AutoSize = true;
-            this.ClientiLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ClientiLabel.Location = new System.Drawing.Point(525, 32);
+            this.ClientiLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ClientiLabel.Location = new System.Drawing.Point(198, 9);
             this.ClientiLabel.Name = "ClientiLabel";
-            this.ClientiLabel.Size = new System.Drawing.Size(89, 34);
+            this.ClientiLabel.Size = new System.Drawing.Size(791, 79);
             this.ClientiLabel.TabIndex = 1;
             this.ClientiLabel.Text = "Klient";
+            this.ClientiLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ListBoxCards
             // 

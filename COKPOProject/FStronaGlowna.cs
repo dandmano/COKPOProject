@@ -25,7 +25,7 @@ namespace COKPOProject
         private void ButtonBegin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FCentrumTransakcji fCentrumTransakcji = new FCentrumTransakcji(centrumTransakcji);
+            var fCentrumTransakcji = new FCentrumTransakcji(this, centrumTransakcji);
             fCentrumTransakcji.ShowDialog();
             this.Close();
         }

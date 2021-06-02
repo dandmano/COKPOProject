@@ -28,6 +28,7 @@ namespace COKPOProject
         //Metoda uruchamiająca się przy ładowaniu
         private void FBank_Load(object sender, EventArgs e)
         {
+            this.Location = previusform.Location;
             LabelBank.Text = bank.NazwaBanku;
             UpdateClientList();
         }
@@ -55,6 +56,7 @@ namespace COKPOProject
         //Metoda przycisku - Wstecz
         private void ButtonBack_Click(object sender, EventArgs e)
         {
+            previusform.Location = this.Location;
             previusform.Show();
             this.Close();
         }

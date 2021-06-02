@@ -49,10 +49,10 @@ namespace COKPOProject
             // LabelCentrumTransakcji
             // 
             this.LabelCentrumTransakcji.AutoSize = true;
-            this.LabelCentrumTransakcji.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelCentrumTransakcji.Location = new System.Drawing.Point(463, 12);
+            this.LabelCentrumTransakcji.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCentrumTransakcji.Location = new System.Drawing.Point(427, 9);
             this.LabelCentrumTransakcji.Name = "LabelCentrumTransakcji";
-            this.LabelCentrumTransakcji.Size = new System.Drawing.Size(274, 34);
+            this.LabelCentrumTransakcji.Size = new System.Drawing.Size(326, 39);
             this.LabelCentrumTransakcji.TabIndex = 0;
             this.LabelCentrumTransakcji.Text = "Centrum Transakcji";
             // 

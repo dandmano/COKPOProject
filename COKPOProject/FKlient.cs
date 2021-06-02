@@ -28,6 +28,7 @@ namespace COKPOProject
         //Metoda uruchamiająca się przy ładowaniu forma
         private void FKlient_Load(object sender, EventArgs e)
         {
+            this.Location = previuousform.Location;
             ClientiLabel.Text = klient.NazwaKlienta;
             UpdateCardList();
         }
@@ -55,6 +56,7 @@ namespace COKPOProject
         //Metoda przycisku - Wstecz
         private void ButtonClientReturn_Click(object sender, EventArgs e)
         {
+            previuousform.Location = this.Location;
             previuousform.Show();
             this.Close();
         }

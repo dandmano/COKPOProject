@@ -15,16 +15,18 @@ namespace COKPOProject
         private readonly CentrumTransakcji centrumTransakcji;
 
         //Konstruktor form
-        public FCentrumTransakcji(CentrumTransakcji centrumTransakcji)
+        public FCentrumTransakcji(Form OwnerForm, CentrumTransakcji centrumTransakcji)
         {
             this.centrumTransakcji = centrumTransakcji;
             InitializeComponent();
             UpdateBankList();
+            Owner = OwnerForm;
         }
 
         //Odpala się przy otwieraniu forma
         private void FCentrumTransakcji_Load(object sender, EventArgs e)
         {
+            this.Location = Owner.Location;
             UpdateBankList();
         }
 
