@@ -27,28 +27,6 @@ namespace COKPOProject
         // Metody przycisków oraz wydarzeń
         //
 
-        //Metoda wykrywająca enter w textboxie numeru karty i akceptujaca nazwę
-        private void TextBoxCardNumber_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            if (TextBoxCardNumber.Text.Length != 16)
-            {
-                MessageBox.Show("Numer karty składa się z 16 cyfr!", "Uwaga!");
-                TextBoxCardNumber.Text = "(Opcjonalnie)Numer Karty";
-                return;
-            }
-            cardNumber = TextBoxCardNumber.Text;
-            TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
-        }
-
-        //Metoda wykrywająca enter w textboxie salda i akceptujaca saldo
-        private void TextBoxCardSaldo_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            saldo = decimal.Parse(TextBoxCardSaldo.Text);
-            TextBoxCardSaldo.BackColor = Color.DarkSeaGreen;
-        }
-
         //Metoda przycisku - Akceptuj - akceptująca wprowadzone dane i kontynuująca program
         private void ButtonAcceptAddCard_Click(object sender, EventArgs e)
         {
@@ -56,6 +34,16 @@ namespace COKPOProject
             {
                 MessageBox.Show("Wybierz rodzaj karty!", "Uwaga!");
                 return;
+            }
+
+            if (!string.IsNullOrEmpty(TextBoxCardSaldo.Text))
+            {
+                this.saldo = decimal.Parse(TextBoxCardSaldo.Text);
+            }
+            
+            if (TextBoxCardNumber.TextLength == 16)
+            {
+                this.cardNumber = TextBoxCardNumber.Text;
             }
             //Case= 0-debetowa 1-kredytowa 2-bankomatowa
             switch (ComboBoxChooseCard.SelectedIndex)
@@ -72,6 +60,7 @@ namespace COKPOProject
                 default:
                     throw new Exception("Błąd w wyborze opcji karty!");
             }
+            
 
             this.DialogResult = DialogResult.OK;
             Close();
@@ -81,12 +70,6 @@ namespace COKPOProject
         private void ButtonCancelAddCard_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        //Metoda zmieniająca kolor background podczas wyboru rodzaju karty
-        private void ComboBoxChooseCard_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxChooseCard.BackColor = Color.DarkSeaGreen;
         }
 
         //
@@ -115,7 +98,5 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
-
-
     }
 }
