@@ -50,7 +50,7 @@ namespace COKPOProject
             }
             catch (Exception exe)
             {
-                MessageBox.Show("Nie znaleziono karty o takim numerze z transakcji!");
+                MessageBox.Show("Nie znaleziono karty o takim numerze z transakcji!", "Uwaga!");
                 throw exe;
             }
 

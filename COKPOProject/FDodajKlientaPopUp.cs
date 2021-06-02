@@ -55,37 +55,31 @@ namespace COKPOProject
         //Metoda wykrywająca enter w textboxie klienta i akceptujaca nazwę
         private void TextBoxClientName_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                clientName = TextBoxClientName.Text;
-                TextBoxClientName.BackColor = Color.DarkSeaGreen;
-            }
+            if (e.KeyCode != Keys.Enter) return;
+            clientName = TextBoxClientName.Text;
+            TextBoxClientName.BackColor = Color.DarkSeaGreen;
         }
 
         //Metoda wykrywająca enter w textboxie numeru karty i akceptujaca nazwę
         private void TextBoxCardNumber_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode != Keys.Enter) return;
+            if (TextBoxCardNumber.Text.Length != 16)
             {
-                if (TextBoxCardNumber.Text.Length < 16)
-                {
-                    MessageBox.Show("Numer karty składa się z 16 cyfr!");
-                    TextBoxCardNumber.Text = "(Opcjonalnie)Numer Karty";
-                    return;
-                }
-                cardNumber = TextBoxCardNumber.Text;
-                TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
+                MessageBox.Show("Numer karty składa się z 16 cyfr!", "Uwaga!");
+                TextBoxCardNumber.Text = "(Opcjonalnie)Numer Karty";
+                return;
             }
+            cardNumber = TextBoxCardNumber.Text;
+            TextBoxCardNumber.BackColor = Color.DarkSeaGreen;
         }
 
         //Metoda wykrywająca enter w textboxie salda i akceptujaca saldo
         private void TextBoxCardSaldo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                saldo = decimal.Parse(TextBoxCardSaldo.Text);
-                TextBoxCardSaldo.BackColor = Color.DarkSeaGreen;
-            }
+            if (e.KeyCode != Keys.Enter) return;
+            saldo = decimal.Parse(TextBoxCardSaldo.Text);
+            TextBoxCardSaldo.BackColor = Color.DarkSeaGreen;
         }
 
         //Metoda przycisku - Akceptuj - akceptująca wprowadzone dane i kontynuująca program
@@ -93,7 +87,7 @@ namespace COKPOProject
         {
             if (clientName == "" || ComboBoxChooseClient.SelectedIndex == -1 || ComboBoxChooseCard.SelectedIndex == -1)
             {
-                MessageBox.Show("Wpisz i wybierz wymagane wartości. Pamiętaj aby potwierdzić je enterem, żeby świeciły na zielono!");
+                MessageBox.Show("Wpisz i wybierz wymagane wartości. Pamiętaj aby potwierdzić je enterem, żeby świeciły na zielono!", "Uwaga!");
                 return;
             }
             //ComboboxSelectedIndex= 0-debetowa 1-kredytowa 2-bankomatowa
@@ -128,13 +122,14 @@ namespace COKPOProject
                     throw new Exception("Błąd w wyborze opcji klienta!");
             }
             bank.Klienci.Add(klient);
+            this.DialogResult = DialogResult.OK;
             Close();
         }
 
         //Metoda przycisku - Anuluj - porzuca zmiany
         private void ButtonCancelAddClient_Click(object sender, EventArgs e)
         {
-            throw new Exception("Cancelbutton pressed");
+            this.Close();
         }
 
         //

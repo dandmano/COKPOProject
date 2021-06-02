@@ -70,10 +70,9 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.Klienci)
+            foreach (var klient in bank.Klienci.OfType<KlientZwykly>())
             {
-                if (klient is KlientZwykly)
-                    ListBoxClients.Items.Add(klient);
+                ListBoxClients.Items.Add(klient);
             }
             ListBoxClients.EndUpdate();
         }
@@ -83,10 +82,9 @@ namespace COKPOProject
         {
             ListBoxClients.Update();
             ListBoxClients.Items.Clear();
-            foreach (var klient in bank.Klienci)
+            foreach (var klient in bank.Klienci.OfType<KlientCentrum>())
             {
-                if (klient is KlientCentrum)
-                    ListBoxClients.Items.Add(klient);
+                ListBoxClients.Items.Add(klient);
             }
             ListBoxClients.EndUpdate();
         }
@@ -100,22 +98,16 @@ namespace COKPOProject
                 this.Hide();
                 fKlient.ShowDialog();
             }
-            else MessageBox.Show("Wybierz klienta do którego chcesz przejść");
+            else MessageBox.Show("Wybierz klienta do którego chcesz przejść", "Uwaga!");
         }
 
         //Metoda przycisku - Dodaj Klienta
         private void ButtonAddClient_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var fDodajKlientaPopUp = new FDodajKlientaPopUp(bank);
-                fDodajKlientaPopUp.ShowDialog();
-                UpdateClientList();
-            }
-            catch
-            {
-                //XD
-            }
+            var fDodajKlientaPopUp = new FDodajKlientaPopUp(bank);
+            fDodajKlientaPopUp.ShowDialog();
+            if (fDodajKlientaPopUp.DialogResult != DialogResult.OK) return;
+            UpdateClientList();
         }
 
         //Metoda przycisku - Usuń Klienta
@@ -124,13 +116,11 @@ namespace COKPOProject
             if (ListBoxClients.SelectedItem != null)
             {
                 bank.UsunKlienta((Klient)ListBoxClients.SelectedItem);
-                ListBoxClients.Update();
                 ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
-                ListBoxClients.EndUpdate();
             }
             else
             {
-                MessageBox.Show("Wybierz klienta którego chcesz usunąć.");
+                MessageBox.Show("Wybierz klienta którego chcesz usunąć.", "Uwaga");
             }
         }
 
@@ -139,26 +129,18 @@ namespace COKPOProject
         {
             if (ListBoxClients.SelectedItem != null)
             {
-                try
-                {
-                    var tmp = (Klient)ListBoxClients.SelectedItem;
-                    var f = new FDodajBankPopUp();
-                    f.ChangeTextBoxTextValue("Wpisz nazwę klienta");
-                    f.ShowDialog();
-                    tmp.NazwaKlienta = f.ReturnBankName();
-                    ListBoxClients.Update();
-                    ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
-                    ListBoxClients.Items.Add(tmp);
-                    ListBoxClients.EndUpdate();
-                }
-                catch
-                {
-                    //XD
-                }
+
+                var tmp = (Klient)ListBoxClients.SelectedItem;
+                var f = new FDodajBankPopUp("Wpisz nazwę klienta");
+                f.ShowDialog();
+                if (f.DialogResult != DialogResult.OK) return;
+                tmp.NazwaKlienta = f.BankName;
+                ListBoxClients.Items.Remove(ListBoxClients.SelectedItem);
+                ListBoxClients.Items.Add(tmp);
             }
             else
             {
-                MessageBox.Show("Wybierz klienta którego nazwę chcesz edytować.");
+                MessageBox.Show("Wybierz klienta którego nazwę chcesz edytować.", "Uwaga");
             }
         }
     }

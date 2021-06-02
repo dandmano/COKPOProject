@@ -32,19 +32,18 @@ namespace COKPOProject
             this.TextBoxBankName = new System.Windows.Forms.TextBox();
             this.ButtonBankAddAccept = new System.Windows.Forms.Button();
             this.ButtonBankAddCancel = new System.Windows.Forms.Button();
+            this.LabelText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TextBoxBankName
             // 
             this.TextBoxBankName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TextBoxBankName.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TextBoxBankName.Location = new System.Drawing.Point(43, 53);
+            this.TextBoxBankName.Location = new System.Drawing.Point(43, 64);
             this.TextBoxBankName.Name = "TextBoxBankName";
             this.TextBoxBankName.Size = new System.Drawing.Size(331, 48);
             this.TextBoxBankName.TabIndex = 0;
-            this.TextBoxBankName.Text = "Wpisz nazwę banku";
             this.TextBoxBankName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TextBoxBankName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAddBank_KeyDown);
             // 
             // ButtonBankAddAccept
             // 
@@ -58,6 +57,7 @@ namespace COKPOProject
             // 
             // ButtonBankAddCancel
             // 
+            this.ButtonBankAddCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ButtonBankAddCancel.Location = new System.Drawing.Point(254, 141);
             this.ButtonBankAddCancel.Name = "ButtonBankAddCancel";
             this.ButtonBankAddCancel.Size = new System.Drawing.Size(120, 40);
@@ -66,13 +66,27 @@ namespace COKPOProject
             this.ButtonBankAddCancel.UseVisualStyleBackColor = true;
             this.ButtonBankAddCancel.Click += new System.EventHandler(this.BankAddCancelButton_Click);
             // 
+            // LabelText
+            // 
+            this.LabelText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LabelText.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelText.Location = new System.Drawing.Point(0, 0);
+            this.LabelText.Name = "LabelText";
+            this.LabelText.Size = new System.Drawing.Size(425, 61);
+            this.LabelText.TabIndex = 3;
+            this.LabelText.Text = "Wpisz nazwę banku:";
+            this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FDodajBankPopUp
             // 
+            this.AcceptButton = this.ButtonBankAddAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CancelButton = this.ButtonBankAddCancel;
             this.ClientSize = new System.Drawing.Size(425, 209);
+            this.Controls.Add(this.LabelText);
             this.Controls.Add(this.ButtonBankAddCancel);
             this.Controls.Add(this.ButtonBankAddAccept);
             this.Controls.Add(this.TextBoxBankName);
@@ -92,5 +106,6 @@ namespace COKPOProject
         private System.Windows.Forms.TextBox TextBoxBankName;
         private System.Windows.Forms.Button ButtonBankAddAccept;
         private System.Windows.Forms.Button ButtonBankAddCancel;
+        private System.Windows.Forms.Label LabelText;
     }
 }

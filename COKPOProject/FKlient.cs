@@ -63,16 +63,11 @@ namespace COKPOProject
         //Metoda przycisku - Dodaj kartę
         private void ButtonAddCard_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var fDodajKartePopUp = new FDodajKartePopUp(klient);
-                fDodajKartePopUp.ShowDialog();
-                UpdateCardList();
-            }
-            catch
-            {
-                //xD
-            }
+
+            var fDodajKartePopUp = new FDodajKartePopUp(klient);
+            fDodajKartePopUp.ShowDialog();
+            if (fDodajKartePopUp.DialogResult != DialogResult.OK) return;
+            UpdateCardList();
         }
 
         //Metoda przycisku - Usuń kartę
@@ -83,7 +78,7 @@ namespace COKPOProject
                 klient.Karty.Remove((Karta)ListBoxCards.SelectedItem);
                 UpdateCardList();
             }
-            else MessageBox.Show("Wybierz kartę, którą chcesz usunąć.");
+            else MessageBox.Show("Wybierz kartę, którą chcesz usunąć.", "Uwaga!");
         }
 
         //Metoda wykrywająca zmianę zaznaczonej karty i zmienia jej wyświetlane wartości
@@ -127,17 +122,11 @@ namespace COKPOProject
         //Metoda zmieniająca limit kredytu
         private void ButtonChangeCreditLimit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var tmp = (KartaKredytowa)ListBoxCards.SelectedItem;
-                var fZmienLimitKredytuPopUp = new FZmienLimitKredytuPopUp(tmp);
-                fZmienLimitKredytuPopUp.ShowDialog();
-                TextBoxCreditLimit.Text = tmp.LimitKredytu.ToString("C");
-            }
-            catch
-            {
-                //XD
-            }
+            var tmp = (KartaKredytowa)ListBoxCards.SelectedItem;
+            var fZmienLimitKredytuPopUp = new FZmienLimitKredytuPopUp(tmp);
+            fZmienLimitKredytuPopUp.ShowDialog();
+            if (fZmienLimitKredytuPopUp.DialogResult != DialogResult.OK) return;
+            TextBoxCreditLimit.Text = tmp.LimitKredytu.ToString("C");
         }
     }
 }

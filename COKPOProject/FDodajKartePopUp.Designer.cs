@@ -91,6 +91,7 @@ namespace COKPOProject
             // 
             // ButtonCancelAddCard
             // 
+            this.ButtonCancelAddCard.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ButtonCancelAddCard.Location = new System.Drawing.Point(272, 258);
             this.ButtonCancelAddCard.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonCancelAddCard.Name = "ButtonCancelAddCard";
@@ -111,9 +112,11 @@ namespace COKPOProject
             // 
             // FDodajKartePopUp
             // 
+            this.AcceptButton = this.ButtonAcceptAddCard;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.CancelButton = this.ButtonCancelAddCard;
             this.ClientSize = new System.Drawing.Size(512, 336);
             this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.ButtonCancelAddCard);

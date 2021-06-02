@@ -32,17 +32,17 @@ namespace COKPOProject
             this.TextBoxCreditValue = new System.Windows.Forms.TextBox();
             this.ButtonCreditChangeAccept = new System.Windows.Forms.Button();
             this.ButtonCreditChangeCancel = new System.Windows.Forms.Button();
+            this.LabelText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TextBoxCreditValue
             // 
             this.TextBoxCreditValue.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TextBoxCreditValue.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TextBoxCreditValue.Location = new System.Drawing.Point(43, 53);
+            this.TextBoxCreditValue.Location = new System.Drawing.Point(43, 65);
             this.TextBoxCreditValue.Name = "TextBoxCreditValue";
             this.TextBoxCreditValue.Size = new System.Drawing.Size(331, 48);
             this.TextBoxCreditValue.TabIndex = 0;
-            this.TextBoxCreditValue.Text = "Podaj nowy limit";
             this.TextBoxCreditValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxCreditValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCreditValue_KeyDown);
             this.TextBoxCreditValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCreditValue_KeyPress);
@@ -59,6 +59,7 @@ namespace COKPOProject
             // 
             // ButtonCreditChangeCancel
             // 
+            this.ButtonCreditChangeCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ButtonCreditChangeCancel.Location = new System.Drawing.Point(254, 141);
             this.ButtonCreditChangeCancel.Name = "ButtonCreditChangeCancel";
             this.ButtonCreditChangeCancel.Size = new System.Drawing.Size(120, 40);
@@ -67,13 +68,27 @@ namespace COKPOProject
             this.ButtonCreditChangeCancel.UseVisualStyleBackColor = true;
             this.ButtonCreditChangeCancel.Click += new System.EventHandler(this.ButtonCancelChangeCreditLimit_Click);
             // 
+            // LabelText
+            // 
+            this.LabelText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LabelText.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelText.Location = new System.Drawing.Point(0, 0);
+            this.LabelText.Name = "LabelText";
+            this.LabelText.Size = new System.Drawing.Size(425, 62);
+            this.LabelText.TabIndex = 3;
+            this.LabelText.Text = "Podaj nowy limit kredytu";
+            this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FZmienLimitKredytuPopUp
             // 
+            this.AcceptButton = this.ButtonCreditChangeAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CancelButton = this.ButtonCreditChangeCancel;
             this.ClientSize = new System.Drawing.Size(425, 209);
+            this.Controls.Add(this.LabelText);
             this.Controls.Add(this.ButtonCreditChangeCancel);
             this.Controls.Add(this.ButtonCreditChangeAccept);
             this.Controls.Add(this.TextBoxCreditValue);
@@ -93,5 +108,6 @@ namespace COKPOProject
         private System.Windows.Forms.TextBox TextBoxCreditValue;
         private System.Windows.Forms.Button ButtonCreditChangeAccept;
         private System.Windows.Forms.Button ButtonCreditChangeCancel;
+        private System.Windows.Forms.Label LabelText;
     }
 }

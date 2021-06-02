@@ -27,24 +27,23 @@ namespace COKPOProject
         //Metoda wydarzenia Text boxu - jak wciśnięty enter
         private void TextBoxCreditValue_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                karta.LimitKredytu = decimal.Parse(TextBoxCreditValue.Text);
-                this.Close();
-            }
+            if (e.KeyCode != Keys.Enter) return;
+            karta.LimitKredytu = decimal.Parse(TextBoxCreditValue.Text);
+            this.Close();
         }
 
         //Metoda przycisku - Akceptuj
         private void ButtonAcceptChangeCreditLimit(object sender, EventArgs e)
         {
             karta.LimitKredytu = decimal.Parse(TextBoxCreditValue.Text);
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         //Metoda przycisku - Anuluj
         private void ButtonCancelChangeCreditLimit_Click(object sender, EventArgs e)
         {
-            throw new Exception("Anulowano");
+            this.Close();
         }
 
         //Metoda pozwalająca wpisywać liczby oraz przecinek do text boxu

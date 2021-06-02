@@ -12,45 +12,45 @@ namespace COKPOProject
 {
     public partial class FDodajBankPopUp : Form
     {
+        public string BankName { get; set; }
+
         //Konstruktor forma
         public FDodajBankPopUp()
         {
             InitializeComponent();
+        }
+        //Konstruktor wpisujący inny środek w textbox
+        public FDodajBankPopUp(string name)
+        {
+            InitializeComponent();
+            LabelText.Text = name;
         }
 
         //
         //Metody użytkowe
         //
 
-        public string ReturnBankName()
+        public void ChangeTextBoxValue(string newValue)
         {
-            return TextBoxBankName.Text;
-        }
-        public void ChangeTextBoxTextValue(string nazwa)
-        {
-            TextBoxBankName.Text = nazwa;
+            TextBoxBankName.Text = newValue;
         }
 
         //
         //Metody przycisków oraz wydarzeń
         //
 
-        //Metoda wydarzenia Text boxu Banku - jak wciśnięty enter
-        private void TextBoxAddBank_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) this.Close();
-        }
-
         //Metoda przycisku - Akceptuj
         private void BankAddAcceptButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+            BankName = TextBoxBankName.Text;
             this.Close();
         }
 
         //Metoda przycisku - Anuluj
         private void BankAddCancelButton_Click(object sender, EventArgs e)
         {
-            throw new Exception("Anulowano");
+            this.Close();
         }
     }
 }
