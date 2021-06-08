@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Newtonsoft.Json;
 
 
 namespace COKPOProject
@@ -11,8 +11,8 @@ namespace COKPOProject
     {
         public readonly string NrKarty;
         public decimal Saldo { get; set; }
-        public readonly Bank BankWydajacy;
-        public readonly Klient Wlasciciel;
+        public Bank BankWydajacy { get; private set; }
+        public Klient Wlasciciel { get; private set; }
         private static readonly Random Random = new Random();
 
         //Metoda porównująca kwotę z saldem i oceniająca czy transkacja jest możliwa
@@ -41,6 +41,12 @@ namespace COKPOProject
             this.NrKarty = NrKarty;
         }
 
+        public void UstawBankKlient(Bank bank, Klient klient)
+        {
+            BankWydajacy = bank;
+            Wlasciciel = klient;
+        }
+
         //Wewnętrzna metoda losująca numer karty
         private static string LosujNumerKarty()
         {
@@ -63,6 +69,7 @@ namespace COKPOProject
 
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
 
+        [JsonConstructor]
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
         public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota < Saldo;
@@ -80,6 +87,7 @@ namespace COKPOProject
 
         public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
 
+        [JsonConstructor]
         public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
         public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota < Saldo + LimitKredytu;
@@ -94,6 +102,7 @@ namespace COKPOProject
 
         public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
 
+        [JsonConstructor]
         public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
         public override bool CzyWystarczajaceSaldo(decimal Kwota) => false;

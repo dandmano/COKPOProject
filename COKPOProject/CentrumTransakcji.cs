@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace COKPOProject
 {
@@ -66,5 +70,51 @@ namespace COKPOProject
 
             throw new Exception("Nie znaleziono karty o takim numerze!");
         }
+
+        public static CentrumTransakcji Wczytywanie(string filePath)
+        {
+            var tmp = new CentrumTransakcji();
+            try
+            {
+                if (!File.Exists(filePath)) return tmp;
+                tmp = JsonConvert.DeserializeObject<CentrumTransakcji>(File.ReadAllText(filePath),
+                    new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                        PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                        TypeNameHandling = TypeNameHandling.All
+                    });
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+            foreach (var bank in tmp.Banki)
+            {
+                foreach (var klient in bank.Klienci)
+                {
+                    klient.UstawBank(bank);
+                    foreach (var karta in klient.Karty)
+                    {
+                        karta.UstawBankKlient(bank, klient);
+                    }
+                }
+            }
+            return tmp;
+        }
+        public void Zapisywanie(string filePath)
+        {
+            var xd = JsonConvert.SerializeObject(this,
+                new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    TypeNameHandling = TypeNameHandling.All
+                });
+            File.WriteAllText(filePath, xd);
+        }
+
+
     }
 }

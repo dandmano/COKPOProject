@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace COKPOProject
 {
@@ -14,12 +16,13 @@ namespace COKPOProject
         [STAThread]
         private static void Main()
         {
-            var centrumTransakcji = new CentrumTransakcji();
-            Stworzbankitd(centrumTransakcji);
+            //var centrumTransakcji = new CentrumTransakcji();
+            var centrumTransakcji = CentrumTransakcji.Wczytywanie("dane.json");
+            //Stworzbankitd(centrumTransakcji);
+            //centrumTransakcji.Zapisywanie("dane.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FStronaGlowna(centrumTransakcji));
-
         }
 
         private static void Stworzbankitd(CentrumTransakcji centrumTransakcji)

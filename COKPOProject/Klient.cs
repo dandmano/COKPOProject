@@ -9,7 +9,7 @@ namespace COKPOProject
     public abstract class Klient
     {
         //public readonly int IdKlienta;
-        public readonly Bank BankKlienta;
+        public Bank BankKlienta { get; private set; }
         public string NazwaKlienta { get; set; }
         public List<Karta> Karty { get; } = new List<Karta>();
 
@@ -75,6 +75,11 @@ namespace COKPOProject
             else if (nrkarty == "" && saldo != -1)
                 Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo));
             else throw new Exception("Błąd przy tworzeniu karty");
+        }
+
+        public void UstawBank(Bank bank)
+        {
+            BankKlienta = bank;
         }
 
         public override string ToString()
