@@ -81,6 +81,49 @@ namespace COKPOProject
             }
             else MessageBox.Show("Wybierz kartę, którą chcesz usunąć.", "Uwaga!");
         }
+        //Metoda przycisku = Wpłać
+        private void ButtonDonate_Click(object sender, EventArgs e)
+        {
+            if (ListBoxCards.SelectedItem == null)
+            {
+                MessageBox.Show("Zaznacz kartę", "Uwaga!");
+                return;
+            }
+            else if (string.IsNullOrEmpty(TextBoxAmount.Text))
+            {
+                MessageBox.Show("Wpisz poprawną wartość", "Uwaga!");
+                return;
+            }
+            else
+            {
+                var tmp = (Karta)ListBoxCards.SelectedItem;
+                tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
+                TextBoxSaldo.Text = tmp.Saldo.ToString("C");
+                TextBoxAmount.Clear();
+            }
+        }
+        //Metoda przycisku - Wypłać
+        private void ButtonWithdraw_Click(object sender, EventArgs e)
+        {
+            if (ListBoxCards.SelectedItem == null)
+            {
+                MessageBox.Show("Zaznacz kartę", "Uwaga!");
+                return;
+            }
+            else if (string.IsNullOrEmpty(TextBoxAmount.Text))
+            {
+                MessageBox.Show("Wpisz poprawną wartość", "Uwaga!");
+                return;
+            }
+            else
+            {
+                var tmp = (Karta)ListBoxCards.SelectedItem;
+                var kwota_tmp = decimal.Parse(TextBoxAmount.Text);
+                if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
+                TextBoxSaldo.Text = tmp.Saldo.ToString("C");
+                TextBoxAmount.Clear();
+            }
+        }
 
         //Metoda wykrywająca zmianę zaznaczonej karty i zmienia jej wyświetlane wartości
         private void ListBoxCards_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,5 +172,22 @@ namespace COKPOProject
             if (fZmienLimitKredytuPopUp.DialogResult != DialogResult.OK) return;
             TextBoxCreditLimit.Text = tmp.LimitKredytu.ToString("C");
         }
+
+
+
+        //Metoda ograniczająca wpisywane znaki
+        private void TextBoxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }
