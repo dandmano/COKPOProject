@@ -64,6 +64,12 @@
     <Compile Include="FCentrumTransakcji.Designer.cs">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDodajTransakcjiePopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDodajTransakcjiePopUp.Designer.cs">
+      <DependentUpon>FDodajTransakcjiePopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FZmienLimitKredytuPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <EmbeddedResource Include="FCentrumTransakcji.resx">
       <DependentUpon>FCentrumTransakcji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FDodajTransakcjiePopUp.resx">
+      <DependentUpon>FDodajTransakcjiePopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FZmienLimitKredytuPopUp.resx">
       <DependentUpon>FZmienLimitKredytuPopUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,8 +162,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataBase\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

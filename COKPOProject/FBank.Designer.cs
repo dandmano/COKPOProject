@@ -89,6 +89,7 @@ namespace COKPOProject
             this.ListBoxClients.Size = new System.Drawing.Size(351, 466);
             this.ListBoxClients.Sorted = true;
             this.ListBoxClients.TabIndex = 5;
+            this.ListBoxClients.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxClients_MouseDoubleClick);
             // 
             // ButtonGoToClient
             // 

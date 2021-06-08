@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace COKPOProject
 {
     public abstract class Klient
     {
-        //public readonly int IdKlienta;
         public Bank BankKlienta { get; private set; }
+
         public string NazwaKlienta { get; set; }
+
         public List<Karta> Karty { get; } = new List<Karta>();
 
         protected Klient(string NazwaKlienta, Bank BankKlienta)
@@ -25,56 +27,17 @@ namespace COKPOProject
             switch (wybor)
             {
                 case 0:
-                    DodajKarteDebetowa(saldo, nrkarty);
+                    Karty.Add(new KartaDebetowa(this, BankKlienta, saldo, nrkarty));
                     break;
                 case 1:
-                    DodajKarteKredytowa(saldo, nrkarty);
+                    Karty.Add(new KartaKredytowa(this, BankKlienta, saldo, nrkarty));
                     break;
                 case 2:
-                    DodajKarteBankomatowa(saldo, nrkarty);
+                    Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo, nrkarty));
                     break;
                 default:
                     throw new WrongIndexException("Nie istnieje taki index przy tworzeniu karty", wybor);
             }
-        }
-
-        private void DodajKarteDebetowa(decimal saldo, string nrkarty)
-        {
-            if (nrkarty == "" && saldo == -1)
-                Karty.Add(new KartaDebetowa(this, BankKlienta));
-            else if (nrkarty != "" && saldo == -1)
-                Karty.Add(new KartaDebetowa(this, BankKlienta, 0, nrkarty));
-            else if (nrkarty != "" && saldo != -1)
-                Karty.Add(new KartaDebetowa(this, BankKlienta, saldo, nrkarty));
-            else if (nrkarty == "" && saldo != -1)
-                Karty.Add(new KartaDebetowa(this, BankKlienta, saldo));
-            else throw new Exception("Błąd przy tworzeniu karty");
-        }
-
-        private void DodajKarteKredytowa(decimal saldo, string nrkarty)
-        {
-            if (nrkarty == "" && saldo == -1)
-                Karty.Add(new KartaKredytowa(this, BankKlienta));
-            else if (nrkarty != "" && saldo == -1)
-                Karty.Add(new KartaKredytowa(this, BankKlienta, 0, nrkarty));
-            else if (nrkarty != "" && saldo != -1)
-                Karty.Add(new KartaKredytowa(this, BankKlienta, saldo, nrkarty));
-            else if (nrkarty == "" && saldo != -1)
-                Karty.Add(new KartaKredytowa(this, BankKlienta, saldo));
-            else throw new Exception("Błąd przy tworzeniu karty");
-        }
-
-        private void DodajKarteBankomatowa(decimal saldo, string nrkarty)
-        {
-            if (nrkarty == "" && saldo == -1)
-                Karty.Add(new KartaBankomatowa(this, BankKlienta));
-            else if (nrkarty != "" && saldo == -1)
-                Karty.Add(new KartaBankomatowa(this, BankKlienta, 0, nrkarty));
-            else if (nrkarty != "" && saldo != -1)
-                Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo, nrkarty));
-            else if (nrkarty == "" && saldo != -1)
-                Karty.Add(new KartaBankomatowa(this, BankKlienta, saldo));
-            else throw new Exception("Błąd przy tworzeniu karty");
         }
 
         public void UstawBank(Bank bank)
@@ -86,7 +49,15 @@ namespace COKPOProject
         {
             return NazwaKlienta; //Do wypisywania w textboxach
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Klient)) return false;
+            var tmp = obj as Klient;
+            return tmp.NazwaKlienta.Equals(this.NazwaKlienta);
+        }
     }
+
 
 
 
@@ -94,6 +65,7 @@ namespace COKPOProject
     {
         public Firma(string NazwaKlienta, Bank BankKlienta) : base(NazwaKlienta, BankKlienta) { }
     }
+
 
 
 

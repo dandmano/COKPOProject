@@ -45,9 +45,26 @@ namespace COKPOProject
             }
             ListBoxBanks.EndUpdate();
         }
+        //Odświeżanie/uzupełnianie listy transakcji
+        private void UpdateTransactionList()
+        {
+            ListViewTransactions.Update();
+            ListViewTransactions.Items.Clear();
+            foreach (var transakcja in centrumTransakcji.Transakcje)
+            {
+                var item = new ListViewItem(transakcja.ToString());
+                item.SubItems.Add(transakcja.Data.ToString("g"));
+                item.SubItems.Add(transakcja.NazwaFirmy);
+                item.SubItems.Add(transakcja.NrKarty);
+                item.SubItems.Add(transakcja.Kwota.ToString("C"));
+                item.SubItems.Add(transakcja.StatusAutoryzacji ? "Wykonana" : "Odrzucona");
+                ListViewTransactions.Items.Add(item);
+            }
+            ListViewTransactions.EndUpdate();
+        }
 
         //
-        // Metody przycisków
+        // Metody przycisków oraz wydarzeń
         //
 
         // Metoda przycisku - Dodaj Bank
@@ -97,6 +114,20 @@ namespace COKPOProject
             {
                 MessageBox.Show("Wybierz bank do którego chcesz przejść.", "Uwaga!");
             }
+        }
+        //Metoda przycisku - autoryzuj transakcję
+        private void ButtonAuthorizeTransaction_Click(object sender, EventArgs e)
+        {
+            var fDodajTransakcjePopUp = new FDodajTransakcjiePopUp(centrumTransakcji);
+            fDodajTransakcjePopUp.ShowDialog();
+            if (fDodajTransakcjePopUp.DialogResult != DialogResult.OK) return;
+            UpdateTransactionList();
+        }
+
+        //Metoda wydarzenia double click w listboxie banków 
+        private void ListBoxBanks_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ButtonGoToBank_Click(sender, e);
         }
     }
 }

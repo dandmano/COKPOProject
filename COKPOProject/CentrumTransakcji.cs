@@ -44,6 +44,12 @@ namespace COKPOProject
             Banki.Add(new Bank(NazwaBanku));
         }
 
+        public void DodajTransakcje(Firma Firma, decimal Kwota, string NrKarty)
+        {
+            var idtransakcji = Transakcje.Count() + 1;
+            Transakcje.Add(new Transakcja(Firma, Kwota, NrKarty, idtransakcji));
+        }
+
         //Metoda sprawdzająca czy stan na koncie karty jest wystarczający/ czy można wykonać transakcję (karta bankomatowa nie wspierana)
         private bool SprawdzTransakcje(Transakcja T)
         {

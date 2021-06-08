@@ -31,6 +31,7 @@ namespace COKPOProject
             this.Location = previuousform.Location;
             ClientiLabel.Text = klient.NazwaKlienta;
             UpdateCardList();
+            ListBoxCards.SelectedIndex = 0;
         }
 
         //
@@ -89,18 +90,15 @@ namespace COKPOProject
                 MessageBox.Show("Zaznacz kartę", "Uwaga!");
                 return;
             }
-            else if (string.IsNullOrEmpty(TextBoxAmount.Text))
+            if (string.IsNullOrEmpty(TextBoxAmount.Text))
             {
                 MessageBox.Show("Wpisz poprawną wartość", "Uwaga!");
                 return;
             }
-            else
-            {
-                var tmp = (Karta)ListBoxCards.SelectedItem;
-                tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
-                TextBoxSaldo.Text = tmp.Saldo.ToString("C");
-                TextBoxAmount.Clear();
-            }
+            var tmp = (Karta)ListBoxCards.SelectedItem;
+            tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
+            TextBoxSaldo.Text = tmp.Saldo.ToString("C");
+            TextBoxAmount.Clear();
         }
         //Metoda przycisku - Wypłać
         private void ButtonWithdraw_Click(object sender, EventArgs e)
@@ -110,19 +108,21 @@ namespace COKPOProject
                 MessageBox.Show("Zaznacz kartę", "Uwaga!");
                 return;
             }
-            else if (string.IsNullOrEmpty(TextBoxAmount.Text))
+            if (string.IsNullOrEmpty(TextBoxAmount.Text))
             {
                 MessageBox.Show("Wpisz poprawną wartość", "Uwaga!");
                 return;
             }
+            var tmp = (Karta)ListBoxCards.SelectedItem;
+            var kwota_tmp = decimal.Parse(TextBoxAmount.Text);
+            if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.Saldo -= decimal.Parse(TextBoxAmount.Text);
             else
             {
-                var tmp = (Karta)ListBoxCards.SelectedItem;
-                var kwota_tmp = decimal.Parse(TextBoxAmount.Text);
-                if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
-                TextBoxSaldo.Text = tmp.Saldo.ToString("C");
-                TextBoxAmount.Clear();
+                MessageBox.Show("Nie można wypłacić takiej kwoty - brak wystarczających środków!", "Uwaga!");
+                return;
             }
+            TextBoxSaldo.Text = tmp.Saldo.ToString("C");
+            TextBoxAmount.Clear();
         }
 
         //Metoda wykrywająca zmianę zaznaczonej karty i zmienia jej wyświetlane wartości
@@ -188,6 +188,5 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
-
     }
 }

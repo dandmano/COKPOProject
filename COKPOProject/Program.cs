@@ -16,10 +16,9 @@ namespace COKPOProject
         [STAThread]
         private static void Main()
         {
-            //var centrumTransakcji = new CentrumTransakcji();
-            var centrumTransakcji = CentrumTransakcji.Wczytywanie("dane.json");
-            //Stworzbankitd(centrumTransakcji);
-            //centrumTransakcji.Zapisywanie("dane.json");
+            var centrumTransakcji = new CentrumTransakcji();
+            //var centrumTransakcji = CentrumTransakcji.Wczytywanie("dane.json");
+            Stworzbankitd(centrumTransakcji);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FStronaGlowna(centrumTransakcji));

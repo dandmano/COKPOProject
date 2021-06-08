@@ -10,36 +10,32 @@ namespace COKPOProject
     public abstract class Karta
     {
         public readonly string NrKarty;
-        public decimal Saldo { get; set; }
+        public decimal Saldo { get; set; } = 0;
         public Bank BankWydajacy { get; private set; }
         public Klient Wlasciciel { get; private set; }
         private static readonly Random Random = new Random();
 
+        protected Karta(Klient Wlasciciel, Bank BankWydajacy, decimal saldo, string nrkarty)
+        {
+            this.Wlasciciel = Wlasciciel;
+            this.BankWydajacy = BankWydajacy;
+            if (nrkarty == "" && saldo == -1) this.NrKarty = LosujNumerKarty();
+            else if (nrkarty != "" && saldo == -1) this.NrKarty = nrkarty;
+            else if (nrkarty != "" && saldo != -1)
+            {
+                this.NrKarty = nrkarty;
+                this.Saldo = saldo;
+            }
+            else if (nrkarty == "" && saldo != -1)
+            {
+                this.NrKarty = LosujNumerKarty();
+                this.Saldo = saldo;
+            }
+            else throw new Exception("Błąd przy tworzeniu karty");
+        }
+
         //Metoda porównująca kwotę z saldem i oceniająca czy transkacja jest możliwa
         public abstract bool CzyWystarczajaceSaldo(decimal Kwota);
-
-        protected Karta(Klient Wlasciciel, Bank BankWydajacy)
-        {
-            this.Wlasciciel = Wlasciciel;
-            this.BankWydajacy = BankWydajacy;
-            this.NrKarty = LosujNumerKarty();
-        }
-
-        protected Karta(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo)
-        {
-            this.Wlasciciel = Wlasciciel;
-            this.BankWydajacy = BankWydajacy;
-            this.Saldo = Saldo;
-            this.NrKarty = LosujNumerKarty();
-        }
-
-        protected Karta(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty)
-        {
-            this.Wlasciciel = Wlasciciel;
-            this.BankWydajacy = BankWydajacy;
-            this.Saldo = Saldo;
-            this.NrKarty = NrKarty;
-        }
 
         public void UstawBankKlient(Bank bank, Klient klient)
         {
@@ -65,10 +61,6 @@ namespace COKPOProject
 
     public class KartaDebetowa : Karta
     {
-        public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
-
-        public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
-
         [JsonConstructor]
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
@@ -83,10 +75,6 @@ namespace COKPOProject
     {
         public decimal LimitKredytu { get; set; } = 5000;
 
-        public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
-
-        public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
-
         [JsonConstructor]
         public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
@@ -98,10 +86,6 @@ namespace COKPOProject
 
     public class KartaBankomatowa : Karta
     {
-        public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy) : base(Wlasciciel, BankWydajacy) { }
-
-        public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo) : base(Wlasciciel, BankWydajacy, Saldo) { }
-
         [JsonConstructor]
         public KartaBankomatowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 

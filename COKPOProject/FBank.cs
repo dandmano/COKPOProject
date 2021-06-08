@@ -153,5 +153,11 @@ namespace COKPOProject
                 MessageBox.Show("Wybierz klienta którego nazwę chcesz edytować.", "Uwaga");
             }
         }
+
+        //Metoda wydarzenia double mouse click w liście klientów
+        private void ListBoxClients_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ButtonGoToClient_Click(sender, e);
+        }
     }
 }
