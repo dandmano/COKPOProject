@@ -40,6 +40,7 @@ namespace COKPOProject
             this.TextBoxBankName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TextBoxBankName.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxBankName.Location = new System.Drawing.Point(43, 64);
+            this.TextBoxBankName.MaxLength = 40;
             this.TextBoxBankName.Name = "TextBoxBankName";
             this.TextBoxBankName.Size = new System.Drawing.Size(331, 48);
             this.TextBoxBankName.TabIndex = 0;

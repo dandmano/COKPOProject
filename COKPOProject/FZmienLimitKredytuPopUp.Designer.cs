@@ -40,6 +40,7 @@ namespace COKPOProject
             this.TextBoxCreditValue.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TextBoxCreditValue.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxCreditValue.Location = new System.Drawing.Point(43, 65);
+            this.TextBoxCreditValue.MaxLength = 12;
             this.TextBoxCreditValue.Name = "TextBoxCreditValue";
             this.TextBoxCreditValue.Size = new System.Drawing.Size(331, 48);
             this.TextBoxCreditValue.TabIndex = 0;
