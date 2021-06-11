@@ -9,10 +9,7 @@ namespace COKPOProject
 {
     public class ClientDoesNotExistException : Exception
     {
-        public Klient NotExistingClient { get; set; }
-        public ClientDoesNotExistException() : base() { }
-        public ClientDoesNotExistException(string message) : base(message) { }
-        public ClientDoesNotExistException(string message, Exception e) : base(message, e) { }
+        public Klient NotExistingClient { get; }
 
         public ClientDoesNotExistException(Klient notExistingClient) : base()
         {
@@ -21,14 +18,29 @@ namespace COKPOProject
     }
     public class WrongIndexException : Exception
     {
-        public int WrongIndex { get; set; }
-        public WrongIndexException() : base() { }
-        public WrongIndexException(string message) : base(message) { }
-        public WrongIndexException(string message, Exception e) : base(message, e) { }
+        public int WrongIndex { get; }
 
         public WrongIndexException(string message, int wrongIndex) : base(message)
         {
             WrongIndex = wrongIndex;
+        }
+    }
+    public class WrongCardNumberException : Exception
+    {
+        public string WrongCardNumber { get; }
+
+        public WrongCardNumberException(string message, string wrongNumber) : base(message)
+        {
+            WrongCardNumber = wrongNumber;
+        }
+    }
+    public class BankomatCardNotSupportedException : Exception
+    {
+        public Karta WrongCard { get; }
+
+        public BankomatCardNotSupportedException(string message, Karta wrongCard) : base(message)
+        {
+            WrongCard = wrongCard;
         }
     }
 }

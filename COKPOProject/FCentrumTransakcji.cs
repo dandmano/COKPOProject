@@ -19,7 +19,6 @@ namespace COKPOProject
         {
             this.centrumTransakcji = centrumTransakcji;
             InitializeComponent();
-            UpdateBankList();
             Owner = OwnerForm;
         }
 
@@ -28,6 +27,7 @@ namespace COKPOProject
         {
             this.Location = Owner.Location;
             UpdateBankList();
+            UpdateTransactionList();
         }
 
         //
@@ -53,7 +53,7 @@ namespace COKPOProject
             foreach (var transakcja in centrumTransakcji.Transakcje)
             {
                 var item = new ListViewItem(transakcja.ToString());
-                item.SubItems.Add(transakcja.Data.ToString("g"));
+                item.SubItems.Add(transakcja.Data.ToString("d"));
                 item.SubItems.Add(transakcja.NazwaFirmy);
                 item.SubItems.Add(transakcja.NrKarty);
                 item.SubItems.Add(transakcja.Kwota.ToString("C"));
@@ -122,6 +122,27 @@ namespace COKPOProject
             fDodajTransakcjePopUp.ShowDialog();
             if (fDodajTransakcjePopUp.DialogResult != DialogResult.OK) return;
             UpdateTransactionList();
+        }
+
+        //Metoda przycisku - usuń transakcję z historii
+        private void ButtonRemoveTransaction_Click(object sender, EventArgs e)
+        {
+            if (ListViewTransactions.SelectedIndices.Count == 0)
+            {
+                MessageBox.Show("Wybierz transakcję którą chcesz usunąć.", "Uwaga!");
+                return;
+            }
+
+            var tmp = ListViewTransactions.SelectedItems[0];
+            try
+            {
+                centrumTransakcji.UsunTransakcje(int.Parse(tmp.Text));
+                UpdateTransactionList();
+            }
+            catch (WrongIndexException ex)
+            {
+                MessageBox.Show($"{ex.Message} + Index = {ex.WrongIndex}", "Błąd!");
+            }
         }
 
         //Metoda wydarzenia double click w listboxie banków 

@@ -23,8 +23,13 @@ namespace COKPOProject
         }
 
         //Metoda znajdująca i zwracająca transakcję o podanym ID
-        public Transakcja GetTransakcja(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji)); //Obsluzyc?
+        public Transakcja GetTransakcjaWithID(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji)); //Obsluzyc?
 
+        //Metoda usuwająca transkację
+        public void UsunTransakcje(int IdTransakcji)
+        {
+            if (!Transakcje.Remove(GetTransakcjaWithID(IdTransakcji))) throw new WrongIndexException("Nie ma transakcji o takim indexsie w liscie!", IdTransakcji);
+        }
 
         //Metoda Autoryzująca na podstawie wyniku metody SprawdzTransakcję
         public bool AutoryzujTransakcje(Transakcja T)
@@ -44,10 +49,12 @@ namespace COKPOProject
             Banki.Add(new Bank(NazwaBanku));
         }
 
-        public void DodajTransakcje(Firma Firma, decimal Kwota, string NrKarty)
+        public bool DodajTransakcje(Firma Firma, decimal Kwota, string NrKarty)
         {
-            var idtransakcji = Transakcje.Count() + 1;
-            Transakcje.Add(new Transakcja(Firma, Kwota, NrKarty, idtransakcji));
+            var idtransakcji = 1;
+            if (Transakcje.Count > 0) idtransakcji = Transakcje.Last().IdTransakcji + 1;
+            var tmp = new Transakcja(Firma, Kwota, NrKarty, idtransakcji);
+            return AutoryzujTransakcje(tmp);
         }
 
         //Metoda sprawdzająca czy stan na koncie karty jest wystarczający/ czy można wykonać transakcję (karta bankomatowa nie wspierana)
@@ -58,11 +65,16 @@ namespace COKPOProject
                 var karta = ZnajdzKartePoNumerze(T.NrKarty);
                 return karta.CzyWystarczajaceSaldo(T.Kwota);
             }
-            catch (Exception exe)
+            catch (WrongCardNumberException exe)
             {
-                MessageBox.Show(exe.Message, "Uwaga!");
-                throw exe;
+                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCardNumber, "Uwaga!");
             }
+            catch (BankomatCardNotSupportedException exe)
+            {
+                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCard, "Uwaga!");
+            }
+
+            return false;
 
         }
 
@@ -71,10 +83,12 @@ namespace COKPOProject
         {
             foreach (var karta in Banki.SelectMany(bank => bank.Klienci, (bank, klient) => klient.Karty.Find(x => x.NrKarty.Equals(NrKarty))).Where(karta => karta != null))
             {
+                if (karta is KartaBankomatowa)
+                    throw new BankomatCardNotSupportedException("Karta bankomatowa nie jest obsługiwana!", karta);
                 return karta;
             }
 
-            throw new Exception("Nie znaleziono karty o takim numerze!");
+            throw new WrongCardNumberException("Nie znaleziono karty o takim numerze!", NrKarty);
         }
 
         public static CentrumTransakcji Wczytywanie(string filePath)
