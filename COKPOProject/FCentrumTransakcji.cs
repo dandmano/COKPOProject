@@ -62,6 +62,24 @@ namespace COKPOProject
             }
             ListViewTransactions.EndUpdate();
         }
+        //Odświerzanie/uzupełnianie listy przeszukiwanych transakcji
+        private void UpdateTmpTransacionList(List<Transakcja> Tmp)
+        {
+            ListViewTransactions.Update();
+            ListViewTransactions.Items.Clear();
+            foreach (var transakcja in Tmp)
+            {
+                var item = new ListViewItem(transakcja.ToString());
+                item.SubItems.Add(transakcja.Data.ToString("d"));
+                item.SubItems.Add(transakcja.NazwaFirmy);
+                item.SubItems.Add(transakcja.NrKarty);
+                item.SubItems.Add(transakcja.Kwota.ToString("C"));
+                item.SubItems.Add(transakcja.StatusAutoryzacji ? "Wykonana" : "Odrzucona");
+                ListViewTransactions.Items.Add(item);
+            }
+            ListViewTransactions.EndUpdate();
+
+        }
 
         //
         // Metody przycisków oraz wydarzeń
@@ -143,6 +161,64 @@ namespace COKPOProject
             {
                 MessageBox.Show($"{ex.Message} + Index = {ex.WrongIndex}", "Błąd!");
             }
+        }
+        //Metoda przycisku - Przeszukaj Archiwum Transakcji
+        private void ButtonSearchTransaction_Click(object sender, EventArgs e)
+        {
+            var idx = ComboBoxSearch.SelectedIndex + 1;
+            var value = TextBoxSearch.Text;
+            List<Transakcja> tmpTransakcjas = new List<Transakcja>();
+            switch (idx)
+            {
+                case 1:
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.IdTransakcji == int.Parse(value)) tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                case 2:
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.Data.ToString() == value) tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                case 3:
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.NazwaFirmy == value) tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                case 4:
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.NrKarty == value) tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                case 5:
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.Kwota == decimal.Parse(value)) tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                case 6:
+                    // Uwaga na case 6 zastanowić się jak przerobić boola!!!
+                    foreach (Transakcja transakcja in ListViewTransactions.Items)
+                    {
+                        if (transakcja.StatusAutoryzacji == true && value == "Wykonana") tmpTransakcjas.Add(transakcja);
+                        else if (transakcja.StatusAutoryzacji == false && value == "Odrzucona") tmpTransakcjas.Add(transakcja);
+                    }
+                    UpdateTmpTransacionList(tmpTransakcjas);
+                    break;
+                default:
+                    MessageBox.Show("Zaznacz odpowiednią wartość!", "Uwaga!");
+                    break;
+            }
+
         }
 
         //Metoda wydarzenia double click w listboxie banków 

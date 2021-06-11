@@ -48,6 +48,10 @@ namespace COKPOProject
             this.NrKarty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kwota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ComboBoxSearch = new System.Windows.Forms.ComboBox();
+            this.LabelSearch = new System.Windows.Forms.Label();
+            this.LabelValues = new System.Windows.Forms.Label();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LabelCentrumTransakcji
@@ -67,7 +71,7 @@ namespace COKPOProject
             this.ListBoxBanks.FormattingEnabled = true;
             this.ListBoxBanks.ItemHeight = 17;
             this.ListBoxBanks.Location = new System.Drawing.Point(33, 83);
-            this.ListBoxBanks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListBoxBanks.Margin = new System.Windows.Forms.Padding(2);
             this.ListBoxBanks.Name = "ListBoxBanks";
             this.ListBoxBanks.Size = new System.Drawing.Size(198, 293);
             this.ListBoxBanks.Sorted = true;
@@ -78,7 +82,7 @@ namespace COKPOProject
             // 
             this.ButtonAddBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonAddBank.Location = new System.Drawing.Point(33, 402);
-            this.ButtonAddBank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonAddBank.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAddBank.Name = "ButtonAddBank";
             this.ButtonAddBank.Size = new System.Drawing.Size(198, 40);
             this.ButtonAddBank.TabIndex = 2;
@@ -101,7 +105,7 @@ namespace COKPOProject
             // 
             this.ButtonEditBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonEditBank.Location = new System.Drawing.Point(33, 492);
-            this.ButtonEditBank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonEditBank.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonEditBank.Name = "ButtonEditBank";
             this.ButtonEditBank.Size = new System.Drawing.Size(198, 40);
             this.ButtonEditBank.TabIndex = 4;
@@ -144,9 +148,9 @@ namespace COKPOProject
             // 
             this.ButtonRemoveTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonRemoveTransaction.Location = new System.Drawing.Point(270, 447);
-            this.ButtonRemoveTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonRemoveTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonRemoveTransaction.Name = "ButtonRemoveTransaction";
-            this.ButtonRemoveTransaction.Size = new System.Drawing.Size(579, 40);
+            this.ButtonRemoveTransaction.Size = new System.Drawing.Size(276, 40);
             this.ButtonRemoveTransaction.TabIndex = 12;
             this.ButtonRemoveTransaction.Text = "Usuń Transakcję z Historii";
             this.ButtonRemoveTransaction.UseVisualStyleBackColor = true;
@@ -156,9 +160,9 @@ namespace COKPOProject
             // 
             this.ButtonAuthorizeTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonAuthorizeTransaction.Location = new System.Drawing.Point(270, 402);
-            this.ButtonAuthorizeTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonAuthorizeTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAuthorizeTransaction.Name = "ButtonAuthorizeTransaction";
-            this.ButtonAuthorizeTransaction.Size = new System.Drawing.Size(579, 40);
+            this.ButtonAuthorizeTransaction.Size = new System.Drawing.Size(276, 40);
             this.ButtonAuthorizeTransaction.TabIndex = 13;
             this.ButtonAuthorizeTransaction.Text = "Autoryzuj Transakcje";
             this.ButtonAuthorizeTransaction.UseVisualStyleBackColor = true;
@@ -167,13 +171,14 @@ namespace COKPOProject
             // ButtonSearchTransaction
             // 
             this.ButtonSearchTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ButtonSearchTransaction.Location = new System.Drawing.Point(270, 492);
-            this.ButtonSearchTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSearchTransaction.Location = new System.Drawing.Point(574, 537);
+            this.ButtonSearchTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSearchTransaction.Name = "ButtonSearchTransaction";
-            this.ButtonSearchTransaction.Size = new System.Drawing.Size(579, 40);
+            this.ButtonSearchTransaction.Size = new System.Drawing.Size(276, 40);
             this.ButtonSearchTransaction.TabIndex = 14;
             this.ButtonSearchTransaction.Text = "Przeszukaj Archiwum Transakcji";
             this.ButtonSearchTransaction.UseVisualStyleBackColor = true;
+            this.ButtonSearchTransaction.Click += new System.EventHandler(this.ButtonSearchTransaction_Click);
             // 
             // ListViewTransactions
             // 
@@ -191,7 +196,7 @@ namespace COKPOProject
             this.ListViewTransactions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.ListViewTransactions.HideSelection = false;
             this.ListViewTransactions.Location = new System.Drawing.Point(270, 83);
-            this.ListViewTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListViewTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.ListViewTransactions.Name = "ListViewTransactions";
             this.ListViewTransactions.Size = new System.Drawing.Size(580, 308);
             this.ListViewTransactions.Sorting = System.Windows.Forms.SortOrder.Descending;
@@ -229,11 +234,62 @@ namespace COKPOProject
             this.Status.Text = "Status";
             this.Status.Width = 85;
             // 
+            // ComboBoxSearch
+            // 
+            this.ComboBoxSearch.DropDownHeight = 100;
+            this.ComboBoxSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ComboBoxSearch.FormattingEnabled = true;
+            this.ComboBoxSearch.IntegralHeight = false;
+            this.ComboBoxSearch.Items.AddRange(new object[] {
+            "Id",
+            "Data",
+            "Firma",
+            "Nr Karty",
+            "Kwota",
+            "Status"});
+            this.ComboBoxSearch.Location = new System.Drawing.Point(626, 424);
+            this.ComboBoxSearch.Name = "ComboBoxSearch";
+            this.ComboBoxSearch.Size = new System.Drawing.Size(158, 27);
+            this.ComboBoxSearch.TabIndex = 16;
+            this.ComboBoxSearch.Text = "Wybierz formę";
+            // 
+            // LabelSearch
+            // 
+            this.LabelSearch.AutoSize = true;
+            this.LabelSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelSearch.Location = new System.Drawing.Point(610, 402);
+            this.LabelSearch.Name = "LabelSearch";
+            this.LabelSearch.Size = new System.Drawing.Size(152, 19);
+            this.LabelSearch.TabIndex = 17;
+            this.LabelSearch.Text = "Wyszukaj poprzez :";
+            // 
+            // LabelValues
+            // 
+            this.LabelValues.AutoSize = true;
+            this.LabelValues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelValues.Location = new System.Drawing.Point(610, 458);
+            this.LabelValues.Name = "LabelValues";
+            this.LabelValues.Size = new System.Drawing.Size(121, 19);
+            this.LabelValues.TabIndex = 18;
+            this.LabelValues.Text = "Podaj wartości";
+            // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxSearch.Location = new System.Drawing.Point(626, 480);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(158, 27);
+            this.TextBoxSearch.TabIndex = 19;
+            // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 612);
+            this.Controls.Add(this.TextBoxSearch);
+            this.Controls.Add(this.LabelValues);
+            this.Controls.Add(this.LabelSearch);
+            this.Controls.Add(this.ComboBoxSearch);
             this.Controls.Add(this.ListViewTransactions);
             this.Controls.Add(this.ButtonSearchTransaction);
             this.Controls.Add(this.ButtonAuthorizeTransaction);
@@ -248,7 +304,7 @@ namespace COKPOProject
             this.Controls.Add(this.LabelCentrumTransakcji);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FCentrumTransakcji";
@@ -280,5 +336,9 @@ namespace COKPOProject
         private System.Windows.Forms.ColumnHeader NrKarty;
         private System.Windows.Forms.ColumnHeader Kwota;
         private System.Windows.Forms.ColumnHeader Status;
+        private System.Windows.Forms.ComboBox ComboBoxSearch;
+        private System.Windows.Forms.Label LabelSearch;
+        private System.Windows.Forms.Label LabelValues;
+        private System.Windows.Forms.TextBox TextBoxSearch;
     }
 }
