@@ -22,48 +22,27 @@ namespace COKPOProject
             Banki = new List<Bank>();
         }
 
-        //Metoda znajdująca i zwracająca transakcję o podanym ID
-        public Transakcja GetTransakcjaWithID(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji)); //Obsluzyc?
-
-        //Metoda usuwająca transkację
-        public void UsunTransakcje(int IdTransakcji)
-        {
-            if (!Transakcje.Remove(GetTransakcjaWithID(IdTransakcji))) throw new WrongIndexException("Nie ma transakcji o takim indexsie w liscie!", IdTransakcji);
-        }
-
-        //Metoda Autoryzująca na podstawie wyniku metody SprawdzTransakcję
-        public bool AutoryzujTransakcje(Transakcja T)
-        {
-            Transakcje.Add(T);
-            if (SprawdzTransakcje(T))
-            {
-                T.StatusAutoryzacji = true;
-                return true;
-            }
-            T.StatusAutoryzacji = false;
-            return false;
-        }
-
+        //Metoda dodająca bank
         public void DodajBank(string NazwaBanku)
         {
             Banki.Add(new Bank(NazwaBanku));
         }
 
-        public bool DodajTransakcje(Firma Firma, decimal Kwota, string NrKarty)
+
+        //
+        //Metody służące do dodawania i obłsugi transakcji
+        //
+
+        //Metoda dodająca transakcję
+        public void DodajTransakcje(Firma Firma, decimal Kwota, string NrKarty)
         {
             var idtransakcji = 1;
             if (Transakcje.Count > 0) idtransakcji = Transakcje.Last().IdTransakcji + 1;
-            var tmp = new Transakcja(Firma, Kwota, NrKarty, idtransakcji);
-            return AutoryzujTransakcje(tmp);
-        }
-
-        //Metoda sprawdzająca czy stan na koncie karty jest wystarczający/ czy można wykonać transakcję (karta bankomatowa nie wspierana)
-        private bool SprawdzTransakcje(Transakcja T)
-        {
             try
             {
-                var karta = ZnajdzKartePoNumerze(T.NrKarty);
-                return karta.CzyWystarczajaceSaldo(T.Kwota);
+                var karta = ZnajdzKartePoNumerze(NrKarty);
+                var tmp = new Transakcja(Firma, Kwota, NrKarty, idtransakcji, karta.BankWydajacy.NazwaBanku);
+                AutoryzujTransakcje(tmp, karta);
             }
             catch (WrongCardNumberException exe)
             {
@@ -73,9 +52,29 @@ namespace COKPOProject
             {
                 MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCard, "Uwaga!");
             }
+        }
 
+        //Metoda usuwająca transkację
+        public void UsunTransakcje(int IdTransakcji)
+        {
+            if (!Transakcje.Remove(GetTransakcjaWithID(IdTransakcji)))
+            {
+                throw new WrongIndexException("Nie ma transakcji o takim indexsie w liscie!", IdTransakcji);
+            }
+        }
+
+        //Metoda Autoryzująca na podstawie wyniku metody SprawdzTransakcję
+        public bool AutoryzujTransakcje(Transakcja T, Karta karta)
+        {
+            Transakcje.Add(T);
+            if (karta.CzyWystarczajaceSaldo(T.Kwota))
+            {
+                karta.WplacLubWyplac((-1) * T.Kwota);
+                T.StatusAutoryzacji = true;
+                return true;
+            }
+            T.StatusAutoryzacji = false;
             return false;
-
         }
 
         //Metoda wyszukująca kartę po numerze
@@ -91,6 +90,36 @@ namespace COKPOProject
             throw new WrongCardNumberException("Nie znaleziono karty o takim numerze!", NrKarty);
         }
 
+        //Metoda znajdująca i zwracająca transakcję o podanym ID
+        public Transakcja GetTransakcjaWithID(int IdTransakcji) => Transakcje.Find(x => x.IdTransakcji.Equals(IdTransakcji));
+
+        //
+        //Metoda pozwalająca przeszukiwać archiwum transakcji i jej metody pomocniczne
+        //
+
+        //Metoda przeszukująca główna
+        public List<Transakcja> PrzeszukajTransakcje(int id, DateTime dataod, DateTime datado, bool czydata, decimal kwotaod, decimal kwotado, string nazwafirmy, string bankfirmy, string nrkarty, string bankklienta, bool status, bool czystatus)
+        {
+            var tmp = new List<Transakcja>(Transakcje);
+            foreach (var transakcja in tmp)
+            {
+                if (id != -1 && transakcja.IdTransakcji != id) tmp.Remove(transakcja);
+                else if (czydata && (transakcja.Data < dataod || transakcja.Data > datado)) tmp.Remove(transakcja);
+                else if (transakcja.Kwota < kwotaod || transakcja.Kwota > kwotado) tmp.Remove(transakcja);
+                else if (nazwafirmy != "" && transakcja.NazwaFirmy != nazwafirmy) tmp.Remove(transakcja);
+                else if (nrkarty != "" && transakcja.NrKarty != nrkarty) tmp.Remove(transakcja);
+                else if (bankfirmy != "" && transakcja.BankFirmy != bankfirmy) tmp.Remove(transakcja);
+                else if (bankklienta != "" && transakcja.BankKlienta != bankklienta) tmp.Remove(transakcja);
+                else if (czystatus && transakcja.StatusAutoryzacji != status) tmp.Remove(transakcja);
+            }
+            return tmp;
+        }
+
+        //
+        // Metody służące do zapisy i wczytywania danych z pliku
+        //
+
+        //Metoda służąca do wczytania danych z pliku o podanej ścieżcie i ich deserializacji
         public static CentrumTransakcji Wczytywanie(string filePath)
         {
             var tmp = new CentrumTransakcji();
@@ -122,9 +151,11 @@ namespace COKPOProject
             }
             return tmp;
         }
+
+        //Metoda służąca do zapisywania danych do pliku o podanej ścieżcie i serializacji
         public void Zapisywanie(string filePath)
         {
-            var xd = JsonConvert.SerializeObject(this,
+            var tmp = JsonConvert.SerializeObject(this,
                 new JsonSerializerSettings
                 {
                     Formatting = Formatting.Indented,
@@ -132,9 +163,7 @@ namespace COKPOProject
                     PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                     TypeNameHandling = TypeNameHandling.All
                 });
-            File.WriteAllText(filePath, xd);
+            File.WriteAllText(filePath, tmp);
         }
-
-
     }
 }

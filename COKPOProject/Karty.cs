@@ -10,7 +10,7 @@ namespace COKPOProject
     public abstract class Karta
     {
         public readonly string NrKarty;
-        public decimal Saldo { get; set; } = 0;
+        public decimal Saldo { get; private set; } = 0;
         public Bank BankWydajacy { get; private set; }
         public Klient Wlasciciel { get; private set; }
         private static readonly Random Random = new Random();
@@ -32,6 +32,12 @@ namespace COKPOProject
                 this.Saldo = saldo;
             }
             else throw new Exception("Błąd przy tworzeniu karty");
+        }
+
+        //Metoda dokonująca zmiany salda (wplac wyplac)
+        public void WplacLubWyplac(decimal kwota)
+        {
+            Saldo += kwota;
         }
 
         //Metoda porównująca kwotę z saldem i oceniająca czy transkacja jest możliwa
@@ -64,7 +70,7 @@ namespace COKPOProject
         [JsonConstructor]
         public KartaDebetowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
-        public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota < Saldo;
+        public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota <= Saldo;
 
     }
 
@@ -78,7 +84,7 @@ namespace COKPOProject
         [JsonConstructor]
         public KartaKredytowa(Klient Wlasciciel, Bank BankWydajacy, decimal Saldo, string NrKarty) : base(Wlasciciel, BankWydajacy, Saldo, NrKarty) { }
 
-        public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota < Saldo + LimitKredytu;
+        public override bool CzyWystarczajaceSaldo(decimal Kwota) => Kwota <= Saldo + LimitKredytu;
     }
 
 

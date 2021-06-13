@@ -96,7 +96,7 @@ namespace COKPOProject
                 return;
             }
             var tmp = (Karta)ListBoxCards.SelectedItem;
-            tmp.Saldo += decimal.Parse(TextBoxAmount.Text);
+            tmp.WplacLubWyplac(decimal.Parse(TextBoxAmount.Text));
             TextBoxSaldo.Text = tmp.Saldo.ToString("C");
             TextBoxAmount.Clear();
         }
@@ -115,7 +115,7 @@ namespace COKPOProject
             }
             var tmp = (Karta)ListBoxCards.SelectedItem;
             var kwota_tmp = decimal.Parse(TextBoxAmount.Text);
-            if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.Saldo -= decimal.Parse(TextBoxAmount.Text);
+            if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.WplacLubWyplac((-1)*decimal.Parse(TextBoxAmount.Text));
             else
             {
                 MessageBox.Show("Nie można wypłacić takiej kwoty - brak wystarczających środków!", "Uwaga!");

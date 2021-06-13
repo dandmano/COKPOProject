@@ -45,20 +45,50 @@ namespace COKPOProject
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Firma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BankFirmy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NrKarty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BankKlienta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kwota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ComboBoxSearch = new System.Windows.Forms.ComboBox();
-            this.LabelSearch = new System.Windows.Forms.Label();
-            this.LabelValues = new System.Windows.Forms.Label();
-            this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.LabelIdSearch = new System.Windows.Forms.Label();
+            this.DateTimePickerLowerValue = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerHigherValue = new System.Windows.Forms.DateTimePicker();
+            this.LableDateSearch = new System.Windows.Forms.Label();
+            this.TextBoxLowerAmount = new System.Windows.Forms.TextBox();
+            this.TextBoxHigherAmount = new System.Windows.Forms.TextBox();
+            this.LabelFromDate = new System.Windows.Forms.Label();
+            this.LabelToDate = new System.Windows.Forms.Label();
+            this.LabelAmount = new System.Windows.Forms.Label();
+            this.TextBoxId = new System.Windows.Forms.TextBox();
+            this.LabelFirmName = new System.Windows.Forms.Label();
+            this.TextBoxFirmName = new System.Windows.Forms.TextBox();
+            this.LabelFirmsBank = new System.Windows.Forms.Label();
+            this.TextBoxFirmsBank = new System.Windows.Forms.TextBox();
+            this.LabelCardNumber = new System.Windows.Forms.Label();
+            this.TextBoxCardNumber = new System.Windows.Forms.TextBox();
+            this.LabelClientsBank = new System.Windows.Forms.Label();
+            this.TextBoxClientsBank = new System.Windows.Forms.TextBox();
+            this.LabelStatus = new System.Windows.Forms.Label();
+            this.LabelFilters = new System.Windows.Forms.Label();
+            this.ButtonResetFilters = new System.Windows.Forms.Button();
+            this.CheckBoxId = new System.Windows.Forms.CheckBox();
+            this.CheckBoxDate = new System.Windows.Forms.CheckBox();
+            this.CheckBoxAmount = new System.Windows.Forms.CheckBox();
+            this.CheckBoxFirm = new System.Windows.Forms.CheckBox();
+            this.CheckBoxFirmsBank = new System.Windows.Forms.CheckBox();
+            this.CheckBoxCardNumber = new System.Windows.Forms.CheckBox();
+            this.CheckBoxClientsBank = new System.Windows.Forms.CheckBox();
+            this.CheckBoxStatus = new System.Windows.Forms.CheckBox();
+            this.ComboBoxStatus = new System.Windows.Forms.ComboBox();
+            this.LabelFromAmount = new System.Windows.Forms.Label();
+            this.LabelToAmount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelCentrumTransakcji
             // 
             this.LabelCentrumTransakcji.AutoSize = true;
             this.LabelCentrumTransakcji.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelCentrumTransakcji.Location = new System.Drawing.Point(320, 7);
+            this.LabelCentrumTransakcji.Location = new System.Drawing.Point(420, 7);
             this.LabelCentrumTransakcji.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelCentrumTransakcji.Name = "LabelCentrumTransakcji";
             this.LabelCentrumTransakcji.Size = new System.Drawing.Size(265, 32);
@@ -150,7 +180,7 @@ namespace COKPOProject
             this.ButtonRemoveTransaction.Location = new System.Drawing.Point(270, 447);
             this.ButtonRemoveTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonRemoveTransaction.Name = "ButtonRemoveTransaction";
-            this.ButtonRemoveTransaction.Size = new System.Drawing.Size(276, 40);
+            this.ButtonRemoveTransaction.Size = new System.Drawing.Size(204, 40);
             this.ButtonRemoveTransaction.TabIndex = 12;
             this.ButtonRemoveTransaction.Text = "Usuń Transakcję z Historii";
             this.ButtonRemoveTransaction.UseVisualStyleBackColor = true;
@@ -162,7 +192,7 @@ namespace COKPOProject
             this.ButtonAuthorizeTransaction.Location = new System.Drawing.Point(270, 402);
             this.ButtonAuthorizeTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAuthorizeTransaction.Name = "ButtonAuthorizeTransaction";
-            this.ButtonAuthorizeTransaction.Size = new System.Drawing.Size(276, 40);
+            this.ButtonAuthorizeTransaction.Size = new System.Drawing.Size(204, 40);
             this.ButtonAuthorizeTransaction.TabIndex = 13;
             this.ButtonAuthorizeTransaction.Text = "Autoryzuj Transakcje";
             this.ButtonAuthorizeTransaction.UseVisualStyleBackColor = true;
@@ -171,12 +201,12 @@ namespace COKPOProject
             // ButtonSearchTransaction
             // 
             this.ButtonSearchTransaction.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ButtonSearchTransaction.Location = new System.Drawing.Point(574, 537);
+            this.ButtonSearchTransaction.Location = new System.Drawing.Point(271, 492);
             this.ButtonSearchTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSearchTransaction.Name = "ButtonSearchTransaction";
-            this.ButtonSearchTransaction.Size = new System.Drawing.Size(276, 40);
+            this.ButtonSearchTransaction.Size = new System.Drawing.Size(203, 40);
             this.ButtonSearchTransaction.TabIndex = 14;
-            this.ButtonSearchTransaction.Text = "Przeszukaj Archiwum Transakcji";
+            this.ButtonSearchTransaction.Text = "Filtruj";
             this.ButtonSearchTransaction.UseVisualStyleBackColor = true;
             this.ButtonSearchTransaction.Click += new System.EventHandler(this.ButtonSearchTransaction_Click);
             // 
@@ -186,19 +216,21 @@ namespace COKPOProject
             this.ListViewTransactions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Data,
-            this.Firma,
-            this.NrKarty,
             this.Kwota,
+            this.Firma,
+            this.BankFirmy,
+            this.NrKarty,
+            this.BankKlienta,
             this.Status});
             this.ListViewTransactions.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ListViewTransactions.FullRowSelect = true;
             this.ListViewTransactions.GridLines = true;
             this.ListViewTransactions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.ListViewTransactions.HideSelection = false;
-            this.ListViewTransactions.Location = new System.Drawing.Point(270, 83);
+            this.ListViewTransactions.Location = new System.Drawing.Point(271, 83);
             this.ListViewTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.ListViewTransactions.Name = "ListViewTransactions";
-            this.ListViewTransactions.Size = new System.Drawing.Size(580, 308);
+            this.ListViewTransactions.Size = new System.Drawing.Size(884, 308);
             this.ListViewTransactions.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.ListViewTransactions.TabIndex = 15;
             this.ListViewTransactions.UseCompatibleStateImageBehavior = false;
@@ -219,77 +251,404 @@ namespace COKPOProject
             this.Firma.Text = "Firma";
             this.Firma.Width = 119;
             // 
+            // BankFirmy
+            // 
+            this.BankFirmy.Text = "Bank Firmy";
+            this.BankFirmy.Width = 113;
+            // 
             // NrKarty
             // 
             this.NrKarty.Text = "Nr Karty";
-            this.NrKarty.Width = 137;
+            this.NrKarty.Width = 124;
+            // 
+            // BankKlienta
+            // 
+            this.BankKlienta.Text = "Bank Klienta";
+            this.BankKlienta.Width = 125;
             // 
             // Kwota
             // 
             this.Kwota.Text = "Kwota";
-            this.Kwota.Width = 106;
+            this.Kwota.Width = 143;
             // 
             // Status
             // 
             this.Status.Text = "Status";
-            this.Status.Width = 85;
+            this.Status.Width = 118;
             // 
-            // ComboBoxSearch
+            // LabelIdSearch
             // 
-            this.ComboBoxSearch.DropDownHeight = 100;
-            this.ComboBoxSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ComboBoxSearch.FormattingEnabled = true;
-            this.ComboBoxSearch.IntegralHeight = false;
-            this.ComboBoxSearch.Items.AddRange(new object[] {
-            "Id",
-            "Data",
-            "Firma",
-            "Nr Karty",
-            "Kwota",
-            "Status"});
-            this.ComboBoxSearch.Location = new System.Drawing.Point(626, 424);
-            this.ComboBoxSearch.Name = "ComboBoxSearch";
-            this.ComboBoxSearch.Size = new System.Drawing.Size(158, 27);
-            this.ComboBoxSearch.TabIndex = 16;
-            this.ComboBoxSearch.Text = "Wybierz formę";
+            this.LabelIdSearch.AutoSize = true;
+            this.LabelIdSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelIdSearch.Location = new System.Drawing.Point(504, 435);
+            this.LabelIdSearch.Name = "LabelIdSearch";
+            this.LabelIdSearch.Size = new System.Drawing.Size(28, 19);
+            this.LabelIdSearch.TabIndex = 17;
+            this.LabelIdSearch.Text = "Id:";
             // 
-            // LabelSearch
+            // DateTimePickerLowerValue
             // 
-            this.LabelSearch.AutoSize = true;
-            this.LabelSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelSearch.Location = new System.Drawing.Point(610, 402);
-            this.LabelSearch.Name = "LabelSearch";
-            this.LabelSearch.Size = new System.Drawing.Size(152, 19);
-            this.LabelSearch.TabIndex = 17;
-            this.LabelSearch.Text = "Wyszukaj poprzez :";
+            this.DateTimePickerLowerValue.Checked = false;
+            this.DateTimePickerLowerValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DateTimePickerLowerValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerLowerValue.Location = new System.Drawing.Point(602, 465);
+            this.DateTimePickerLowerValue.Name = "DateTimePickerLowerValue";
+            this.DateTimePickerLowerValue.Size = new System.Drawing.Size(124, 27);
+            this.DateTimePickerLowerValue.TabIndex = 20;
+            this.DateTimePickerLowerValue.Visible = false;
             // 
-            // LabelValues
+            // DateTimePickerHigherValue
             // 
-            this.LabelValues.AutoSize = true;
-            this.LabelValues.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelValues.Location = new System.Drawing.Point(610, 458);
-            this.LabelValues.Name = "LabelValues";
-            this.LabelValues.Size = new System.Drawing.Size(121, 19);
-            this.LabelValues.TabIndex = 18;
-            this.LabelValues.Text = "Podaj wartości";
+            this.DateTimePickerHigherValue.Checked = false;
+            this.DateTimePickerHigherValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DateTimePickerHigherValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerHigherValue.Location = new System.Drawing.Point(768, 465);
+            this.DateTimePickerHigherValue.Name = "DateTimePickerHigherValue";
+            this.DateTimePickerHigherValue.Size = new System.Drawing.Size(121, 27);
+            this.DateTimePickerHigherValue.TabIndex = 21;
+            this.DateTimePickerHigherValue.Visible = false;
             // 
-            // TextBoxSearch
+            // LableDateSearch
             // 
-            this.TextBoxSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TextBoxSearch.Location = new System.Drawing.Point(626, 480);
-            this.TextBoxSearch.Name = "TextBoxSearch";
-            this.TextBoxSearch.Size = new System.Drawing.Size(158, 27);
-            this.TextBoxSearch.TabIndex = 19;
+            this.LableDateSearch.AutoSize = true;
+            this.LableDateSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LableDateSearch.Location = new System.Drawing.Point(504, 468);
+            this.LableDateSearch.Name = "LableDateSearch";
+            this.LableDateSearch.Size = new System.Drawing.Size(50, 19);
+            this.LableDateSearch.TabIndex = 22;
+            this.LableDateSearch.Text = "Data:";
+            // 
+            // TextBoxLowerAmount
+            // 
+            this.TextBoxLowerAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxLowerAmount.Location = new System.Drawing.Point(602, 498);
+            this.TextBoxLowerAmount.Name = "TextBoxLowerAmount";
+            this.TextBoxLowerAmount.Size = new System.Drawing.Size(124, 27);
+            this.TextBoxLowerAmount.TabIndex = 23;
+            this.TextBoxLowerAmount.Visible = false;
+            this.TextBoxLowerAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLowerAmount_KeyPress);
+            // 
+            // TextBoxHigherAmount
+            // 
+            this.TextBoxHigherAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxHigherAmount.Location = new System.Drawing.Point(768, 498);
+            this.TextBoxHigherAmount.Name = "TextBoxHigherAmount";
+            this.TextBoxHigherAmount.Size = new System.Drawing.Size(121, 27);
+            this.TextBoxHigherAmount.TabIndex = 24;
+            this.TextBoxHigherAmount.Visible = false;
+            this.TextBoxHigherAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxHigherAmount_KeyPress);
+            // 
+            // LabelFromDate
+            // 
+            this.LabelFromDate.AutoSize = true;
+            this.LabelFromDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelFromDate.Location = new System.Drawing.Point(563, 468);
+            this.LabelFromDate.Name = "LabelFromDate";
+            this.LabelFromDate.Size = new System.Drawing.Size(33, 19);
+            this.LabelFromDate.TabIndex = 25;
+            this.LabelFromDate.Text = "Od";
+            this.LabelFromDate.Visible = false;
+            // 
+            // LabelToDate
+            // 
+            this.LabelToDate.AutoSize = true;
+            this.LabelToDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelToDate.Location = new System.Drawing.Point(732, 468);
+            this.LabelToDate.Name = "LabelToDate";
+            this.LabelToDate.Size = new System.Drawing.Size(30, 19);
+            this.LabelToDate.TabIndex = 26;
+            this.LabelToDate.Text = "Do";
+            this.LabelToDate.Visible = false;
+            // 
+            // LabelAmount
+            // 
+            this.LabelAmount.AutoSize = true;
+            this.LabelAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelAmount.Location = new System.Drawing.Point(504, 500);
+            this.LabelAmount.Name = "LabelAmount";
+            this.LabelAmount.Size = new System.Drawing.Size(61, 19);
+            this.LabelAmount.TabIndex = 27;
+            this.LabelAmount.Text = "Kwota:";
+            // 
+            // TextBoxId
+            // 
+            this.TextBoxId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxId.Location = new System.Drawing.Point(602, 432);
+            this.TextBoxId.Name = "TextBoxId";
+            this.TextBoxId.Size = new System.Drawing.Size(124, 27);
+            this.TextBoxId.TabIndex = 28;
+            this.TextBoxId.Visible = false;
+            this.TextBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxIdSearch_KeyPress);
+            // 
+            // LabelFirmName
+            // 
+            this.LabelFirmName.AutoSize = true;
+            this.LabelFirmName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelFirmName.Location = new System.Drawing.Point(504, 534);
+            this.LabelFirmName.Name = "LabelFirmName";
+            this.LabelFirmName.Size = new System.Drawing.Size(57, 19);
+            this.LabelFirmName.TabIndex = 29;
+            this.LabelFirmName.Text = "Firma:";
+            // 
+            // TextBoxFirmName
+            // 
+            this.TextBoxFirmName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxFirmName.Location = new System.Drawing.Point(602, 531);
+            this.TextBoxFirmName.Name = "TextBoxFirmName";
+            this.TextBoxFirmName.Size = new System.Drawing.Size(124, 27);
+            this.TextBoxFirmName.TabIndex = 30;
+            this.TextBoxFirmName.Visible = false;
+            // 
+            // LabelFirmsBank
+            // 
+            this.LabelFirmsBank.AutoSize = true;
+            this.LabelFirmsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelFirmsBank.Location = new System.Drawing.Point(916, 435);
+            this.LabelFirmsBank.Name = "LabelFirmsBank";
+            this.LabelFirmsBank.Size = new System.Drawing.Size(98, 19);
+            this.LabelFirmsBank.TabIndex = 31;
+            this.LabelFirmsBank.Text = "Bank Firmy:";
+            // 
+            // TextBoxFirmsBank
+            // 
+            this.TextBoxFirmsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxFirmsBank.Location = new System.Drawing.Point(1029, 432);
+            this.TextBoxFirmsBank.Name = "TextBoxFirmsBank";
+            this.TextBoxFirmsBank.Size = new System.Drawing.Size(126, 27);
+            this.TextBoxFirmsBank.TabIndex = 32;
+            this.TextBoxFirmsBank.Visible = false;
+            // 
+            // LabelCardNumber
+            // 
+            this.LabelCardNumber.AutoSize = true;
+            this.LabelCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelCardNumber.Location = new System.Drawing.Point(916, 468);
+            this.LabelCardNumber.Name = "LabelCardNumber";
+            this.LabelCardNumber.Size = new System.Drawing.Size(73, 19);
+            this.LabelCardNumber.TabIndex = 33;
+            this.LabelCardNumber.Text = "Nr Karty:";
+            // 
+            // TextBoxCardNumber
+            // 
+            this.TextBoxCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxCardNumber.Location = new System.Drawing.Point(1029, 465);
+            this.TextBoxCardNumber.MaxLength = 16;
+            this.TextBoxCardNumber.Name = "TextBoxCardNumber";
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(126, 27);
+            this.TextBoxCardNumber.TabIndex = 34;
+            this.TextBoxCardNumber.Visible = false;
+            this.TextBoxCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardNumber_KeyPress);
+            // 
+            // LabelClientsBank
+            // 
+            this.LabelClientsBank.AutoSize = true;
+            this.LabelClientsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelClientsBank.Location = new System.Drawing.Point(916, 501);
+            this.LabelClientsBank.Name = "LabelClientsBank";
+            this.LabelClientsBank.Size = new System.Drawing.Size(105, 19);
+            this.LabelClientsBank.TabIndex = 35;
+            this.LabelClientsBank.Text = "BankKlienta:";
+            // 
+            // TextBoxClientsBank
+            // 
+            this.TextBoxClientsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextBoxClientsBank.Location = new System.Drawing.Point(1029, 498);
+            this.TextBoxClientsBank.Name = "TextBoxClientsBank";
+            this.TextBoxClientsBank.Size = new System.Drawing.Size(126, 27);
+            this.TextBoxClientsBank.TabIndex = 36;
+            this.TextBoxClientsBank.Visible = false;
+            // 
+            // LabelStatus
+            // 
+            this.LabelStatus.AutoSize = true;
+            this.LabelStatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelStatus.Location = new System.Drawing.Point(916, 532);
+            this.LabelStatus.Name = "LabelStatus";
+            this.LabelStatus.Size = new System.Drawing.Size(56, 19);
+            this.LabelStatus.TabIndex = 37;
+            this.LabelStatus.Text = "Status:";
+            // 
+            // LabelFilters
+            // 
+            this.LabelFilters.AutoSize = true;
+            this.LabelFilters.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelFilters.Location = new System.Drawing.Point(491, 401);
+            this.LabelFilters.Name = "LabelFilters";
+            this.LabelFilters.Size = new System.Drawing.Size(63, 25);
+            this.LabelFilters.TabIndex = 39;
+            this.LabelFilters.Text = "Filtry:";
+            // 
+            // ButtonResetFilters
+            // 
+            this.ButtonResetFilters.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonResetFilters.Location = new System.Drawing.Point(270, 537);
+            this.ButtonResetFilters.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonResetFilters.Name = "ButtonResetFilters";
+            this.ButtonResetFilters.Size = new System.Drawing.Size(203, 40);
+            this.ButtonResetFilters.TabIndex = 40;
+            this.ButtonResetFilters.Text = "Resetuj Filtry";
+            this.ButtonResetFilters.UseVisualStyleBackColor = true;
+            // 
+            // CheckBoxId
+            // 
+            this.CheckBoxId.AutoSize = true;
+            this.CheckBoxId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxId.Location = new System.Drawing.Point(487, 438);
+            this.CheckBoxId.Name = "CheckBoxId";
+            this.CheckBoxId.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxId.TabIndex = 41;
+            this.CheckBoxId.UseVisualStyleBackColor = true;
+            this.CheckBoxId.CheckedChanged += new System.EventHandler(this.CheckBoxId_CheckedChanged);
+            // 
+            // CheckBoxDate
+            // 
+            this.CheckBoxDate.AutoSize = true;
+            this.CheckBoxDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxDate.Location = new System.Drawing.Point(487, 471);
+            this.CheckBoxDate.Name = "CheckBoxDate";
+            this.CheckBoxDate.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxDate.TabIndex = 42;
+            this.CheckBoxDate.UseVisualStyleBackColor = true;
+            this.CheckBoxDate.CheckedChanged += new System.EventHandler(this.CheckBoxDate_CheckedChanged);
+            // 
+            // CheckBoxAmount
+            // 
+            this.CheckBoxAmount.AutoSize = true;
+            this.CheckBoxAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxAmount.Location = new System.Drawing.Point(487, 503);
+            this.CheckBoxAmount.Name = "CheckBoxAmount";
+            this.CheckBoxAmount.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxAmount.TabIndex = 43;
+            this.CheckBoxAmount.UseVisualStyleBackColor = true;
+            this.CheckBoxAmount.CheckedChanged += new System.EventHandler(this.CheckBoxAmount_CheckedChanged);
+            // 
+            // CheckBoxFirm
+            // 
+            this.CheckBoxFirm.AutoSize = true;
+            this.CheckBoxFirm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxFirm.Location = new System.Drawing.Point(487, 537);
+            this.CheckBoxFirm.Name = "CheckBoxFirm";
+            this.CheckBoxFirm.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxFirm.TabIndex = 44;
+            this.CheckBoxFirm.UseVisualStyleBackColor = true;
+            this.CheckBoxFirm.CheckedChanged += new System.EventHandler(this.CheckBoxFirm_CheckedChanged);
+            // 
+            // CheckBoxFirmsBank
+            // 
+            this.CheckBoxFirmsBank.AutoSize = true;
+            this.CheckBoxFirmsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxFirmsBank.Location = new System.Drawing.Point(895, 438);
+            this.CheckBoxFirmsBank.Name = "CheckBoxFirmsBank";
+            this.CheckBoxFirmsBank.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxFirmsBank.TabIndex = 45;
+            this.CheckBoxFirmsBank.UseVisualStyleBackColor = true;
+            this.CheckBoxFirmsBank.CheckedChanged += new System.EventHandler(this.CheckBoxFirmsBank_CheckedChanged);
+            // 
+            // CheckBoxCardNumber
+            // 
+            this.CheckBoxCardNumber.AutoSize = true;
+            this.CheckBoxCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxCardNumber.Location = new System.Drawing.Point(895, 471);
+            this.CheckBoxCardNumber.Name = "CheckBoxCardNumber";
+            this.CheckBoxCardNumber.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxCardNumber.TabIndex = 46;
+            this.CheckBoxCardNumber.UseVisualStyleBackColor = true;
+            this.CheckBoxCardNumber.CheckedChanged += new System.EventHandler(this.CheckBoxCardNumber_CheckedChanged);
+            // 
+            // CheckBoxClientsBank
+            // 
+            this.CheckBoxClientsBank.AutoSize = true;
+            this.CheckBoxClientsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxClientsBank.Location = new System.Drawing.Point(895, 505);
+            this.CheckBoxClientsBank.Name = "CheckBoxClientsBank";
+            this.CheckBoxClientsBank.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxClientsBank.TabIndex = 47;
+            this.CheckBoxClientsBank.UseVisualStyleBackColor = true;
+            this.CheckBoxClientsBank.CheckedChanged += new System.EventHandler(this.CheckBoxClientsBank_CheckedChanged);
+            // 
+            // CheckBoxStatus
+            // 
+            this.CheckBoxStatus.AutoSize = true;
+            this.CheckBoxStatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CheckBoxStatus.Location = new System.Drawing.Point(895, 537);
+            this.CheckBoxStatus.Name = "CheckBoxStatus";
+            this.CheckBoxStatus.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxStatus.TabIndex = 48;
+            this.CheckBoxStatus.UseVisualStyleBackColor = true;
+            this.CheckBoxStatus.CheckedChanged += new System.EventHandler(this.CheckBoxStatus_CheckedChanged);
+            // 
+            // ComboBoxStatus
+            // 
+            this.ComboBoxStatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ComboBoxStatus.FormattingEnabled = true;
+            this.ComboBoxStatus.Items.AddRange(new object[] {
+            "Zaakceptowana",
+            "Odrzucona"});
+            this.ComboBoxStatus.Location = new System.Drawing.Point(978, 532);
+            this.ComboBoxStatus.Name = "ComboBoxStatus";
+            this.ComboBoxStatus.Size = new System.Drawing.Size(177, 27);
+            this.ComboBoxStatus.TabIndex = 49;
+            this.ComboBoxStatus.Visible = false;
+            // 
+            // LabelFromAmount
+            // 
+            this.LabelFromAmount.AutoSize = true;
+            this.LabelFromAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelFromAmount.Location = new System.Drawing.Point(563, 500);
+            this.LabelFromAmount.Name = "LabelFromAmount";
+            this.LabelFromAmount.Size = new System.Drawing.Size(33, 19);
+            this.LabelFromAmount.TabIndex = 50;
+            this.LabelFromAmount.Text = "Od";
+            this.LabelFromAmount.Visible = false;
+            // 
+            // LabelToAmount
+            // 
+            this.LabelToAmount.AutoSize = true;
+            this.LabelToAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelToAmount.Location = new System.Drawing.Point(732, 500);
+            this.LabelToAmount.Name = "LabelToAmount";
+            this.LabelToAmount.Size = new System.Drawing.Size(30, 19);
+            this.LabelToAmount.TabIndex = 51;
+            this.LabelToAmount.Text = "Do";
+            this.LabelToAmount.Visible = false;
             // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 612);
-            this.Controls.Add(this.TextBoxSearch);
-            this.Controls.Add(this.LabelValues);
-            this.Controls.Add(this.LabelSearch);
-            this.Controls.Add(this.ComboBoxSearch);
+            this.ClientSize = new System.Drawing.Size(1184, 612);
+            this.Controls.Add(this.LabelToAmount);
+            this.Controls.Add(this.LabelFromAmount);
+            this.Controls.Add(this.ComboBoxStatus);
+            this.Controls.Add(this.CheckBoxStatus);
+            this.Controls.Add(this.CheckBoxClientsBank);
+            this.Controls.Add(this.CheckBoxCardNumber);
+            this.Controls.Add(this.CheckBoxFirmsBank);
+            this.Controls.Add(this.CheckBoxFirm);
+            this.Controls.Add(this.CheckBoxAmount);
+            this.Controls.Add(this.CheckBoxDate);
+            this.Controls.Add(this.CheckBoxId);
+            this.Controls.Add(this.ButtonResetFilters);
+            this.Controls.Add(this.LabelFilters);
+            this.Controls.Add(this.LabelStatus);
+            this.Controls.Add(this.TextBoxClientsBank);
+            this.Controls.Add(this.LabelClientsBank);
+            this.Controls.Add(this.TextBoxCardNumber);
+            this.Controls.Add(this.LabelCardNumber);
+            this.Controls.Add(this.TextBoxFirmsBank);
+            this.Controls.Add(this.LabelFirmsBank);
+            this.Controls.Add(this.TextBoxFirmName);
+            this.Controls.Add(this.LabelFirmName);
+            this.Controls.Add(this.TextBoxId);
+            this.Controls.Add(this.LabelAmount);
+            this.Controls.Add(this.LabelToDate);
+            this.Controls.Add(this.LabelFromDate);
+            this.Controls.Add(this.TextBoxHigherAmount);
+            this.Controls.Add(this.TextBoxLowerAmount);
+            this.Controls.Add(this.LableDateSearch);
+            this.Controls.Add(this.DateTimePickerHigherValue);
+            this.Controls.Add(this.DateTimePickerLowerValue);
+            this.Controls.Add(this.LabelIdSearch);
             this.Controls.Add(this.ListViewTransactions);
             this.Controls.Add(this.ButtonSearchTransaction);
             this.Controls.Add(this.ButtonAuthorizeTransaction);
@@ -336,9 +695,39 @@ namespace COKPOProject
         private System.Windows.Forms.ColumnHeader NrKarty;
         private System.Windows.Forms.ColumnHeader Kwota;
         private System.Windows.Forms.ColumnHeader Status;
-        private System.Windows.Forms.ComboBox ComboBoxSearch;
-        private System.Windows.Forms.Label LabelSearch;
-        private System.Windows.Forms.Label LabelValues;
-        private System.Windows.Forms.TextBox TextBoxSearch;
+        private System.Windows.Forms.Label LabelIdSearch;
+        private System.Windows.Forms.DateTimePicker DateTimePickerLowerValue;
+        private System.Windows.Forms.DateTimePicker DateTimePickerHigherValue;
+        private System.Windows.Forms.ColumnHeader BankFirmy;
+        private System.Windows.Forms.ColumnHeader BankKlienta;
+        private System.Windows.Forms.Label LableDateSearch;
+        private System.Windows.Forms.TextBox TextBoxLowerAmount;
+        private System.Windows.Forms.TextBox TextBoxHigherAmount;
+        private System.Windows.Forms.Label LabelFromDate;
+        private System.Windows.Forms.Label LabelToDate;
+        private System.Windows.Forms.Label LabelAmount;
+        private System.Windows.Forms.TextBox TextBoxId;
+        private System.Windows.Forms.Label LabelFirmName;
+        private System.Windows.Forms.TextBox TextBoxFirmName;
+        private System.Windows.Forms.Label LabelFirmsBank;
+        private System.Windows.Forms.TextBox TextBoxFirmsBank;
+        private System.Windows.Forms.Label LabelCardNumber;
+        private System.Windows.Forms.TextBox TextBoxCardNumber;
+        private System.Windows.Forms.Label LabelClientsBank;
+        private System.Windows.Forms.TextBox TextBoxClientsBank;
+        private System.Windows.Forms.Label LabelStatus;
+        private System.Windows.Forms.Label LabelFilters;
+        private System.Windows.Forms.Button ButtonResetFilters;
+        private System.Windows.Forms.CheckBox CheckBoxId;
+        private System.Windows.Forms.CheckBox CheckBoxDate;
+        private System.Windows.Forms.CheckBox CheckBoxAmount;
+        private System.Windows.Forms.CheckBox CheckBoxFirm;
+        private System.Windows.Forms.CheckBox CheckBoxFirmsBank;
+        private System.Windows.Forms.CheckBox CheckBoxCardNumber;
+        private System.Windows.Forms.CheckBox CheckBoxClientsBank;
+        private System.Windows.Forms.CheckBox CheckBoxStatus;
+        private System.Windows.Forms.ComboBox ComboBoxStatus;
+        private System.Windows.Forms.Label LabelFromAmount;
+        private System.Windows.Forms.Label LabelToAmount;
     }
 }
