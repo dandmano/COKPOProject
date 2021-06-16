@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("COKPOProject")]
+[assembly: AssemblyTitle("COKPOProjectLogic")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("COKPOProject")]
+[assembly: AssemblyProduct("COKPOProjectLogic")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2b862505-ecbb-4d3f-91e0-2122a42fd830")]
+[assembly: Guid("ab2cbf8e-cae2-4067-bf10-ac0ebddff525")]
 
 // Version information for an assembly consists of the following four values:
 //

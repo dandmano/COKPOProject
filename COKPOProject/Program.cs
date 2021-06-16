@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using COKPOProjectLogic;
 
 namespace COKPOProject
 {
@@ -32,7 +28,7 @@ namespace COKPOProject
             centrumTransakcji.Banki[0].DodajKlienta("Mlekpol", 1);
             centrumTransakcji.Banki[0].Klienci[1].DodajKarte(1, 13000, "");
             centrumTransakcji.Banki[0].Klienci[1].DodajKarte(0, 50, "");
-            centrumTransakcji.Banki[1].DodajKlienta("Mateusz Debil", 2);
+            centrumTransakcji.Banki[1].DodajKlienta("Leon Bober", 2);
             centrumTransakcji.Banki[1].Klienci[0].DodajKarte(0, 69, "");
             centrumTransakcji.Banki[1].Klienci[0].DodajKarte(1, 6969, "");
             centrumTransakcji.Banki[1].DodajKlienta("Adidasz", 1);

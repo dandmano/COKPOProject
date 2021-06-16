@@ -1,18 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 
-namespace COKPOProject
+namespace COKPOProjectLogic
 {
     public class CentrumTransakcji
     {
@@ -49,11 +43,11 @@ namespace COKPOProject
             }
             catch (WrongCardNumberException exe)
             {
-                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCardNumber, "Uwaga!");
+                throw exe;
             }
             catch (BankomatCardNotSupportedException exe)
             {
-                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCard, "Uwaga!");
+                throw exe;
             }
         }
 
@@ -141,7 +135,7 @@ namespace COKPOProject
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
+                Debug.WriteLine(exception);
             }
             foreach (var bank in tmp.Banki)
             {

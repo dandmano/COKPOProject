@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using COKPOProjectLogic;
 
 namespace COKPOProject
 {
@@ -115,7 +109,7 @@ namespace COKPOProject
             }
             var tmp = (Karta)ListBoxCards.SelectedItem;
             var kwota_tmp = decimal.Parse(TextBoxAmount.Text);
-            if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.WplacLubWyplac((-1)*decimal.Parse(TextBoxAmount.Text));
+            if (tmp.CzyWystarczajaceSaldo(kwota_tmp)) tmp.WplacLubWyplac((-1) * decimal.Parse(TextBoxAmount.Text));
             else
             {
                 MessageBox.Show("Nie można wypłacić takiej kwoty - brak wystarczających środków!", "Uwaga!");

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using COKPOProjectLogic;
 
 namespace COKPOProject
 {
@@ -40,7 +34,7 @@ namespace COKPOProject
             {
                 this.saldo = decimal.Parse(TextBoxCardSaldo.Text);
             }
-            
+
             if (TextBoxCardNumber.TextLength == 16)
             {
                 this.cardNumber = TextBoxCardNumber.Text;
@@ -65,7 +59,7 @@ namespace COKPOProject
                 default:
                     throw new Exception("Błąd w wyborze opcji karty!");
             }
-            
+
 
             this.DialogResult = DialogResult.OK;
             Close();

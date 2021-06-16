@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using COKPOProjectLogic;
 
 namespace COKPOProject
 {
@@ -49,7 +45,18 @@ namespace COKPOProject
             var kwota = decimal.Parse(TextBoxAmount.Text);
             var nrkarty = (string)ComboBoxCards.SelectedItem;
             nrkarty = nrkarty.Substring(0, 16);
-            centrumTransakcji.DodajTransakcje(firma, kwota, nrkarty);
+            try
+            {
+                centrumTransakcji.DodajTransakcje(firma, kwota, nrkarty);
+            }
+            catch (WrongCardNumberException exe)
+            {
+                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCardNumber, "Uwaga!");
+            }
+            catch (BankomatCardNotSupportedException exe)
+            {
+                MessageBox.Show(exe.Message + " Nr karty = " + exe.WrongCard, "Uwaga!");
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
