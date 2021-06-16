@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Testy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testy_Bank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

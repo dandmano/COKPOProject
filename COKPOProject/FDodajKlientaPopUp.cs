@@ -6,7 +6,6 @@ namespace COKPOProject
 {
     public partial class FDodajKlientaPopUp : Form
     {
-        private Klient klient;
         private string clientName = "";
         private string cardNumber = "";
         private decimal saldo = -1;
@@ -26,61 +25,24 @@ namespace COKPOProject
         //Metoda przycisku - Akceptuj - akceptująca wprowadzone dane i kontynuująca program
         private void ButtonAcceptAddClient_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TextBoxClientName.Text))
-            {
-                clientName = TextBoxClientName.Text;
-            }
+            if (!string.IsNullOrEmpty(TextBoxClientName.Text)) clientName = TextBoxClientName.Text;
+
             if (clientName == "" || ComboBoxChooseClient.SelectedIndex == -1 || ComboBoxChooseCard.SelectedIndex == -1)
             {
                 MessageBox.Show("Podaj i wybierz wymagane wartości", "Uwaga!");
                 return;
             }
-            if (!string.IsNullOrEmpty(TextBoxCardSaldo.Text))
-            {
-                this.saldo = decimal.Parse(TextBoxCardSaldo.Text);
-            }
+            if (!string.IsNullOrEmpty(TextBoxCardSaldo.Text)) this.saldo = decimal.Parse(TextBoxCardSaldo.Text);
 
-            if (TextBoxCardNumber.TextLength == 16)
-            {
-                this.cardNumber = TextBoxCardNumber.Text;
-            }
+            if (TextBoxCardNumber.TextLength == 16) this.cardNumber = TextBoxCardNumber.Text;
+
             else if (!string.IsNullOrEmpty(TextBoxCardNumber.Text))
             {
                 MessageBox.Show("Nr Karty musi składaś się z 16 cyfr!", "Uwaga!");
                 return;
             }
-            //ComboboxSelectedIndex= 0-debetowa 1-kredytowa 2-bankomatowa
-            //Case= 0-Klient zwykły 1-klient Centrum
-            switch (ComboBoxChooseClient.SelectedIndex)
-            {
-                case 0 when ComboBoxChooseCard.SelectedIndex == 0:
-                    klient = new ZwyklyKlient(clientName, bank);
-                    klient.DodajKarte(0, saldo, cardNumber);
-                    break;
-                case 0 when ComboBoxChooseCard.SelectedIndex == 1:
-                    klient = new ZwyklyKlient(clientName, bank);
-                    klient.DodajKarte(1, saldo, cardNumber);
-                    break;
-                case 0 when ComboBoxChooseCard.SelectedIndex == 2:
-                    klient = new ZwyklyKlient(clientName, bank);
-                    klient.DodajKarte(2, saldo, cardNumber);
-                    break;
-                case 1 when ComboBoxChooseCard.SelectedIndex == 0:
-                    klient = new Firma(clientName, bank);
-                    klient.DodajKarte(0, saldo, cardNumber);
-                    break;
-                case 1 when ComboBoxChooseCard.SelectedIndex == 1:
-                    klient = new Firma(clientName, bank);
-                    klient.DodajKarte(1, saldo, cardNumber);
-                    break;
-                case 1 when ComboBoxChooseCard.SelectedIndex == 2:
-                    klient = new Firma(clientName, bank);
-                    klient.DodajKarte(2, saldo, cardNumber);
-                    break;
-                default:
-                    throw new Exception("Błąd w wyborze opcji klienta!");
-            }
-            bank.Klienci.Add(klient);
+            bank.DodajKlienta(clientName, ComboBoxChooseClient.SelectedIndex, ComboBoxChooseCard.SelectedIndex, saldo,
+                cardNumber);
             this.DialogResult = DialogResult.OK;
             Close();
         }

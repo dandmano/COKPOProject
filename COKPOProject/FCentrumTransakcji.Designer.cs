@@ -234,9 +234,9 @@ namespace COKPOProject
             this.ListViewTransactions.HideSelection = false;
             this.ListViewTransactions.Location = new System.Drawing.Point(361, 102);
             this.ListViewTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListViewTransactions.MultiSelect = false;
             this.ListViewTransactions.Name = "ListViewTransactions";
             this.ListViewTransactions.Size = new System.Drawing.Size(1178, 379);
-            this.ListViewTransactions.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.ListViewTransactions.TabIndex = 15;
             this.ListViewTransactions.UseCompatibleStateImageBehavior = false;
             this.ListViewTransactions.View = System.Windows.Forms.View.Details;
