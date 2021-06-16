@@ -1,0 +1,209 @@
+{
+  "$id": "1",
+  "$type": "COKPOProjectLogic.CentrumTransakcji, COKPOProjectLogic",
+  "Transakcje": {
+    "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Transakcja, COKPOProjectLogic]], mscorlib",
+    "$values": [
+      {
+        "$id": "2",
+        "$type": "COKPOProjectLogic.Transakcja, COKPOProjectLogic",
+        "IdTransakcji": 1,
+        "Kwota": 690.0,
+        "Data": "2021-06-16T15:20:04.0190741+02:00",
+        "NrKarty": "3015024399014858",
+        "BankFirmy": "Millenium",
+        "BankKlienta": "Alior",
+        "NazwaFirmy": "Mlekpol",
+        "StatusAutoryzacji": true
+      },
+      {
+        "$id": "3",
+        "$type": "COKPOProjectLogic.Transakcja, COKPOProjectLogic",
+        "IdTransakcji": 2,
+        "Kwota": 6969.0,
+        "Data": "2021-06-16T15:20:04.0220745+02:00",
+        "NrKarty": "7989381252485282",
+        "BankFirmy": "Alior",
+        "BankKlienta": "Millenium",
+        "NazwaFirmy": "Adidasz",
+        "StatusAutoryzacji": false
+      }
+    ]
+  },
+  "Banki": {
+    "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Bank, COKPOProjectLogic]], mscorlib",
+    "$values": [
+      {
+        "$id": "4",
+        "$type": "COKPOProjectLogic.Bank, COKPOProjectLogic",
+        "NazwaBanku": "Millenium",
+        "Klienci": {
+          "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Klient, COKPOProjectLogic]], mscorlib",
+          "$values": [
+            {
+              "$id": "5",
+              "$type": "COKPOProjectLogic.ZwyklyKlient, COKPOProjectLogic",
+              "BankKlienta": {
+                "$ref": "4"
+              },
+              "NazwaKlienta": "Jan Kowalski",
+              "Karty": {
+                "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Karta, COKPOProjectLogic]], mscorlib",
+                "$values": [
+                  {
+                    "$id": "6",
+                    "$type": "COKPOProjectLogic.KartaDebetowa, COKPOProjectLogic",
+                    "NrKarty": "7989381252485282",
+                    "Saldo": 1500.0,
+                    "BankWydajacy": {
+                      "$ref": "4"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "5"
+                    }
+                  },
+                  {
+                    "$id": "7",
+                    "$type": "COKPOProjectLogic.KartaDebetowa, COKPOProjectLogic",
+                    "NrKarty": "1608403593581919",
+                    "Saldo": 25.0,
+                    "BankWydajacy": {
+                      "$ref": "4"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "5"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$id": "8",
+              "$type": "COKPOProjectLogic.Firma, COKPOProjectLogic",
+              "BankKlienta": {
+                "$ref": "4"
+              },
+              "NazwaKlienta": "Mlekpol",
+              "Karty": {
+                "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Karta, COKPOProjectLogic]], mscorlib",
+                "$values": [
+                  {
+                    "$id": "9",
+                    "$type": "COKPOProjectLogic.KartaKredytowa, COKPOProjectLogic",
+                    "NrKarty": "1556448810155994",
+                    "LimitKredytu": 5000.0,
+                    "Saldo": 13000.0,
+                    "BankWydajacy": {
+                      "$ref": "4"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "8"
+                    }
+                  },
+                  {
+                    "$id": "10",
+                    "$type": "COKPOProjectLogic.KartaDebetowa, COKPOProjectLogic",
+                    "NrKarty": "6688485662993305",
+                    "Saldo": 50.0,
+                    "BankWydajacy": {
+                      "$ref": "4"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "8"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$id": "11",
+        "$type": "COKPOProjectLogic.Bank, COKPOProjectLogic",
+        "NazwaBanku": "Alior",
+        "Klienci": {
+          "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Klient, COKPOProjectLogic]], mscorlib",
+          "$values": [
+            {
+              "$id": "12",
+              "$type": "COKPOProjectLogic.ZwyklyKlient, COKPOProjectLogic",
+              "BankKlienta": {
+                "$ref": "11"
+              },
+              "NazwaKlienta": "Leon Bober",
+              "Karty": {
+                "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Karta, COKPOProjectLogic]], mscorlib",
+                "$values": [
+                  {
+                    "$id": "13",
+                    "$type": "COKPOProjectLogic.KartaDebetowa, COKPOProjectLogic",
+                    "NrKarty": "1479618771648800",
+                    "Saldo": 69.0,
+                    "BankWydajacy": {
+                      "$ref": "11"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "12"
+                    }
+                  },
+                  {
+                    "$id": "14",
+                    "$type": "COKPOProjectLogic.KartaKredytowa, COKPOProjectLogic",
+                    "NrKarty": "3015024399014858",
+                    "LimitKredytu": 5000.0,
+                    "Saldo": 6279.0,
+                    "BankWydajacy": {
+                      "$ref": "11"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "12"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$id": "15",
+              "$type": "COKPOProjectLogic.Firma, COKPOProjectLogic",
+              "BankKlienta": {
+                "$ref": "11"
+              },
+              "NazwaKlienta": "Adidasz",
+              "Karty": {
+                "$type": "System.Collections.Generic.List`1[[COKPOProjectLogic.Karta, COKPOProjectLogic]], mscorlib",
+                "$values": [
+                  {
+                    "$id": "16",
+                    "$type": "COKPOProjectLogic.KartaKredytowa, COKPOProjectLogic",
+                    "NrKarty": "9530197571131177",
+                    "LimitKredytu": 5000.0,
+                    "Saldo": 1513214.0,
+                    "BankWydajacy": {
+                      "$ref": "11"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "15"
+                    }
+                  },
+                  {
+                    "$id": "17",
+                    "$type": "COKPOProjectLogic.KartaDebetowa, COKPOProjectLogic",
+                    "NrKarty": "2962154894070628",
+                    "Saldo": 3232.0,
+                    "BankWydajacy": {
+                      "$ref": "11"
+                    },
+                    "Wlasciciel": {
+                      "$ref": "15"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
