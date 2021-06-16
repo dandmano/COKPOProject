@@ -4,7 +4,8 @@ namespace COKPOProjectLogic
 {
     public class Bank
     {
-        public string NazwaBanku { get; set; }
+        private string nazwaBanku;
+        public string NazwaBanku { get => nazwaBanku; set => nazwaBanku = value; }
 
         public List<Klient> Klienci { get; } = new List<Klient>();
 
@@ -14,15 +15,19 @@ namespace COKPOProjectLogic
         }
 
         //Metoda dodająca klienta wiedząc jaki typ to mam być (1-Klient Centrum, 2-Zwykly Klient)
-        public void DodajKlienta(string nazwa, int wybor)
+        public void DodajKlienta(string nazwa, int wybor, int wyborkarty, decimal saldo, string nrkarty)
         {
             switch (wybor)
             {
-                case 1:
-                    Klienci.Add(new Firma(nazwa, this));
+                case 0:
+                    var klient = new ZwyklyKlient(nazwa, this);
+                    klient.DodajKarte(wyborkarty, saldo, nrkarty);
+                    Klienci.Add(klient);
                     break;
-                case 2:
-                    Klienci.Add(new ZwyklyKlient(nazwa, this));
+                case 1:
+                    var klient2 = new Firma(nazwa, this);
+                    klient2.DodajKarte(wyborkarty, saldo, nrkarty);
+                    Klienci.Add(klient2);
                     break;
                 default:
                     throw new WrongIndexException("Nie istnieje taki index w dodaj klienta!", wybor);

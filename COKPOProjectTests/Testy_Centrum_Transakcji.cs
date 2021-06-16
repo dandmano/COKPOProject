@@ -17,7 +17,6 @@ namespace COKPOProjectTests
             // Assert
             Assert.IsTrue(testowe_centrum.Banki[0].NazwaBanku == "Bank_Testowy");
         }
-        // var firma = new Firma("Testowy_Klient", new Bank("Bank_Testowy"));
         [TestMethod]
         public void DodajTransakcje_ExpectedTransactionInList()
         {
