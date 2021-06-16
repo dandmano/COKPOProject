@@ -325,6 +325,14 @@ namespace COKPOProject
         {
             UpdateTransactionList();
             ResetFilterVariables();
+            CheckBoxAmount.Checked = false;
+            CheckBoxCardNumber.Checked = false;
+            CheckBoxClientsBank.Checked = false;
+            CheckBoxDate.Checked = false;
+            CheckBoxFirm.Checked = false;
+            CheckBoxFirmsBank.Checked = false;
+            CheckBoxId.Checked = false;
+            CheckBoxStatus.Checked = false;
         }
 
         //Metoda przycisku - Zapisz

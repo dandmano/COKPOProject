@@ -49,7 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Testy.cs" />
+    <Compile Include="MetodyDoTestow.cs" />
+    <Compile Include="Testy_Centrum_Transakcji.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testy_Bank.cs" />
   </ItemGroup>
