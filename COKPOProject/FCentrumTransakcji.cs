@@ -70,7 +70,6 @@ namespace COKPOProject
                 item.SubItems.Add(transakcja.StatusAutoryzacji ? "Zaakceptowana" : "Odrzucona");
                 ListViewTransactions.Items.Add(item);
             }
-            ListViewTransactions.Items.
             ListViewTransactions.EndUpdate();
         }
         //Odświeżanie/uzupełnianie tymczasowej listy transakcji służącej do przeszukiwania archiwum

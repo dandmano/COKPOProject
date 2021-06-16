@@ -16,7 +16,6 @@ namespace COKPOProjectTests
             // Assert
             Assert.IsTrue(testowe_centrum.Banki[0].NazwaBanku == "Bank_Testowy");
         }
-        // var firma = new Firma("Testowy_Klient", new Bank("Bank_Testowy"));
         [TestMethod]
         public void DodajTransakcje_ExpectedTransactionInList()
         {
@@ -25,9 +24,5 @@ namespace COKPOProjectTests
             testowe_centrum.DodajTransakcje((Firma)testowe_centrum.Banki[0].Klienci[1], (decimal)100.50, "1111000099992222");
             Assert.IsTrue(testowe_centrum.Transakcje[0].BankFirmy == "Millenium");
         }
-
-
-
-
     }
 }

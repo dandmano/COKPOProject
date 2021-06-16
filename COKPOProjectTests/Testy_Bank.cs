@@ -8,8 +8,8 @@ namespace COKPOProjectTests
     {
 
         [TestMethod]
-        public void ()
+        public void idk()
         {
         }
-}
+    }
 }
