@@ -77,7 +77,7 @@ namespace COKPOProject
             ListViewTransactions.EndUpdate();
         }
         //Odświeżanie/uzupełnianie tymczasowej listy transakcji służącej do przeszukiwania archiwum
-        private void UpdateTmpTransactionList(List<Transakcja> tmp)
+        private void UpdateFilteredTransactionList(List<Transakcja> tmp)
         {
             ListViewTransactions.Update();
             ListViewTransactions.Items.Clear();
@@ -110,7 +110,6 @@ namespace COKPOProject
             this.czyStatus = false;
             this.status = false;
         }
-
 
         //
         // Metody przycisków oraz wydarzeń
@@ -193,11 +192,145 @@ namespace COKPOProject
                 MessageBox.Show($"{ex.Message} + Index = {ex.WrongIndex}", "Błąd!");
             }
         }
+
+        //Metoda przycisku - CheckBoxId
+        private void CheckBoxId_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxId.Visible = CheckBoxId.Checked;
+            if (CheckBoxId.Checked) return;
+            TextBoxId.Text = "";
+            id = -1;
+        }
+        //Metoda przycisku - CheckBoxDate
+        private void CheckBoxDate_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTimePickerLowerValue.Visible = CheckBoxDate.Checked;
+            DateTimePickerHigherValue.Visible = CheckBoxDate.Checked;
+            LabelFromDate.Visible = CheckBoxDate.Checked;
+            LabelToDate.Visible = CheckBoxDate.Checked;
+            if (CheckBoxDate.Checked) return;
+            czyData = false;
+        }
+        //Metoda przycisku - CheckBoxAmount
+        private void CheckBoxAmount_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxLowerAmount.Visible = CheckBoxAmount.Checked;
+            TextBoxHigherAmount.Visible = CheckBoxAmount.Checked;
+            LabelFromAmount.Visible = CheckBoxAmount.Checked;
+            LabelToAmount.Visible = CheckBoxAmount.Checked;
+            if (CheckBoxAmount.Checked) return;
+            TextBoxLowerAmount.Text = "";
+            TextBoxHigherAmount.Text = "";
+            kwotaMinimum = -1;
+            kwotaMaksimum = 9999999999999;
+        }
+        //Metoda checkboxa - CheckBoxFirm
+        private void CheckBoxFirm_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxFirmName.Visible = CheckBoxFirm.Checked;
+            if (CheckBoxFirm.Checked) return;
+            TextBoxFirmName.Text = "";
+            nazwaFirmy = "";
+        }
+        //Metoda checkboxa - CheckBoxFirmsBank
+        private void CheckBoxFirmsBank_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxFirmsBank.Visible = CheckBoxFirmsBank.Checked;
+            if (CheckBoxFirmsBank.Checked) return;
+            TextBoxFirmsBank.Text = "";
+            nazwaBankuFirmy = "";
+        }
+        //Metoda checkboxa - CheckBoxCardNumber
+        private void CheckBoxCardNumber_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxCardNumber.Visible = CheckBoxCardNumber.Checked;
+            if (CheckBoxCardNumber.Checked) return;
+            TextBoxCardNumber.Text = "";
+            nrKarty = "";
+        }
+        //Metoda checkboxa - CheckBoxClientsBank
+        private void CheckBoxClientsBank_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBoxClientsBank.Visible = CheckBoxClientsBank.Checked;
+            if (CheckBoxClientsBank.Checked) return;
+            TextBoxClientsBank.Text = "";
+            nazwaBankuKlienta = "";
+        }
+        //Metoda checkboxa - CheckBoxStatus
+        private void CheckBoxStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            ComboBoxStatus.Visible = CheckBoxStatus.Checked;
+            if (CheckBoxStatus.Checked) return;
+            ComboBoxStatus.SelectedIndex = -1;
+            status = false;
+        }
+        //Metoda checkboxa - Filtruj
+        private void ButtonSearchTransaction_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(TextBoxId.Text)) id = int.Parse(TextBoxId.Text);
+            if (CheckBoxDate.Checked)
+            {
+                if (DateTimePickerHigherValue.Value < DateTimePickerLowerValue.Value)
+                {
+                    MessageBox.Show("Błędny przedział dat!", "Błąd!"); // Exception?
+                    return;
+                }
+                czyData = true;
+            }
+            if (!String.IsNullOrEmpty(TextBoxHigherAmount.Text)) kwotaMaksimum = decimal.Parse(TextBoxHigherAmount.Text);
+            if (!String.IsNullOrEmpty(TextBoxLowerAmount.Text)) kwotaMinimum = decimal.Parse(TextBoxLowerAmount.Text);
+            if (kwotaMaksimum < kwotaMinimum)
+            {
+                MessageBox.Show("Błędny przedział kwoty!", "Błąd!"); //Exception?
+                return;
+            }
+
+            if (!String.IsNullOrEmpty(TextBoxFirmName.Text)) nazwaFirmy = TextBoxFirmName.Text;
+            if (!String.IsNullOrEmpty(TextBoxFirmsBank.Text)) nazwaBankuFirmy = TextBoxFirmsBank.Text;
+            if (!String.IsNullOrEmpty(TextBoxCardNumber.Text) || TextBoxCardNumber.Text.Length == 16)
+            {
+                nrKarty = TextBoxCardNumber.Text;
+            }
+            if (!String.IsNullOrEmpty(TextBoxClientsBank.Text)) nazwaBankuKlienta = TextBoxClientsBank.Text;
+            if (ComboBoxStatus.SelectedIndex != -1)
+            {
+                czyStatus = true;
+                switch (ComboBoxStatus.SelectedIndex)
+                {
+                    case 0:
+                        status = true;
+                        break;
+                    case 1:
+                        status = false;
+                        break;
+                }
+            }
+            var tmp = centrumTransakcji.PrzeszukajTransakcje(id, DateTimePickerLowerValue.Value, DateTimePickerHigherValue.Value, czyData, kwotaMinimum, kwotaMaksimum, nazwaFirmy, nazwaBankuFirmy, nrKarty, nazwaBankuKlienta, status, czyStatus);
+            if (tmp.Count > 0) UpdateFilteredTransactionList(tmp);
+            else
+            {
+                MessageBox.Show("Nie znaleziono pasujących transakcji", "Uwaga!");
+            }
+        }
+
+        //Metoda przycisku - Resetuj
+        private void ButtonResetFilters_Click(object sender, EventArgs e)
+        {
+            UpdateTransactionList();
+            ResetFilterVariables();
+        }
+
+
         //Metoda wydarzenia double click w listboxie banków 
         private void ListBoxBanks_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.ButtonGoToBank_Click(sender, e);
         }
+
+        //
+        //Metody ograniczające wpisywanie w textboxy
+        //
+
         //Metoda pozwalająca wpisywać tylko liczby do Id
         private void TextBoxIdSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -240,101 +373,6 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
-        //Metoda przycisku - CheckBoxId
-        private void CheckBoxId_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxId.Visible = CheckBoxId.Checked;
-        }
-        //Metoda przycisku - CheckBoxDate
-        private void CheckBoxDate_CheckedChanged(object sender, EventArgs e)
-        {
-            DateTimePickerLowerValue.Visible = CheckBoxDate.Checked;
-            DateTimePickerHigherValue.Visible = CheckBoxDate.Checked;
-            LabelFromDate.Visible = CheckBoxDate.Checked;
-            LabelToDate.Visible = CheckBoxDate.Checked;
-        }
-        //Metoda przycisku - CheckBoxAmount
-        private void CheckBoxAmount_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxLowerAmount.Visible = CheckBoxAmount.Checked;
-            TextBoxHigherAmount.Visible = CheckBoxAmount.Checked;
-            LabelFromAmount.Visible = CheckBoxAmount.Checked;
-            LabelToAmount.Visible = CheckBoxAmount.Checked;
-        }
-        //Metoda przycisku - CheckBoxFirm
-        private void CheckBoxFirm_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxFirmName.Visible = CheckBoxFirm.Checked;
-        }
-        //Metoda przycisku - CheckBoxFirmsBank
-        private void CheckBoxFirmsBank_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxFirmsBank.Visible = CheckBoxFirmsBank.Checked;
-        }
-        //Metoda przycisku - CheckBoxCardNumber
-        private void CheckBoxCardNumber_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxCardNumber.Visible = CheckBoxCardNumber.Checked;
-        }
-        //Metoda przycisku CheckBoxClientsBank
-        private void CheckBoxClientsBank_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBoxClientsBank.Visible = CheckBoxClientsBank.Checked;
-        }
-        //Metoda przycisku CheckBoxStatus
-        private void CheckBoxStatus_CheckedChanged(object sender, EventArgs e)
-        {
-            ComboBoxStatus.Visible = CheckBoxStatus.Checked;
-        }
-        //Metoda przycisku - Filtruj
-        private void ButtonSearchTransaction_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(TextBoxId.Text)) id = int.Parse(TextBoxId.Text);
-            if (CheckBoxDate.Checked)
-            {
-                if (DateTimePickerHigherValue.Value < DateTimePickerLowerValue.Value)
-                {
-                    MessageBox.Show("Błędny przedział dat!", "Błąd!"); // Exception?
-                    return;
-                }
-                czyData = true;
-            }
-            if (!String.IsNullOrEmpty(TextBoxHigherAmount.Text)) kwotaMaksimum = decimal.Parse(TextBoxHigherAmount.Text);
-            if (!String.IsNullOrEmpty(TextBoxLowerAmount.Text)) kwotaMinimum = decimal.Parse(TextBoxLowerAmount.Text);
-            if (kwotaMaksimum < kwotaMinimum)
-            {
-                MessageBox.Show("Błędny przedział kwoty!", "Błąd!"); //Exception?
-                return;
-            }
 
-            if (!String.IsNullOrEmpty(TextBoxFirmName.Text)) nazwaFirmy = TextBoxFirmName.Text;
-            if (!String.IsNullOrEmpty(TextBoxFirmsBank.Text)) nazwaBankuFirmy = TextBoxFirmsBank.Text;
-            if (!String.IsNullOrEmpty(TextBoxCardNumber.Text) || TextBoxCardNumber.Text.Length == 16)
-            {
-                nrKarty = TextBoxCardNumber.Text;
-            }
-            if (!String.IsNullOrEmpty(TextBoxClientsBank.Text)) nazwaBankuKlienta = TextBoxClientsBank.Text;
-            if (ComboBoxStatus.SelectedIndex != -1)
-            {
-                czyStatus = true;
-                switch (ComboBoxStatus.SelectedIndex)
-                {
-                    case 0:
-                        status = true;
-                        break;
-                    case 1:
-                        status = false;
-                        break;
-                }
-            }
-            List<Transakcja> tmp = centrumTransakcji.PrzeszukajTransakcje(id, DateTimePickerLowerValue.Value, DateTimePickerHigherValue.Value,
-                czyData, kwotaMinimum, kwotaMaksimum, nazwaFirmy, nazwaBankuFirmy, nrKarty, nazwaBankuKlienta, status,
-                czyStatus);
-            if (tmp.Count > 0) UpdateTmpTransactionList(tmp);
-            else
-            {
-                MessageBox.Show("Nie znaleziono pasujących transakcji", "Uwaga!");
-            }
-        }
     }
 }

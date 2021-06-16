@@ -57,10 +57,10 @@ namespace COKPOProject
             // ButtonAddClient
             // 
             this.ButtonAddClient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonAddClient.Location = new System.Drawing.Point(863, 93);
+            this.ButtonAddClient.Location = new System.Drawing.Point(669, 93);
             this.ButtonAddClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddClient.Name = "ButtonAddClient";
-            this.ButtonAddClient.Size = new System.Drawing.Size(267, 49);
+            this.ButtonAddClient.Size = new System.Drawing.Size(441, 49);
             this.ButtonAddClient.TabIndex = 2;
             this.ButtonAddClient.Text = "Dodaj klienta";
             this.ButtonAddClient.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@ namespace COKPOProject
             // ButtonDeleteClient
             // 
             this.ButtonDeleteClient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonDeleteClient.Location = new System.Drawing.Point(863, 163);
+            this.ButtonDeleteClient.Location = new System.Drawing.Point(669, 163);
             this.ButtonDeleteClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonDeleteClient.Name = "ButtonDeleteClient";
-            this.ButtonDeleteClient.Size = new System.Drawing.Size(267, 49);
+            this.ButtonDeleteClient.Size = new System.Drawing.Size(441, 49);
             this.ButtonDeleteClient.TabIndex = 3;
             this.ButtonDeleteClient.Text = "Usuń klienta";
             this.ButtonDeleteClient.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@ namespace COKPOProject
             this.ListBoxClients.Location = new System.Drawing.Point(44, 93);
             this.ListBoxClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ListBoxClients.Name = "ListBoxClients";
-            this.ListBoxClients.Size = new System.Drawing.Size(351, 466);
+            this.ListBoxClients.Size = new System.Drawing.Size(459, 466);
             this.ListBoxClients.Sorted = true;
             this.ListBoxClients.TabIndex = 5;
             this.ListBoxClients.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxClients_MouseDoubleClick);
@@ -94,10 +94,10 @@ namespace COKPOProject
             // ButtonGoToClient
             // 
             this.ButtonGoToClient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonGoToClient.Location = new System.Drawing.Point(863, 299);
+            this.ButtonGoToClient.Location = new System.Drawing.Point(669, 345);
             this.ButtonGoToClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonGoToClient.Name = "ButtonGoToClient";
-            this.ButtonGoToClient.Size = new System.Drawing.Size(267, 49);
+            this.ButtonGoToClient.Size = new System.Drawing.Size(441, 49);
             this.ButtonGoToClient.TabIndex = 6;
             this.ButtonGoToClient.Text = "Przejdź do Klienta";
             this.ButtonGoToClient.UseVisualStyleBackColor = true;
@@ -106,10 +106,10 @@ namespace COKPOProject
             // ButtonChangeClientsName
             // 
             this.ButtonChangeClientsName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ButtonChangeClientsName.Location = new System.Drawing.Point(863, 232);
+            this.ButtonChangeClientsName.Location = new System.Drawing.Point(669, 232);
             this.ButtonChangeClientsName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonChangeClientsName.Name = "ButtonChangeClientsName";
-            this.ButtonChangeClientsName.Size = new System.Drawing.Size(267, 49);
+            this.ButtonChangeClientsName.Size = new System.Drawing.Size(441, 49);
             this.ButtonChangeClientsName.TabIndex = 7;
             this.ButtonChangeClientsName.Text = "Zmień nazwę klienta";
             this.ButtonChangeClientsName.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace COKPOProject
             this.ButtonNormalClient.Location = new System.Drawing.Point(44, 615);
             this.ButtonNormalClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonNormalClient.Name = "ButtonNormalClient";
-            this.ButtonNormalClient.Size = new System.Drawing.Size(351, 49);
+            this.ButtonNormalClient.Size = new System.Drawing.Size(459, 49);
             this.ButtonNormalClient.TabIndex = 8;
             this.ButtonNormalClient.Text = "Zwykli klienci";
             this.ButtonNormalClient.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@ namespace COKPOProject
             this.ButtonAllClients.Location = new System.Drawing.Point(44, 562);
             this.ButtonAllClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAllClients.Name = "ButtonAllClients";
-            this.ButtonAllClients.Size = new System.Drawing.Size(351, 49);
+            this.ButtonAllClients.Size = new System.Drawing.Size(459, 49);
             this.ButtonAllClients.TabIndex = 9;
             this.ButtonAllClients.Text = "Wszyscy klienci";
             this.ButtonAllClients.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@ namespace COKPOProject
             this.ButtonFirm.Location = new System.Drawing.Point(44, 668);
             this.ButtonFirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonFirm.Name = "ButtonFirm";
-            this.ButtonFirm.Size = new System.Drawing.Size(351, 49);
+            this.ButtonFirm.Size = new System.Drawing.Size(459, 49);
             this.ButtonFirm.TabIndex = 10;
             this.ButtonFirm.Text = "Firmy";
             this.ButtonFirm.UseVisualStyleBackColor = true;

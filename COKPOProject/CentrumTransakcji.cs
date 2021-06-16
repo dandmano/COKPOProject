@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -101,16 +103,18 @@ namespace COKPOProject
         public List<Transakcja> PrzeszukajTransakcje(int id, DateTime dataod, DateTime datado, bool czydata, decimal kwotaod, decimal kwotado, string nazwafirmy, string bankfirmy, string nrkarty, string bankklienta, bool status, bool czystatus)
         {
             var tmp = new List<Transakcja>(Transakcje);
+        reset:
             foreach (var transakcja in tmp)
             {
-                if (id != -1 && transakcja.IdTransakcji != id) tmp.Remove(transakcja);
-                else if (czydata && (transakcja.Data < dataod || transakcja.Data > datado)) tmp.Remove(transakcja);
-                else if (transakcja.Kwota < kwotaod || transakcja.Kwota > kwotado) tmp.Remove(transakcja);
-                else if (nazwafirmy != "" && transakcja.NazwaFirmy != nazwafirmy) tmp.Remove(transakcja);
-                else if (nrkarty != "" && transakcja.NrKarty != nrkarty) tmp.Remove(transakcja);
-                else if (bankfirmy != "" && transakcja.BankFirmy != bankfirmy) tmp.Remove(transakcja);
-                else if (bankklienta != "" && transakcja.BankKlienta != bankklienta) tmp.Remove(transakcja);
-                else if (czystatus && transakcja.StatusAutoryzacji != status) tmp.Remove(transakcja);
+                if (id != -1 && transakcja.IdTransakcji != id) { tmp.Remove(transakcja); goto reset; }
+                else if (czydata && (transakcja.Data < dataod || transakcja.Data > datado)) { tmp.Remove(transakcja); goto reset; }
+                else if (transakcja.Kwota < kwotaod || transakcja.Kwota > kwotado) { tmp.Remove(transakcja); goto reset; }
+                else if (nazwafirmy != "" && transakcja.NazwaFirmy != nazwafirmy) { tmp.Remove(transakcja); goto reset; }
+                else if (nrkarty != "" && transakcja.NrKarty != nrkarty) { tmp.Remove(transakcja); goto reset; }
+                else if (bankfirmy != "" && transakcja.BankFirmy != bankfirmy) { tmp.Remove(transakcja); goto reset; }
+                else if (bankklienta != "" && transakcja.BankKlienta != bankklienta) { tmp.Remove(transakcja); goto reset; }
+                else if (czystatus && transakcja.StatusAutoryzacji != status) { tmp.Remove(transakcja); goto reset; }
+                if (tmp.Count == 0) break;
             }
             return tmp;
         }

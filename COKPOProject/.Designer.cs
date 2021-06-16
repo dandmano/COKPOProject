@@ -39,7 +39,7 @@ namespace COKPOProject
             this.LabelMainMenuText.AutoSize = true;
             this.LabelMainMenuText.BackColor = System.Drawing.Color.Transparent;
             this.LabelMainMenuText.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelMainMenuText.Location = new System.Drawing.Point(294, 133);
+            this.LabelMainMenuText.Location = new System.Drawing.Point(500, 180);
             this.LabelMainMenuText.Name = "LabelMainMenuText";
             this.LabelMainMenuText.Size = new System.Drawing.Size(581, 34);
             this.LabelMainMenuText.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace COKPOProject
             // ButtonBegin
             // 
             this.ButtonBegin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ButtonBegin.Location = new System.Drawing.Point(469, 374);
+            this.ButtonBegin.Location = new System.Drawing.Point(675, 421);
             this.ButtonBegin.Name = "ButtonBegin";
             this.ButtonBegin.Size = new System.Drawing.Size(218, 58);
             this.ButtonBegin.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace COKPOProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.ClientSize = new System.Drawing.Size(1582, 753);
             this.Controls.Add(this.ButtonBegin);
             this.Controls.Add(this.LabelMainMenuText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

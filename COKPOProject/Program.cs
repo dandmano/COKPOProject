@@ -40,7 +40,8 @@ namespace COKPOProject
             centrumTransakcji.Banki[1].DodajKlienta("Adidasz", 1);
             centrumTransakcji.Banki[1].Klienci[1].DodajKarte(1, 1513214, "");
             centrumTransakcji.Banki[1].Klienci[1].DodajKarte(0, 3232, "");
-
+            centrumTransakcji.DodajTransakcje((Firma)centrumTransakcji.Banki[0].Klienci[1], 690, centrumTransakcji.Banki[1].Klienci[0].Karty[1].NrKarty);
+            centrumTransakcji.DodajTransakcje((Firma)centrumTransakcji.Banki[1].Klienci[1], 6969, centrumTransakcji.Banki[0].Klienci[0].Karty[0].NrKarty);
         }
     }
 }
