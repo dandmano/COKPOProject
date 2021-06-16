@@ -16,15 +16,13 @@ namespace COKPOProject
         [STAThread]
         private static void Main()
         {
-            var centrumTransakcji = new CentrumTransakcji();
-            //var centrumTransakcji = CentrumTransakcji.Wczytywanie("dane.json");
-            Stworzbankitd(centrumTransakcji);
+            var centrumTransakcji = CentrumTransakcji.Wczytywanie("dane.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FStronaGlowna(centrumTransakcji));
         }
 
-        private static void Stworzbankitd(CentrumTransakcji centrumTransakcji)
+        /*private static void Stworzbankitd(CentrumTransakcji centrumTransakcji)
         {
             centrumTransakcji.DodajBank("Millenium");
             centrumTransakcji.DodajBank("Alior");
@@ -42,6 +40,6 @@ namespace COKPOProject
             centrumTransakcji.Banki[1].Klienci[1].DodajKarte(0, 3232, "");
             centrumTransakcji.DodajTransakcje((Firma)centrumTransakcji.Banki[0].Klienci[1], 690, centrumTransakcji.Banki[1].Klienci[0].Karty[1].NrKarty);
             centrumTransakcji.DodajTransakcje((Firma)centrumTransakcji.Banki[1].Klienci[1], 6969, centrumTransakcji.Banki[0].Klienci[0].Karty[0].NrKarty);
-        }
+        }*/
     }
 }

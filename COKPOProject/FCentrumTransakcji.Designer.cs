@@ -82,6 +82,8 @@ namespace COKPOProject
             this.ComboBoxStatus = new System.Windows.Forms.ComboBox();
             this.LabelFromAmount = new System.Windows.Forms.Label();
             this.LabelToAmount = new System.Windows.Forms.Label();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.ButtonSaveAndExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LabelCentrumTransakcji
@@ -123,7 +125,7 @@ namespace COKPOProject
             // 
             this.ButtonRemoveBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonRemoveBank.Location = new System.Drawing.Point(44, 550);
-            this.ButtonRemoveBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonRemoveBank.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonRemoveBank.Name = "ButtonRemoveBank";
             this.ButtonRemoveBank.Size = new System.Drawing.Size(264, 49);
             this.ButtonRemoveBank.TabIndex = 3;
@@ -147,7 +149,7 @@ namespace COKPOProject
             // 
             this.ButtonGoToBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ButtonGoToBank.Location = new System.Drawing.Point(44, 661);
-            this.ButtonGoToBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonGoToBank.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonGoToBank.Name = "ButtonGoToBank";
             this.ButtonGoToBank.Size = new System.Drawing.Size(264, 49);
             this.ButtonGoToBank.TabIndex = 5;
@@ -296,7 +298,7 @@ namespace COKPOProject
             this.DateTimePickerLowerValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DateTimePickerLowerValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerLowerValue.Location = new System.Drawing.Point(803, 572);
-            this.DateTimePickerLowerValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerLowerValue.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerLowerValue.Name = "DateTimePickerLowerValue";
             this.DateTimePickerLowerValue.Size = new System.Drawing.Size(164, 32);
             this.DateTimePickerLowerValue.TabIndex = 20;
@@ -308,7 +310,7 @@ namespace COKPOProject
             this.DateTimePickerHigherValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DateTimePickerHigherValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerHigherValue.Location = new System.Drawing.Point(1024, 572);
-            this.DateTimePickerHigherValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerHigherValue.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerHigherValue.Name = "DateTimePickerHigherValue";
             this.DateTimePickerHigherValue.Size = new System.Drawing.Size(160, 32);
             this.DateTimePickerHigherValue.TabIndex = 21;
@@ -329,7 +331,7 @@ namespace COKPOProject
             // 
             this.TextBoxLowerAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxLowerAmount.Location = new System.Drawing.Point(803, 613);
-            this.TextBoxLowerAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxLowerAmount.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxLowerAmount.Name = "TextBoxLowerAmount";
             this.TextBoxLowerAmount.Size = new System.Drawing.Size(164, 32);
             this.TextBoxLowerAmount.TabIndex = 23;
@@ -340,7 +342,7 @@ namespace COKPOProject
             // 
             this.TextBoxHigherAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxHigherAmount.Location = new System.Drawing.Point(1024, 613);
-            this.TextBoxHigherAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxHigherAmount.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxHigherAmount.Name = "TextBoxHigherAmount";
             this.TextBoxHigherAmount.Size = new System.Drawing.Size(160, 32);
             this.TextBoxHigherAmount.TabIndex = 24;
@@ -386,7 +388,7 @@ namespace COKPOProject
             // 
             this.TextBoxId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxId.Location = new System.Drawing.Point(803, 532);
-            this.TextBoxId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxId.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxId.Name = "TextBoxId";
             this.TextBoxId.Size = new System.Drawing.Size(164, 32);
             this.TextBoxId.TabIndex = 28;
@@ -408,7 +410,7 @@ namespace COKPOProject
             // 
             this.TextBoxFirmName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxFirmName.Location = new System.Drawing.Point(803, 654);
-            this.TextBoxFirmName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxFirmName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxFirmName.Name = "TextBoxFirmName";
             this.TextBoxFirmName.Size = new System.Drawing.Size(164, 32);
             this.TextBoxFirmName.TabIndex = 30;
@@ -429,7 +431,7 @@ namespace COKPOProject
             // 
             this.TextBoxFirmsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxFirmsBank.Location = new System.Drawing.Point(1372, 532);
-            this.TextBoxFirmsBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxFirmsBank.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxFirmsBank.Name = "TextBoxFirmsBank";
             this.TextBoxFirmsBank.Size = new System.Drawing.Size(167, 32);
             this.TextBoxFirmsBank.TabIndex = 32;
@@ -450,7 +452,7 @@ namespace COKPOProject
             // 
             this.TextBoxCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxCardNumber.Location = new System.Drawing.Point(1372, 572);
-            this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardNumber.MaxLength = 16;
             this.TextBoxCardNumber.Name = "TextBoxCardNumber";
             this.TextBoxCardNumber.Size = new System.Drawing.Size(167, 32);
@@ -473,7 +475,7 @@ namespace COKPOProject
             // 
             this.TextBoxClientsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TextBoxClientsBank.Location = new System.Drawing.Point(1372, 613);
-            this.TextBoxClientsBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxClientsBank.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxClientsBank.Name = "TextBoxClientsBank";
             this.TextBoxClientsBank.Size = new System.Drawing.Size(167, 32);
             this.TextBoxClientsBank.TabIndex = 36;
@@ -518,7 +520,7 @@ namespace COKPOProject
             this.CheckBoxId.AutoSize = true;
             this.CheckBoxId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxId.Location = new System.Drawing.Point(649, 539);
-            this.CheckBoxId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxId.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxId.Name = "CheckBoxId";
             this.CheckBoxId.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxId.TabIndex = 41;
@@ -530,7 +532,7 @@ namespace COKPOProject
             this.CheckBoxDate.AutoSize = true;
             this.CheckBoxDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxDate.Location = new System.Drawing.Point(649, 580);
-            this.CheckBoxDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxDate.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxDate.Name = "CheckBoxDate";
             this.CheckBoxDate.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxDate.TabIndex = 42;
@@ -542,7 +544,7 @@ namespace COKPOProject
             this.CheckBoxAmount.AutoSize = true;
             this.CheckBoxAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxAmount.Location = new System.Drawing.Point(649, 619);
-            this.CheckBoxAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxAmount.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxAmount.Name = "CheckBoxAmount";
             this.CheckBoxAmount.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxAmount.TabIndex = 43;
@@ -554,7 +556,7 @@ namespace COKPOProject
             this.CheckBoxFirm.AutoSize = true;
             this.CheckBoxFirm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxFirm.Location = new System.Drawing.Point(649, 661);
-            this.CheckBoxFirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxFirm.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxFirm.Name = "CheckBoxFirm";
             this.CheckBoxFirm.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxFirm.TabIndex = 44;
@@ -566,7 +568,7 @@ namespace COKPOProject
             this.CheckBoxFirmsBank.AutoSize = true;
             this.CheckBoxFirmsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxFirmsBank.Location = new System.Drawing.Point(1193, 539);
-            this.CheckBoxFirmsBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxFirmsBank.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxFirmsBank.Name = "CheckBoxFirmsBank";
             this.CheckBoxFirmsBank.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxFirmsBank.TabIndex = 45;
@@ -578,7 +580,7 @@ namespace COKPOProject
             this.CheckBoxCardNumber.AutoSize = true;
             this.CheckBoxCardNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxCardNumber.Location = new System.Drawing.Point(1193, 580);
-            this.CheckBoxCardNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxCardNumber.Name = "CheckBoxCardNumber";
             this.CheckBoxCardNumber.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxCardNumber.TabIndex = 46;
@@ -590,7 +592,7 @@ namespace COKPOProject
             this.CheckBoxClientsBank.AutoSize = true;
             this.CheckBoxClientsBank.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxClientsBank.Location = new System.Drawing.Point(1193, 622);
-            this.CheckBoxClientsBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxClientsBank.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxClientsBank.Name = "CheckBoxClientsBank";
             this.CheckBoxClientsBank.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxClientsBank.TabIndex = 47;
@@ -602,7 +604,7 @@ namespace COKPOProject
             this.CheckBoxStatus.AutoSize = true;
             this.CheckBoxStatus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CheckBoxStatus.Location = new System.Drawing.Point(1193, 661);
-            this.CheckBoxStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBoxStatus.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBoxStatus.Name = "CheckBoxStatus";
             this.CheckBoxStatus.Size = new System.Drawing.Size(18, 17);
             this.CheckBoxStatus.TabIndex = 48;
@@ -617,7 +619,7 @@ namespace COKPOProject
             "Zaakceptowana",
             "Odrzucona"});
             this.ComboBoxStatus.Location = new System.Drawing.Point(1304, 655);
-            this.ComboBoxStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBoxStatus.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxStatus.Name = "ComboBoxStatus";
             this.ComboBoxStatus.Size = new System.Drawing.Size(235, 31);
             this.ComboBoxStatus.TabIndex = 49;
@@ -647,11 +649,37 @@ namespace COKPOProject
             this.LabelToAmount.Text = "Do";
             this.LabelToAmount.Visible = false;
             // 
+            // ButtonSave
+            // 
+            this.ButtonSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonSave.Location = new System.Drawing.Point(1250, 21);
+            this.ButtonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(128, 56);
+            this.ButtonSave.TabIndex = 52;
+            this.ButtonSave.Text = "Zapisz";
+            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            // 
+            // ButtonSaveAndExit
+            // 
+            this.ButtonSaveAndExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ButtonSaveAndExit.Location = new System.Drawing.Point(1384, 21);
+            this.ButtonSaveAndExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSaveAndExit.Name = "ButtonSaveAndExit";
+            this.ButtonSaveAndExit.Size = new System.Drawing.Size(155, 56);
+            this.ButtonSaveAndExit.TabIndex = 53;
+            this.ButtonSaveAndExit.Text = "Zapisz i Wyjdź";
+            this.ButtonSaveAndExit.UseVisualStyleBackColor = true;
+            this.ButtonSaveAndExit.Click += new System.EventHandler(this.ButtonSaveAndExit_Click);
+            // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1579, 753);
+            this.Controls.Add(this.ButtonSaveAndExit);
+            this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.LabelToAmount);
             this.Controls.Add(this.LabelFromAmount);
             this.Controls.Add(this.ComboBoxStatus);
@@ -764,5 +792,7 @@ namespace COKPOProject
         private System.Windows.Forms.ComboBox ComboBoxStatus;
         private System.Windows.Forms.Label LabelFromAmount;
         private System.Windows.Forms.Label LabelToAmount;
+        private System.Windows.Forms.Button ButtonSave;
+        private System.Windows.Forms.Button ButtonSaveAndExit;
     }
 }

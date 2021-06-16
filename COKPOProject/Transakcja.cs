@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace COKPOProject
 {
@@ -26,6 +27,17 @@ namespace COKPOProject
             this.NazwaFirmy = Firma.NazwaKlienta;
             this.BankFirmy = Firma.BankKlienta.NazwaBanku;
             this.BankKlienta = BankKlienta;
+        }
+        [JsonConstructor]
+        public Transakcja(int IdTransakcji, decimal Kwota, DateTime Data, string NrKarty, string BankFirmy, string BankKlienta, string NazwaFirmy)
+        {
+            this.IdTransakcji = IdTransakcji;
+            this.Kwota = Kwota;
+            this.Data = Data;
+            this.NrKarty = NrKarty;
+            this.BankFirmy = BankFirmy;
+            this.BankKlienta = BankKlienta;
+            this.NazwaFirmy = NazwaFirmy;
         }
 
         public override string ToString()

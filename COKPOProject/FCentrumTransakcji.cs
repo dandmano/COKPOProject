@@ -109,6 +109,17 @@ namespace COKPOProject
             this.nazwaBankuKlienta = "";
             this.czyStatus = false;
             this.status = false;
+            TextBoxId.Text = "";
+            TextBoxCardNumber.Text = "";
+            TextBoxFirmsBank.Text = "";
+            TextBoxFirmsBank.Text = "";
+            TextBoxFirmName.Text = "";
+            TextBoxHigherAmount.Text = "";
+            TextBoxLowerAmount.Text = "";
+            TextBoxClientsBank.Text = "";
+            ComboBoxStatus.SelectedIndex = -1;
+            DateTimePickerHigherValue.Value = DateTime.Now;
+            DateTimePickerLowerValue.Value = DateTime.Now;
         }
 
         //
@@ -284,7 +295,6 @@ namespace COKPOProject
                 MessageBox.Show("Błędny przedział kwoty!", "Błąd!"); //Exception?
                 return;
             }
-
             if (!String.IsNullOrEmpty(TextBoxFirmName.Text)) nazwaFirmy = TextBoxFirmName.Text;
             if (!String.IsNullOrEmpty(TextBoxFirmsBank.Text)) nazwaBankuFirmy = TextBoxFirmsBank.Text;
             if (!String.IsNullOrEmpty(TextBoxCardNumber.Text) || TextBoxCardNumber.Text.Length == 16)
@@ -320,6 +330,19 @@ namespace COKPOProject
             ResetFilterVariables();
         }
 
+        //Metoda przycisku - Zapisz
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            centrumTransakcji.Zapisywanie("dane.json");
+        }
+
+
+        //Metoda przycisku - Zapisz i wyjdź
+        private void ButtonSaveAndExit_Click(object sender, EventArgs e)
+        {
+            centrumTransakcji.Zapisywanie("dane.json");
+            Application.Exit();
+        }
 
         //Metoda wydarzenia double click w listboxie banków 
         private void ListBoxBanks_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -373,6 +396,5 @@ namespace COKPOProject
                 e.Handled = true;
             }
         }
-
     }
 }

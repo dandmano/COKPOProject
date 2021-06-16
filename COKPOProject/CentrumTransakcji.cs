@@ -7,6 +7,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -107,13 +108,13 @@ namespace COKPOProject
             foreach (var transakcja in tmp)
             {
                 if (id != -1 && transakcja.IdTransakcji != id) { tmp.Remove(transakcja); goto reset; }
-                else if (czydata && (transakcja.Data < dataod || transakcja.Data > datado)) { tmp.Remove(transakcja); goto reset; }
-                else if (transakcja.Kwota < kwotaod || transakcja.Kwota > kwotado) { tmp.Remove(transakcja); goto reset; }
-                else if (nazwafirmy != "" && transakcja.NazwaFirmy != nazwafirmy) { tmp.Remove(transakcja); goto reset; }
-                else if (nrkarty != "" && transakcja.NrKarty != nrkarty) { tmp.Remove(transakcja); goto reset; }
-                else if (bankfirmy != "" && transakcja.BankFirmy != bankfirmy) { tmp.Remove(transakcja); goto reset; }
-                else if (bankklienta != "" && transakcja.BankKlienta != bankklienta) { tmp.Remove(transakcja); goto reset; }
-                else if (czystatus && transakcja.StatusAutoryzacji != status) { tmp.Remove(transakcja); goto reset; }
+                if (czydata && ((transakcja.Data.Day < dataod.Day || transakcja.Data.Day > datado.Day) || (transakcja.Data.Year < dataod.Year || transakcja.Data.Year > datado.Year) || (transakcja.Data.Month < dataod.Month || transakcja.Data.Month > datado.Month))) { tmp.Remove(transakcja); goto reset; }
+                if (transakcja.Kwota < kwotaod || transakcja.Kwota > kwotado) { tmp.Remove(transakcja); goto reset; }
+                if (nazwafirmy != "" && transakcja.NazwaFirmy != nazwafirmy) { tmp.Remove(transakcja); goto reset; }
+                if (nrkarty != "" && transakcja.NrKarty != nrkarty) { tmp.Remove(transakcja); goto reset; }
+                if (bankfirmy != "" && transakcja.BankFirmy != bankfirmy) { tmp.Remove(transakcja); goto reset; }
+                if (bankklienta != "" && transakcja.BankKlienta != bankklienta) { tmp.Remove(transakcja); goto reset; }
+                if (czystatus && transakcja.StatusAutoryzacji != status) { tmp.Remove(transakcja); goto reset; }
                 if (tmp.Count == 0) break;
             }
             return tmp;
