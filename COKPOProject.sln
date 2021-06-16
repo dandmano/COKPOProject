@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COKPOProject", "COKPOProjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COKPOProjectLogic", "COKPOProjectLogic\COKPOProjectLogic.csproj", "{AB2CBF8E-CAE2-4067-BF10-AC0EBDDFF525}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COKPOProjectTests", "COKPOProjectTests\COKPOProjectTests.csproj", "{020308CB-63FD-412D-84B7-838BE3DAD27D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AB2CBF8E-CAE2-4067-BF10-AC0EBDDFF525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB2CBF8E-CAE2-4067-BF10-AC0EBDDFF525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB2CBF8E-CAE2-4067-BF10-AC0EBDDFF525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{020308CB-63FD-412D-84B7-838BE3DAD27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{020308CB-63FD-412D-84B7-838BE3DAD27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{020308CB-63FD-412D-84B7-838BE3DAD27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{020308CB-63FD-412D-84B7-838BE3DAD27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
