@@ -122,7 +122,6 @@ namespace COKPOProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
             this.CancelButton = this.ButtonCancel;
             this.ClientSize = new System.Drawing.Size(665, 379);
             this.Controls.Add(this.LabelAmount);
