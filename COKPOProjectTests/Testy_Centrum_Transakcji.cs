@@ -10,11 +10,8 @@ namespace COKPOProjectTests
         [TestMethod]
         public void DodajBank_ExpectedExistingBankInList()
         {
-            // Arrange
             var testowe_centrum = new CentrumTransakcji();
-            // Act
             testowe_centrum.DodajBank("Bank_Testowy");
-            // Assert
             Assert.IsTrue(testowe_centrum.Banki[0].NazwaBanku == "Bank_Testowy");
         }
         [TestMethod]
