@@ -55,7 +55,6 @@ namespace COKPOProject
             this.LabelBank.TabIndex = 1;
             this.LabelBank.Text = "BANK";
             this.LabelBank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelBank.Click += new System.EventHandler(this.LabelBank_Click);
             // 
             // ButtonAddClient
             // 

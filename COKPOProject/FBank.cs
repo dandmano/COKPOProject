@@ -154,10 +154,5 @@ namespace COKPOProject
         {
             this.ButtonGoToClient_Click(sender, e);
         }
-
-        private void LabelBank_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
