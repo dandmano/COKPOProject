@@ -4,8 +4,7 @@ namespace COKPOProjectLogic
 {
     public class Bank
     {
-        private string nazwaBanku;
-        public string NazwaBanku { get => nazwaBanku; set => nazwaBanku = value; }
+        public string NazwaBanku { get; set; }
 
         public List<Klient> Klienci { get; } = new List<Klient>();
 
