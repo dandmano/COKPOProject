@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using COKPOProjectLogic;
@@ -400,12 +399,6 @@ namespace COKPOProject
             {
                 e.Handled = true;
             }
-        }
-
-        //Rickroll :))
-        private void PictureBoxFiveHead_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
     }
 }

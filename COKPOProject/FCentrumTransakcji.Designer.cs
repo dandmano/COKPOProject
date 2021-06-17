@@ -84,8 +84,6 @@ namespace COKPOProject
             this.LabelToAmount = new System.Windows.Forms.Label();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.ButtonSaveAndExit = new System.Windows.Forms.Button();
-            this.PictureBoxFiveHead = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFiveHead)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelCentrumTransakcji
@@ -674,19 +672,6 @@ namespace COKPOProject
             this.ButtonSaveAndExit.UseVisualStyleBackColor = true;
             this.ButtonSaveAndExit.Click += new System.EventHandler(this.ButtonSaveAndExit_Click);
             // 
-            // PictureBoxFiveHead
-            // 
-            this.PictureBoxFiveHead.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxFiveHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PictureBoxFiveHead.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.PictureBoxFiveHead.Image = global::COKPOProject.Properties.Resources._5Head;
-            this.PictureBoxFiveHead.Location = new System.Drawing.Point(44, 9);
-            this.PictureBoxFiveHead.Name = "PictureBoxFiveHead";
-            this.PictureBoxFiveHead.Size = new System.Drawing.Size(39, 39);
-            this.PictureBoxFiveHead.TabIndex = 54;
-            this.PictureBoxFiveHead.TabStop = false;
-            this.PictureBoxFiveHead.Click += new System.EventHandler(this.PictureBoxFiveHead_Click);
-            // 
             // FCentrumTransakcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,7 +733,6 @@ namespace COKPOProject
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Centrum Transakcji";
             this.Load += new System.EventHandler(this.FCentrumTransakcji_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFiveHead)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,6 +794,5 @@ namespace COKPOProject
         private System.Windows.Forms.Label LabelToAmount;
         private System.Windows.Forms.Button ButtonSave;
         private System.Windows.Forms.Button ButtonSaveAndExit;
-        private System.Windows.Forms.PictureBox PictureBoxFiveHead;
     }
 }
