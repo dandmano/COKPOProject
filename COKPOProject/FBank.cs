@@ -1,7 +1,7 @@
-﻿using System;
+﻿using COKPOProjectLogic;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using COKPOProjectLogic;
 
 namespace COKPOProject
 {
