@@ -39,18 +39,20 @@ namespace COKPOProject
             this.LabelMainMenuText.AutoSize = true;
             this.LabelMainMenuText.BackColor = System.Drawing.Color.Transparent;
             this.LabelMainMenuText.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelMainMenuText.Location = new System.Drawing.Point(500, 180);
+            this.LabelMainMenuText.Location = new System.Drawing.Point(375, 146);
+            this.LabelMainMenuText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelMainMenuText.Name = "LabelMainMenuText";
-            this.LabelMainMenuText.Size = new System.Drawing.Size(581, 34);
+            this.LabelMainMenuText.Size = new System.Drawing.Size(460, 26);
             this.LabelMainMenuText.TabIndex = 0;
             this.LabelMainMenuText.Text = "Witaj w Centrum Obsługi Kart Płatniczych!";
             // 
             // ButtonBegin
             // 
             this.ButtonBegin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ButtonBegin.Location = new System.Drawing.Point(675, 421);
+            this.ButtonBegin.Location = new System.Drawing.Point(506, 342);
+            this.ButtonBegin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonBegin.Name = "ButtonBegin";
-            this.ButtonBegin.Size = new System.Drawing.Size(218, 58);
+            this.ButtonBegin.Size = new System.Drawing.Size(164, 47);
             this.ButtonBegin.TabIndex = 1;
             this.ButtonBegin.Text = "Zaczynajmy!";
             this.ButtonBegin.UseVisualStyleBackColor = true;
@@ -58,13 +60,15 @@ namespace COKPOProject
             // 
             // FStronaGlowna
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1582, 753);
+            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
+            this.ClientSize = new System.Drawing.Size(1186, 612);
             this.Controls.Add(this.ButtonBegin);
             this.Controls.Add(this.LabelMainMenuText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FStronaGlowna";

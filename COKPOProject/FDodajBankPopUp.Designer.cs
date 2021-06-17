@@ -42,7 +42,7 @@ namespace COKPOProject
             this.TextBoxBankName.Location = new System.Drawing.Point(43, 64);
             this.TextBoxBankName.MaxLength = 40;
             this.TextBoxBankName.Name = "TextBoxBankName";
-            this.TextBoxBankName.Size = new System.Drawing.Size(331, 48);
+            this.TextBoxBankName.Size = new System.Drawing.Size(331, 40);
             this.TextBoxBankName.TabIndex = 0;
             this.TextBoxBankName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -69,6 +69,7 @@ namespace COKPOProject
             // 
             // LabelText
             // 
+            this.LabelText.BackColor = System.Drawing.Color.Transparent;
             this.LabelText.Dock = System.Windows.Forms.DockStyle.Top;
             this.LabelText.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LabelText.Location = new System.Drawing.Point(0, 0);
@@ -81,9 +82,10 @@ namespace COKPOProject
             // FDodajBankPopUp
             // 
             this.AcceptButton = this.ButtonBankAddAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.ButtonBankAddCancel;
             this.ClientSize = new System.Drawing.Size(425, 209);
