@@ -64,7 +64,7 @@ namespace COKPOProject
             this.ComboBoxFirmy.FormattingEnabled = true;
             this.ComboBoxFirmy.Location = new System.Drawing.Point(40, 51);
             this.ComboBoxFirmy.Name = "ComboBoxFirmy";
-            this.ComboBoxFirmy.Size = new System.Drawing.Size(575, 31);
+            this.ComboBoxFirmy.Size = new System.Drawing.Size(575, 27);
             this.ComboBoxFirmy.TabIndex = 2;
             this.ComboBoxFirmy.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFirmy_SelectedIndexChanged);
             // 
@@ -73,11 +73,12 @@ namespace COKPOProject
             this.ComboBoxCards.FormattingEnabled = true;
             this.ComboBoxCards.Location = new System.Drawing.Point(40, 131);
             this.ComboBoxCards.Name = "ComboBoxCards";
-            this.ComboBoxCards.Size = new System.Drawing.Size(575, 31);
+            this.ComboBoxCards.Size = new System.Drawing.Size(575, 27);
             this.ComboBoxCards.TabIndex = 3;
             // 
             // LabelFirma
             // 
+            this.LabelFirma.BackColor = System.Drawing.Color.Transparent;
             this.LabelFirma.Location = new System.Drawing.Point(113, 9);
             this.LabelFirma.Name = "LabelFirma";
             this.LabelFirma.Size = new System.Drawing.Size(428, 39);
@@ -87,6 +88,7 @@ namespace COKPOProject
             // 
             // LabelCards
             // 
+            this.LabelCards.BackColor = System.Drawing.Color.Transparent;
             this.LabelCards.Location = new System.Drawing.Point(40, 85);
             this.LabelCards.Name = "LabelCards";
             this.LabelCards.Size = new System.Drawing.Size(575, 43);
@@ -99,13 +101,14 @@ namespace COKPOProject
             this.TextBoxAmount.Location = new System.Drawing.Point(40, 206);
             this.TextBoxAmount.MaxLength = 12;
             this.TextBoxAmount.Name = "TextBoxAmount";
-            this.TextBoxAmount.Size = new System.Drawing.Size(575, 32);
+            this.TextBoxAmount.Size = new System.Drawing.Size(575, 27);
             this.TextBoxAmount.TabIndex = 6;
             this.TextBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAmount_KeyPress);
             // 
             // LabelAmount
             // 
+            this.LabelAmount.BackColor = System.Drawing.Color.Transparent;
             this.LabelAmount.Location = new System.Drawing.Point(40, 165);
             this.LabelAmount.Name = "LabelAmount";
             this.LabelAmount.Size = new System.Drawing.Size(575, 38);
@@ -116,9 +119,10 @@ namespace COKPOProject
             // FDodajTransakcjiePopUp
             // 
             this.AcceptButton = this.ButtonAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
             this.CancelButton = this.ButtonCancel;
             this.ClientSize = new System.Drawing.Size(665, 379);
             this.Controls.Add(this.LabelAmount);

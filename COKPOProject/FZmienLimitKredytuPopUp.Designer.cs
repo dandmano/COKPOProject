@@ -42,7 +42,7 @@ namespace COKPOProject
             this.TextBoxCreditValue.Location = new System.Drawing.Point(43, 65);
             this.TextBoxCreditValue.MaxLength = 12;
             this.TextBoxCreditValue.Name = "TextBoxCreditValue";
-            this.TextBoxCreditValue.Size = new System.Drawing.Size(331, 48);
+            this.TextBoxCreditValue.Size = new System.Drawing.Size(331, 40);
             this.TextBoxCreditValue.TabIndex = 0;
             this.TextBoxCreditValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxCreditValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCreditValue_KeyDown);
@@ -71,6 +71,7 @@ namespace COKPOProject
             // 
             // LabelText
             // 
+            this.LabelText.BackColor = System.Drawing.Color.Transparent;
             this.LabelText.Dock = System.Windows.Forms.DockStyle.Top;
             this.LabelText.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LabelText.Location = new System.Drawing.Point(0, 0);
@@ -83,9 +84,10 @@ namespace COKPOProject
             // FZmienLimitKredytuPopUp
             // 
             this.AcceptButton = this.ButtonCreditChangeAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.ButtonCreditChangeCancel;
             this.ClientSize = new System.Drawing.Size(425, 209);

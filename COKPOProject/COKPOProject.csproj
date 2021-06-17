@@ -191,7 +191,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\5Head.png" />
+    <None Include="Resources\julian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tlo.1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XD1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

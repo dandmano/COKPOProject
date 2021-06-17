@@ -53,7 +53,7 @@ namespace COKPOProject
             this.ComboBoxChooseClient.Location = new System.Drawing.Point(50, 72);
             this.ComboBoxChooseClient.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseClient.Name = "ComboBoxChooseClient";
-            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 31);
+            this.ComboBoxChooseClient.Size = new System.Drawing.Size(406, 27);
             this.ComboBoxChooseClient.TabIndex = 0;
             this.ComboBoxChooseClient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseClient_SelectedIndexChanged);
             // 
@@ -63,7 +63,7 @@ namespace COKPOProject
             this.TextBoxClientName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxClientName.MaxLength = 30;
             this.TextBoxClientName.Name = "TextBoxClientName";
-            this.TextBoxClientName.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxClientName.Size = new System.Drawing.Size(406, 27);
             this.TextBoxClientName.TabIndex = 1;
             // 
             // TextBoxCardNumber
@@ -73,7 +73,7 @@ namespace COKPOProject
             this.TextBoxCardNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardNumber.MaxLength = 16;
             this.TextBoxCardNumber.Name = "TextBoxCardNumber";
-            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxCardNumber.Size = new System.Drawing.Size(406, 27);
             this.TextBoxCardNumber.TabIndex = 2;
             this.TextBoxCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardNumber_KeyPress);
             // 
@@ -84,7 +84,7 @@ namespace COKPOProject
             this.TextBoxCardSaldo.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxCardSaldo.MaxLength = 12;
             this.TextBoxCardSaldo.Name = "TextBoxCardSaldo";
-            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 32);
+            this.TextBoxCardSaldo.Size = new System.Drawing.Size(406, 27);
             this.TextBoxCardSaldo.TabIndex = 3;
             this.TextBoxCardSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCardSaldo_KeyPress);
             // 
@@ -98,7 +98,7 @@ namespace COKPOProject
             this.ComboBoxChooseCard.Location = new System.Drawing.Point(50, 199);
             this.ComboBoxChooseCard.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxChooseCard.Name = "ComboBoxChooseCard";
-            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 31);
+            this.ComboBoxChooseCard.Size = new System.Drawing.Size(406, 27);
             this.ComboBoxChooseCard.TabIndex = 4;
             // 
             // ButtonAcceptAddClient
@@ -127,16 +127,18 @@ namespace COKPOProject
             // LabelWarning
             // 
             this.LabelWarning.AutoSize = true;
+            this.LabelWarning.BackColor = System.Drawing.Color.Transparent;
             this.LabelWarning.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LabelWarning.Location = new System.Drawing.Point(154, 8);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(193, 32);
+            this.LabelWarning.Size = new System.Drawing.Size(151, 25);
             this.LabelWarning.TabIndex = 7;
             this.LabelWarning.Text = "Stwórz Klienta";
             this.LabelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelChooseClientType
             // 
+            this.LabelChooseClientType.BackColor = System.Drawing.Color.Transparent;
             this.LabelChooseClientType.Location = new System.Drawing.Point(46, 40);
             this.LabelChooseClientType.Name = "LabelChooseClientType";
             this.LabelChooseClientType.Size = new System.Drawing.Size(323, 28);
@@ -146,6 +148,7 @@ namespace COKPOProject
             // 
             // LabelEnterClientName
             // 
+            this.LabelEnterClientName.BackColor = System.Drawing.Color.Transparent;
             this.LabelEnterClientName.Location = new System.Drawing.Point(46, 107);
             this.LabelEnterClientName.Name = "LabelEnterClientName";
             this.LabelEnterClientName.Size = new System.Drawing.Size(323, 28);
@@ -155,6 +158,7 @@ namespace COKPOProject
             // 
             // LabelChooseCardType
             // 
+            this.LabelChooseCardType.BackColor = System.Drawing.Color.Transparent;
             this.LabelChooseCardType.Location = new System.Drawing.Point(46, 167);
             this.LabelChooseCardType.Name = "LabelChooseCardType";
             this.LabelChooseCardType.Size = new System.Drawing.Size(323, 28);
@@ -164,6 +168,7 @@ namespace COKPOProject
             // 
             // LabelCardNumber
             // 
+            this.LabelCardNumber.BackColor = System.Drawing.Color.Transparent;
             this.LabelCardNumber.Location = new System.Drawing.Point(46, 230);
             this.LabelCardNumber.Name = "LabelCardNumber";
             this.LabelCardNumber.Size = new System.Drawing.Size(323, 28);
@@ -173,6 +178,7 @@ namespace COKPOProject
             // 
             // LabelSaldo
             // 
+            this.LabelSaldo.BackColor = System.Drawing.Color.Transparent;
             this.LabelSaldo.Location = new System.Drawing.Point(46, 292);
             this.LabelSaldo.Name = "LabelSaldo";
             this.LabelSaldo.Size = new System.Drawing.Size(323, 28);
@@ -183,9 +189,10 @@ namespace COKPOProject
             // FDodajKlientaPopUp
             // 
             this.AcceptButton = this.ButtonAcceptAddClient;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.BackgroundImage = global::COKPOProject.Properties.Resources.Tlo_1;
             this.CancelButton = this.ButtonCancelAddClient;
             this.ClientSize = new System.Drawing.Size(512, 454);
             this.Controls.Add(this.LabelSaldo);

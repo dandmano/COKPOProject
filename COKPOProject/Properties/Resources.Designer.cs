@@ -63,9 +63,39 @@ namespace COKPOProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _5Head {
+        internal static System.Drawing.Bitmap julian {
             get {
-                object obj = ResourceManager.GetObject("5Head", resourceCulture);
+                object obj = ResourceManager.GetObject("julian", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tlo_1 {
+            get {
+                object obj = ResourceManager.GetObject("Tlo.1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap XD {
+            get {
+                object obj = ResourceManager.GetObject("XD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap XD1 {
+            get {
+                object obj = ResourceManager.GetObject("XD1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
